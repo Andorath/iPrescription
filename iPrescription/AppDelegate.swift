@@ -6,39 +6,195 @@
 //  Copyright (c) 2014 Marco Salafia. All rights reserved.
 //
 
+//LOCALIZZATA
+
 import UIKit
 import CoreData
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-
+    var audioPlayer: AVAudioPlayer?
+    var currentController: UIViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        // Override point for customization after application launch.
-        self.window!.backgroundColor = UIColor.whiteColor()
-        self.window!.makeKeyAndVisible()
+        //richiesta permessi per le notifiche
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |
+            UIUserNotificationType.Badge, categories: nil
+            ))
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCurrentController:", name: "UpdateCurrentControllerNotification", object: nil)
+        println(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")
+        {
+            //L'app è stata già lanciata almeno una volta
+            println("E' stata già lanciata")
+        }
+        
+        //gestione delle notifiche locali ricevute
+        if let notification: UILocalNotification = launchOptions?.valueForKey(UIApplicationLaunchOptionsLocalNotificationKey) as? UILocalNotification
+        {
+            var id: String = notification.userInfo!["id"] as NSString
+            var prescription: String = notification.userInfo!["prescrizione"] as NSString
+            var medicine: String = notification.userInfo!["medicina"] as NSString
+            var memo: String = notification.userInfo!["memo"] as NSString
+            
+            var request = NSFetchRequest(entityName: "Medicina")
+            var predicate = NSPredicate(format: "id = %@", id)
+            request.returnsObjectsAsFaults = false
+            request.predicate = predicate
+            
+            var results = managedObjectContext?.executeFetchRequest(request, error: nil)
+            var selectedMedicine = results?[0] as NSManagedObject
+            
+            
+            //TENTIAMO DI APPLICARE IL FORCED CONTROLLERS
+            var rootNavigationController = self.window!.rootViewController as UINavigationController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as DetailTableViewController
+            detailViewController.selectedPrescription = prescription
+            detailViewController.selectedMedicine = selectedMedicine
+            detailViewController.userInfo = notification.userInfo
+            
+            //Forziamo il controller
+            rootNavigationController.setViewControllers([UIViewController(), detailViewController], animated: true)
+            
+        }
+        
+        //fine gestione notifiche locali
+            
+        //Inizio gestione Appearance
+        var pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 0.4)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
+
         return true
+    }
+    
+    func application(application: UIApplication!, didReceiveLocalNotification notification: UILocalNotification!)
+    {
+        NSLog("didRecieveLocalNotification")
+        
+        if(application.applicationState == UIApplicationState.Active)
+        {
+            NSLog("----> Stato Attivo")
+            //creo il suono
+            var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chord", ofType: "m4r")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)
+            audioPlayer!.prepareToPlay()
+            audioPlayer!.play()
+            
+            //Gestisco notifica
+            var id: String = notification.userInfo!["id"] as NSString
+            var prescription: String = notification.userInfo!["prescrizione"] as NSString
+            var medicine: String = notification.userInfo!["medicina"] as NSString
+            var memo: String = notification.userInfo!["memo"] as NSString
+            
+            var request = NSFetchRequest(entityName: "Medicina")
+            var predicate = NSPredicate(format: "id = %@", id)
+            request.returnsObjectsAsFaults = false
+            request.predicate = predicate
+            
+            var results = managedObjectContext?.executeFetchRequest(request, error: nil)
+            var selectedMedicine = results?[0] as NSManagedObject
+            
+            var alert = UIAlertController(title: medicine, message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@", comment: "Messaggio della notifica"), prescription, memo), preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"), style: UIAlertActionStyle.Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"), style: UIAlertActionStyle.Destructive, handler: { alert in
+                
+                var rootNavigationController = self.window!.rootViewController as UINavigationController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as DetailTableViewController
+                detailViewController.selectedPrescription = prescription
+                detailViewController.selectedMedicine = selectedMedicine
+                detailViewController.userInfo = notification.userInfo
+                if((self.currentController.presentingViewController) != nil)
+                {
+                    self.currentController.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+                }
+                println("Detail view Controller: \(detailViewController)")
+                println("selected prescription: \(detailViewController.selectedPrescription)")
+                println("selectedMedicine: \(detailViewController.selectedMedicine)")
+                rootNavigationController.setViewControllers([UIViewController(), detailViewController], animated: true)
+            }))
+            
+            self.currentController.presentViewController(alert, animated: true, completion: {alert in
+                NSNotificationCenter.defaultCenter().postNotificationName("NSUpdateInterface", object: nil)
+                UIApplication.sharedApplication().applicationIconBadgeNumber = 0})
+            
+        }
+        else if application.applicationState == UIApplicationState.Background
+        {
+            NSLog("-----> Ero in Background")
+            
+        }
+        else if application.applicationState == UIApplicationState.Inactive
+        {
+            NSLog("-----> Ero Inattivo")
+            var id: String = notification.userInfo!["id"] as NSString
+            var prescription: String = notification.userInfo!["prescrizione"] as NSString
+            
+            var request = NSFetchRequest(entityName: "Medicina")
+            var predicate = NSPredicate(format: "id = %@", id)
+            request.returnsObjectsAsFaults = false
+            request.predicate = predicate
+            
+            var results = managedObjectContext?.executeFetchRequest(request, error: nil)
+            var selectedMedicine = results?[0] as NSManagedObject
+            
+            
+            //TENTIAMO DI APPLICARE IL FORCED CONTROLLERS
+            var rootNavigationController = self.window!.rootViewController as UINavigationController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as DetailTableViewController
+            detailViewController.selectedPrescription = prescription
+            detailViewController.selectedMedicine = selectedMedicine
+            detailViewController.userInfo = notification.userInfo
+            if((self.currentController.presentingViewController) != nil)
+            {
+                self.currentController.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+            }
+
+            rootNavigationController.setViewControllers([UIViewController(), detailViewController], animated: true)
+        }
+        
+    }
+    
+    //Handler
+    
+    func updateCurrentController (notification: NSNotification)
+    {
+        if let vc = notification.userInfo?["currentController"] as? UIViewController
+        {
+            self.currentController = vc
+            
+            //Codice di diagnostica
+            //println(self.currentController.description)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        //NSLog("Resign Active")
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        //NSLog("Did Enter Background")
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        //NSLog("Will Enter Foreground")
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //NSLog("Did Become Active")
+
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "NSUpdateInterface", object: nil))
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -47,91 +203,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    func saveContext () {
+    // MARK: - Core Data stack
+
+    lazy var applicationDocumentsDirectory: NSURL = {
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.stain.sattoh" in the application's documents Application Support directory.
+        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        return urls[urls.count-1] as NSURL
+    }()
+
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        let modelURL = NSBundle.mainBundle().URLForResource("iPrescription", withExtension: "momd")
+        return NSManagedObjectModel(contentsOfURL: modelURL!)!
+    }()
+
+    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+        // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+        // Create the coordinator and store
+        var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("iPrescription.sqlite")
         var error: NSError? = nil
-        let managedObjectContext = self.managedObjectContext
-        if managedObjectContext != nil {
-            if managedObjectContext.hasChanges && !managedObjectContext.save(&error) {
+        var failureReason = "There was an error creating or loading the application's saved data."
+        
+        var options = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true]
+        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error) == nil {
+            coordinator = nil
+            // Report any error we got.
+            let dict = NSMutableDictionary()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSUnderlyingErrorKey] = error
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            abort()
+        }
+        
+        return coordinator
+    }()
+
+    lazy var managedObjectContext: NSManagedObjectContext? = {
+        // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
+        let coordinator = self.persistentStoreCoordinator
+        if coordinator == nil {
+            return nil
+        }
+        var managedObjectContext = NSManagedObjectContext()
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+    }()
+
+    // MARK: - Core Data Saving support
+
+    func saveContext () {
+        if let moc = self.managedObjectContext {
+            var error: NSError? = nil
+            if moc.hasChanges && !moc.save(&error) {
                 // Replace this implementation with code to handle the error appropriately.
                 // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //println("Unresolved error \(error), \(error.userInfo)")
+                NSLog("Unresolved error \(error), \(error!.userInfo)")
                 abort()
             }
         }
-    }
-
-    // #pragma mark - Core Data stack
-
-    // Returns the managed object context for the application.
-    // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-    var managedObjectContext: NSManagedObjectContext {
-        if !_managedObjectContext {
-            let coordinator = self.persistentStoreCoordinator
-            if coordinator != nil {
-                _managedObjectContext = NSManagedObjectContext()
-                _managedObjectContext!.persistentStoreCoordinator = coordinator
-            }
-        }
-        return _managedObjectContext!
-    }
-    var _managedObjectContext: NSManagedObjectContext? = nil
-
-    // Returns the managed object model for the application.
-    // If the model doesn't already exist, it is created from the application's model.
-    var managedObjectModel: NSManagedObjectModel {
-        if !_managedObjectModel {
-            let modelURL = NSBundle.mainBundle().URLForResource("iPrescription", withExtension: "momd")
-            _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
-        }
-        return _managedObjectModel!
-    }
-    var _managedObjectModel: NSManagedObjectModel? = nil
-
-    // Returns the persistent store coordinator for the application.
-    // If the coordinator doesn't already exist, it is created and the application's store added to it.
-    var persistentStoreCoordinator: NSPersistentStoreCoordinator {
-        if !_persistentStoreCoordinator {
-            let storeURL = self.applicationDocumentsDirectory.URLByAppendingPathComponent("iPrescription.sqlite")
-            var error: NSError? = nil
-            _persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-            if _persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil {
-                /*
-                Replace this implementation with code to handle the error appropriately.
-
-                abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                Typical reasons for an error here include:
-                * The persistent store is not accessible;
-                * The schema for the persistent store is incompatible with current managed object model.
-                Check the error message to determine what the actual problem was.
-
-
-                If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-
-                If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-                * Simply deleting the existing store:
-                NSFileManager.defaultManager().removeItemAtURL(storeURL, error: nil)
-
-                * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-                [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true}
-
-                Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-
-                */
-                //println("Unresolved error \(error), \(error.userInfo)")
-                abort()
-            }
-        }
-        return _persistentStoreCoordinator!
-    }
-    var _persistentStoreCoordinator: NSPersistentStoreCoordinator? = nil
-
-    // #pragma mark - Application's Documents directory
-                                    
-    // Returns the URL to the application's Documents directory.
-    var applicationDocumentsDirectory: NSURL {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.endIndex-1] as NSURL
     }
 
 }

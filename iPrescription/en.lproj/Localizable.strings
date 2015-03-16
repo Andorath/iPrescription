@@ -1,0 +1,135 @@
+/* sottotitolo prescrizione per le notifiche al singolare */
+" - %d Notifica" = " - %d Notification";
+
+/* sottotitolo prescrizione per le notifiche al plurale */
+" - %d Notifiche" = " - %d Notifications";
+
+/* Testo della text view 2 Info */
+"Aggiungi i tuoi farmaci nell'apposita Prescrizione da te creata. Gestisci tutti i dettagli fondamentali come la posologia o le istruzioni del medico." = "Create your own Prescription and fill it with your drugs. You can even manage all the essential details like the dosages or specific doc’s instructions.";
+
+/* (No Commment) */
+"Annulla" = "Cancel";
+
+/* Comando 1 data di assunzione alert sheet */
+"Assumi il farmaco adesso" = "Take the drug now";
+
+/* (No Commment) */
+"Attenzione!" = "Warning!";
+
+/* comando Cambia popup cambiamento nome prescrizione */
+"Cambia" = "Change";
+
+/* Comando 3 data di assunzione alert sheet */
+"Cancella data" = "Delete date";
+
+/* Messaggio data di assunzione alert sheet */
+"Come vuoi gestire la data dell'ultima assunzione?" = "How do you prefer to manage the \"Last time taken\" date?";
+
+/* Testo della text view 4 Info */
+"Con un design minimale, pulito e intuitivo, iPrescription semplificherà notevolmente la gestione delle tue terapie. Troverai la sua interfaccia familiare in quanto lo scopo di iPrescription è di porsi come una estensione di iOS" = "Thanks to a minimal, plain and intuitive Design, iPrescription will make your therapy management definitely easier. You will feel familiar with the interface, since its purpose is to act as an extension of iOS.";
+
+/* Testo della text view 3 Info */
+"Crea e gestisci le notifiche per i tuoi farmaci in pochi passi. Gestisci la tua terapia in modo da rispettare correttamente i tempi di assunzione. Gestire le notifiche, cancellarle o crearne di nuove è davvero un gioco da ragazzi." = "Create and manage notifications for your drugs through just few steps. Manage your treatment following the taking of the drug. Managing, deleting or creating new notifications is a no-brainer.";
+
+/* text 4 guida */
+"Creare degli avvisi per quando prendere una farmaco è un gioco da ragazzi. Premi Aggiungi Notifica in fondo alla pagina Dettaglio e verrai rimandato a una schermata dove creerai un avviso in pochi secondi. Quando hai finito premi Fine per creare la notifica o Cancella per tornare indietro. Premendo Notifiche Attive invece potrai visualizzare tutte le notifiche attive per quel farmaco." = "Creating notifications for drug assumption is a no-brainer. Just press on Add Notification on the bottom of the Detail view, and it will take you to a screen where you can quickly create your own notification. When you’re done, just press  Done in order to create the notification or Cancel if you want to reach back the previous screen. By pressing Active Notifications you will be able to see all the active notifications related to that specific drug.";
+
+/* Titolo data di assunzione alert sheet */
+"Data ultima assunzione" = "Last time taken";
+
+/* Bottone dettaglio notifica */
+"Dettaglio" = "Detail";
+
+/* Messaggio popup errore prescrizione */
+"Esiste già una prescrizione con questo nome" = "A prescription with this name already exists";
+
+/* (No Commment) */
+"Fine" = "Done";
+
+/* Testo della text view 1 Info */
+"Gestisci i tuoi farmaci in Prescrizioni. Usa i nomi più consoni per raggrupparli, come ad esempio Allergia, Terapia Antibiotica o Medicine di Mario." = "Manage your drugs by Prescriptions. Group them with the appropriate name like Allergic Rhinitis, John's Drugs or Antibiotic Therapy.";
+
+/* Comando 2 data di assunzione alert sheet */
+"Imposta la data manualmente" = "Enter the date manually";
+
+/* (No Commment) */
+"Indietro" = "Back";
+
+/* Dettaglio cella elenco notifiche */
+"Inizio: " = "Start: ";
+
+/* Messaggio popup creazione nuova prescrizione */
+"Inserisci un nome per questa prescrizione" = "Insert a name for this prescription";
+
+/* text 5 guida */
+"Le notifiche dove hai impostato una ripetizione verranno visualizzate con l'intervallo di ripetizione in rosso alla destra dell'ora e la data in cui inizierai ad assumere il farmaco." = "Whether you have set a repetition, it will be shown in red on the right of the time and the date of your drug first ingestion.";
+
+/* Sottotitolo riga della prescrizione al singolare */
+"Medicina" = "Drug";
+
+/* Sottotitolo riga della prescrizione al plurale */
+"Medicine" = "Drugs";
+
+/* Edit Button delle prescrizioni d atradurre in inglese con Edit */
+"Modifica" = "Edit";
+
+/* Titolo popup modifica nome prescrizione */
+"Modifica nome della prescrizione" = "Edit the name of the prescription";
+
+/* text 2 guida */
+"Nella Pagina delle prescrizioni premi il pulsante modifica per entrare in Modalità Modifica. In questa modalità è possibile cancellare le prescrizioni con tutti i medicinali contenuti in esse e le eventuali notifiche attive. Se invece si tocca il nome della prescrizione è possibile cambiarlo con uno nuovo. Per cancellare un medicinale invece basta scorrere la riga corrispondente verso sinistra con il dito." = "Just press the Edit button on the Prescription screen to enter in the Edit Mode. This mode let you delete all the prescriptions, and also all the drugs and all the active notifications related to it. By touching the name of the prescription you can just change it with a new one. If you want to delete a specific drug, just touch it and scroll your finger to the left.";
+
+/* text 3 guida */
+"Nella pagina Dettaglio è possibile consultare tutte le informazioni inserite precedentemente sul farmaco ed eventualmente modificarle. Per poter cambiare le informazioni bisogna premere il pulsante modifica per entrare nella Modalità Modifica. Inoltre nella pagina Dettaglio è possibile controllare la data dell'ultima assunzione del farmaco!" = "Take a look of the Detail screen: here you can have a look of all the informations you have previously inserted and eventually edit them. In order to change the informations, you need to click on the Edit button, which will let you enter in the Edit Mode. On the Detail screen you can even check the last time you have taken the drug!";
+
+/* Comando no popup assunzione farmaco */
+"No" = "No";
+
+/* Messaggio popup medicina vuota 2 */
+"Non è stato inserito alcun nome per la medicina" = "No name for this drug has been set yet";
+
+/* Messaggio popup nome medicina vuota */
+"Non è stato inserito alcun nome per la medicina. La prescrizione %@ sarà vuota. Vuoi comunque continuare?" = "No name for this drug has been set yet. The prescription %@ will be empty. Do you want to continue anyway?";
+
+/* Messaggio della Local Notification */
+"Notifica per %@ della prescrizione %@\nMemo: %@" = "Notification about %1$@ of the prescription %2$@\nMemo:%3$@";
+
+/* Titolo popup creazione prescrizione */
+"Nuova Prescrizione" = "New Prescription";
+
+/* Ripetizione ogni giorno */
+"Ogni Giorno" = "Every Day";
+
+/* Ripetizione ogni mese */
+"Ogni Mese" = "Every Month";
+
+/* Ripetizione ogni minuto */
+"Ogni Minuto" = "Every Minute";
+
+/* Ripetizione ogni settimana */
+"Ogni Settimana" = "Every Week";
+
+/* (No Commment) */
+"Ok" = "Ok";
+
+/* Messaggio della notifica */
+"Prescrizione: %@\nMemo: %@" = "Prescription: %1$@\nMemo: %2$@";
+
+/* Messaggio popup notifica assunzione farmaco */
+"Prescrizione: %@\nMemo: %@\n\nVuoi assumere il farmaco adesso?" = "Prescription: %1$@\nMemo: %2$@\n\nWant to take your drug now?";
+
+/* text 1 guida */
+"Puoi memorizzare un numero indefinito di Prescrizioni e Medicinali, ma due prescrizioni non possono avere lo stesso nome. I medicinali invece non hanno questa limitazione." = "You can record an endless number of Prescriptions and Drugs, even though you will not be able to name different prescriptions in the same way. On the other hand, drugs are not affected by the same restriction.";
+
+/* Azione salva popup creazione nuova prescrizione */
+"Salva" = "Save";
+
+/* Comando si popup assunzione farmaco */
+"Si" = "Yes";
+
+/* text 6 guida */
+"Tutti i farmaci che hanno almeno una notifica attiva sono segnalati con un'icona rossa a forma di sveglia alla destra della riga." = "All the drugs, which have at least one active notification, are shown on the right by a red alarm-clock shaped icon.";
+
+/* Placeholder popup creazione nuova prescrizione */
+"es: Terapia Antibiotica" = "e.g. Antibiotic Therapy";
+

@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AEj-5L-wUP">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Aggiungi Medicina-->
+        <scene sceneID="UXs-yj-hlk">
+            <objects>
+                <tableViewController id="GU0-zu-ta4" customClass="AddFormTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="5iW-HC-kUV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="767"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Nome" footerTitle="Questo campo è obbligatorio per la creazione di una nuova medicina" id="tbJ-bI-jt4">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="8bB-gt-tqy">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bB-gt-tqy" id="6sA-lf-JZb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Inserisci il nome del farmaco" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmX-IK-xpo">
+                                                    <rect key="frame" x="20" y="1" width="280" height="42"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GU0-zu-ta4" id="4zl-Yx-I2l"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Posologia" id="iFz-6y-DaH">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Q90-7v-vjA">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q90-7v-vjA" id="kqf-6G-Obf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forma farmaceutica:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umd-hd-Tkb">
+                                                    <rect key="frame" x="20" y="5" width="194" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: compressa rivestita con film" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x80-1p-z9c">
+                                                    <rect key="frame" x="20" y="22" width="280" height="29"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GU0-zu-ta4" id="dOV-4F-tUF"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="W9r-OU-duk">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W9r-OU-duk" id="ytP-s6-ZZa">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dosaggio:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHh-fl-Tis">
+                                                    <rect key="frame" x="20" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: 2 compresse al dì" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jx3-Jg-Ktv">
+                                                    <rect key="frame" x="20" y="22" width="280" height="29"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GU0-zu-ta4" id="sni-Tk-N1q"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="UB1-PS-B8B">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UB1-PS-B8B" id="3k9-GY-Dda">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Durata:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4L-XZ-WhT">
+                                                    <rect key="frame" x="20" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: una settimana" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUq-y3-jay">
+                                                    <rect key="frame" x="20" y="22" width="280" height="29"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GU0-zu-ta4" id="pUi-GC-zPr"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Info" id="9kV-0w-DHd">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="RZf-rb-ihY">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RZf-rb-ihY" id="C05-nm-6FU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medico:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYP-ou-mGy">
+                                                    <rect key="frame" x="20" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Inserire il nome del medico curante" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGr-LH-73i">
+                                                    <rect key="frame" x="20" y="22" width="280" height="29"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GU0-zu-ta4" id="wH4-NR-0Qr"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="qd2-wa-ex1">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qd2-wa-ex1" id="yb8-tt-yYm">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Istruzioni mediche:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAj-F6-BlB">
+                                                    <rect key="frame" x="20" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-zG-r7Z">
+                                                    <rect key="frame" x="14" y="21" width="292" height="89"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GU0-zu-ta4" id="5cb-hu-7PB"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="GU0-zu-ta4" id="Bl2-0C-fQS"/>
+                            <outlet property="delegate" destination="GU0-zu-ta4" id="NIN-kd-28P"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Aggiungi Medicina" id="WYQ-YR-Bsj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i8B-9V-2KJ">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="GU0-zu-ta4" id="ndJ-78-aP5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Hmx-52-pqM">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="GU0-zu-ta4" id="mOP-vz-FCp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="767"/>
+                    <connections>
+                        <outlet property="doctorTextField" destination="zGr-LH-73i" id="IXC-rj-ka4"/>
+                        <outlet property="dosageFormTextField" destination="x80-1p-z9c" id="HIg-UQ-Uj3"/>
+                        <outlet property="dosageTextField" destination="Jx3-Jg-Ktv" id="lrC-Cr-1ig"/>
+                        <outlet property="nameTextField" destination="fmX-IK-xpo" id="RQf-Aq-IZ6"/>
+                        <outlet property="noteTextView" destination="3Vb-zG-r7Z" id="L4e-BC-6GE"/>
+                        <outlet property="periodTextField" destination="kUq-y3-jay" id="drO-EC-f7d"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0e-7e-QMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170" y="-305.5"/>
+        </scene>
+        <!--Prescrizioni-->
+        <scene sceneID="ArX-IO-HY8">
+            <objects>
+                <tableViewController storyboardIdentifier="prescriptionList" id="5h2-hW-mir" customClass="PrescriptionTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Upc-GP-pk2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="my Cell" textLabel="Oe1-mI-qTP" detailTextLabel="hUi-be-ML8" style="IBUITableViewCellStyleSubtitle" id="ucu-HY-slY" customClass="PrescriptionTableViewCell" customModule="iPrescription" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucu-HY-slY" id="qXQ-v0-Cnz">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" id="Oe1-mI-qTP">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hUi-be-ML8">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="UuS-AQ-XG9" kind="push" identifier="toMedicines2" id="6dU-3K-1Kt"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5h2-hW-mir" id="rp7-6s-WWw"/>
+                            <outlet property="delegate" destination="5h2-hW-mir" id="Akm-7U-ypy"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="onG-Pn-bh2"/>
+                        <barButtonItem image="about-50.png" style="plain" id="5ja-i1-sWu">
+                            <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Tb4-qj-76t" kind="modal" identifier="toTutorial" id="vqe-3S-9oB"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Prescrizioni" id="7tj-a9-2SG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Fdt-Vp-5Cq">
+                            <connections>
+                                <action selector="addTherapy:" destination="5h2-hW-mir" id="H5Z-zg-coP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5I-kM-AZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="560"/>
+        </scene>
+        <!--Ultima assunzione-->
+        <scene sceneID="X6G-Mr-Mi2">
+            <objects>
+                <tableViewController id="wIP-Ww-gcP" customClass="ChangeDateTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fj3-wE-Cfg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Data dell'ultima assunzione" footerTitle="Imposta manualmente la data in cui hai assunto l'ultima volta il farmaco." id="rbU-5F-1Gs">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="faO-6c-9gP">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="faO-6c-9gP" id="2QH-Hf-vUI">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzA-FK-dQD">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="54"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="Ug2-lu-Hwt">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ug2-lu-Hwt" id="dsQ-Hr-ZgF">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hzt-EV-we6">
+                                                    <rect key="frame" x="0.0" y="-1" width="320" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="433180709.04687798">
+                                                        <!--2014-09-23 15:58:29 +0000-->
+                                                    </date>
+                                                    <date key="maximumDate" timeIntervalSinceReferenceDate="1167519600">
+                                                        <!--2037-12-30 23:00:00 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="wIP-Ww-gcP" eventType="valueChanged" id="C3W-s9-eM5"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="wIP-Ww-gcP" id="RZf-hv-2ZK"/>
+                            <outlet property="delegate" destination="wIP-Ww-gcP" id="8T1-eU-3rU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ultima assunzione" id="YbU-Qm-gf3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="O6K-cn-S5S">
+                            <connections>
+                                <action selector="cancelPressed:" destination="wIP-Ww-gcP" id="9w5-bw-gPn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="G2h-AR-1P8">
+                            <connections>
+                                <action selector="donePressed:" destination="wIP-Ww-gcP" id="KHq-h4-qCC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataAssunzione" destination="WzA-FK-dQD" id="f2M-kn-11Y"/>
+                        <outlet property="selettoreData" destination="Hzt-EV-we6" id="0Rp-du-rxG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKx-oT-xpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437" y="-156"/>
+        </scene>
+        <!--Medicine Table View Controller-->
+        <scene sceneID="iPl-Td-yYN">
+            <objects>
+                <tableViewController storyboardIdentifier="medicineList" id="UuS-AQ-XG9" customClass="MedicineTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="j0M-Ys-5Uw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="my Cell" id="ZWk-rX-HE6" customClass="MedicineTableViewCell" customModule="iPrescription" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZWk-rX-HE6" id="0wp-py-6QQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSi-E0-TrK">
+                                            <rect key="frame" x="238" y="12" width="35" height="35"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="alarmIcon" destination="nSi-E0-TrK" id="8AK-Yr-iPx"/>
+                                    <segue destination="LYO-ZI-v2e" kind="push" identifier="toDetail" id="oNd-KX-xPZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UuS-AQ-XG9" id="kXq-Tr-2pg"/>
+                            <outlet property="delegate" destination="UuS-AQ-XG9" id="vP0-bQ-84V"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="A37-EH-bre"/>
+                        <barButtonItem image="about-50.png" style="plain" id="c0V-1C-3OW">
+                            <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Tb4-qj-76t" kind="modal" identifier="toTutorial" id="4ba-AI-ayP"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="BPp-Y2-osO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EcP-QK-7md">
+                            <connections>
+                                <action selector="addMedicine:" destination="UuS-AQ-XG9" id="jKb-0d-RMl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIF-b2-3U7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="560"/>
+        </scene>
+        <!--Dettaglio-->
+        <scene sceneID="ax7-ad-2LD">
+            <objects>
+                <tableViewController storyboardIdentifier="detailViewController" id="LYO-ZI-v2e" customClass="DetailTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="I0N-x1-JaL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="803"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="s4i-iF-8nw">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="203" id="Plo-7x-qdV">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Plo-7x-qdV" id="JKF-LZ-gRj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Cp-2p-88N" userLabel="Vertical separetor">
+                                                    <rect key="frame" x="100" y="5" width="1" height="80"/>
+                                                    <color key="backgroundColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lm-wN-hMg">
+                                                    <rect key="frame" x="109" y="15" width="60" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="m31-Dj-d8a">
+                                                    <rect key="frame" x="109" y="37" width="203" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="LYO-ZI-v2e" id="Xic-xE-MAd"/>
+                                                    </connections>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Medicine.png" translatesAutoresizingMaskIntoConstraints="NO" id="IKq-OZ-NXe">
+                                                    <rect key="frame" x="20" y="10" width="70" height="70"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQb-nm-0rn" userLabel="Horizontal separator">
+                                                    <rect key="frame" x="20" y="90" width="280" height="1"/>
+                                                    <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fz-qq-TbL" userLabel="Horizontal separator">
+                                                    <rect key="frame" x="20" y="194" width="280" height="1"/>
+                                                    <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mqf-UE-B4s">
+                                                    <rect key="frame" x="0.0" y="93" width="320" height="95"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data ultima assunzione:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgf-oo-U86">
+                                                            <rect key="frame" x="20" y="0.0" width="174" height="24"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                            <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws9-cR-rL5">
+                                                            <rect key="frame" x="20" y="25" width="280" height="24"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nG-8e-4z3">
+                                                            <rect key="frame" x="20" y="65" width="280" height="31"/>
+                                                            <color key="backgroundColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <state key="normal" title="Gestisci data">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="showAssunzioneSheet:" destination="LYO-ZI-v2e" eventType="touchUpInside" id="Qo0-mK-fja"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Posologia" id="5OR-Uj-HxL">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="IfM-0Z-Oou">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IfM-0Z-Oou" id="aCf-4e-RAS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forma Farmaceutica:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXs-Jq-Mwq">
+                                                    <rect key="frame" x="20" y="0.0" width="174" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: Compressa rivestita con film" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytG-QR-bks">
+                                                    <rect key="frame" x="20" y="21" width="280" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="LYO-ZI-v2e" id="cw0-Uc-wxp"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="kNj-7g-UxJ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kNj-7g-UxJ" id="aLA-Ln-68l">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dosaggio:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ic8-65-0Za">
+                                                    <rect key="frame" x="20" y="0.0" width="174" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: 2 volte al dì" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1o1-ap-I1w">
+                                                    <rect key="frame" x="20" y="21" width="280" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="LYO-ZI-v2e" id="OXO-nh-Cif"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="FdU-2U-Kvb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FdU-2U-Kvb" id="pBf-XA-bjS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Durata:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TR4-tD-azE">
+                                                    <rect key="frame" x="20" y="0.0" width="174" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: 1 Settimana" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ERm-fb-PTI">
+                                                    <rect key="frame" x="20" y="21" width="280" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="LYO-ZI-v2e" id="Wlm-zK-64t"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Info" id="l0d-dr-5PL">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Igw-fY-ImV">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igw-fY-ImV" id="ySz-Bo-Fon">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: Mario Rossi" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9k7-vG-kJd">
+                                                    <rect key="frame" x="20" y="21" width="280" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="LYO-ZI-v2e" id="oAb-hM-Cp6"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medico:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-Rc-f1Z">
+                                                    <rect key="frame" x="20" y="0.0" width="174" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="135" id="Ug7-hZ-lrf">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ug7-hZ-lrf" id="QQk-SC-DsL">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Istruzioni mediche:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWT-vM-dCE">
+                                                    <rect key="frame" x="20" y="3" width="174" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adg-ox-9dR">
+                                                    <rect key="frame" x="15" y="26" width="292" height="98"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="LYO-ZI-v2e" id="4La-d3-dxC"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Notifiche" id="YHT-OQ-q40">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="d10-hk-9am">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d10-hk-9am" id="bBv-Qv-5vl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add_notification.png" translatesAutoresizingMaskIntoConstraints="NO" id="1P5-T4-hVy">
+                                                    <rect key="frame" x="18" y="7" width="40" height="40"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aggiungi Notifica" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQJ-qg-H7C">
+                                                    <rect key="frame" x="66" y="15" width="188" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="miY-G4-5fX" kind="modal" identifier="toAddNotificationNavigationController" id="IUb-0Y-Nfs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="55" id="QVX-wd-Qat">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QVX-wd-Qat" id="Zf9-js-C0L">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="all_notification.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-Vx-rAB">
+                                                    <rect key="frame" x="18" y="7" width="40" height="40"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifiche Attive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-BX-bRF">
+                                                    <rect key="frame" x="66" y="16" width="188" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ehj-Wl-TaR" kind="push" identifier="toNotificationList" id="boz-Jx-YqT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="LYO-ZI-v2e" id="FdG-SU-G6v"/>
+                            <outlet property="delegate" destination="LYO-ZI-v2e" id="A0f-et-7gU"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8sw-z2-7MZ"/>
+                        <barButtonItem image="about-50.png" style="plain" id="WKs-X8-kUl">
+                            <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Tb4-qj-76t" kind="modal" identifier="toTutorial" id="WdJ-iG-dZa"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Dettaglio" id="Vj7-YG-qXY">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="eNC-Cv-9nQ">
+                            <connections>
+                                <action selector="enableEditing:" destination="LYO-ZI-v2e" id="pNa-WH-bEH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="803"/>
+                    <connections>
+                        <outlet property="dataAssunzione" destination="Ws9-cR-rL5" id="HtT-DY-i9Q"/>
+                        <outlet property="doctorTextField" destination="9k7-vG-kJd" id="Hg6-q9-Doz"/>
+                        <outlet property="dosageFormTextField" destination="ytG-QR-bks" id="Nuk-vN-F6q"/>
+                        <outlet property="dosageTextField" destination="1o1-ap-I1w" id="ung-C3-NOM"/>
+                        <outlet property="gestioneDataButton" destination="0nG-8e-4z3" id="ucy-dK-gWf"/>
+                        <outlet property="nameTextField" destination="m31-Dj-d8a" id="yk5-az-MoK"/>
+                        <outlet property="noteTextView" destination="adg-ox-9dR" id="Ys6-lM-9Zd"/>
+                        <outlet property="periodTextField" destination="ERm-fb-PTI" id="QnA-j9-tfo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kFy-Nb-kCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="551.5"/>
+        </scene>
+        <!--Notifiche-->
+        <scene sceneID="csS-Pi-1DL">
+            <objects>
+                <tableViewController id="ehj-Wl-TaR" customClass="NotificationTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="t5m-Z4-gPY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="my cell" id="bbp-dd-6G0" customClass="NotificationTableViewCell" customModule="iPrescription" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bbp-dd-6G0" id="HWj-cV-DBP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPT-5h-iVP">
+                                            <rect key="frame" x="15" y="45" width="285" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKM-ur-0jj">
+                                            <rect key="frame" x="180" y="10" width="126" height="26"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" red="1" green="0.050746307403233049" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detail" destination="vPT-5h-iVP" id="Ty3-1l-gf5"/>
+                                    <outlet property="repeat" destination="lKM-ur-0jj" id="LxR-TL-lot"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ehj-Wl-TaR" id="n3i-1b-Jci"/>
+                            <outlet property="delegate" destination="ehj-Wl-TaR" id="cw1-VK-yYP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notifiche" id="2tP-AM-ABu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYI-0o-5mO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2455" y="901"/>
+        </scene>
+        <!--Nuova Notifica-->
+        <scene sceneID="o2U-kf-YQ4">
+            <objects>
+                <tableViewController id="I0c-5g-xFW" customClass="AddNotificationTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="xWh-7E-4Pa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="950"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Data Notifica" footerTitle="Inserisci la data e l'ora in cui ti verrà notificato di prendere il farmaco." id="dal-N4-g4t">
+                                <cells>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kR7-zN-D6u" rowHeight="55" style="IBUITableViewCellStyleDefault" id="KOS-9U-bK7">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOS-9U-bK7" id="Pdd-en-4cv">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kR7-zN-D6u">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="CaN-29-l44">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CaN-29-l44" id="Jdb-G3-fOg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gzm-nW-6DC">
+                                                    <rect key="frame" x="0.0" y="-3" width="320" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="427216915.02067101">
+                                                        <!--2014-07-16 15:21:55 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="I0c-5g-xFW" eventType="valueChanged" id="xrm-ub-sdb"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Ripetizione" id="vnW-SX-2Po">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="mEr-l6-6p9">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mEr-l6-6p9" id="RdR-zY-8mA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nessuna" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="84" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-Ya-OIJ">
+                                                    <rect key="frame" x="20" y="11" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="WTw-VV-X2t">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTw-VV-X2t" id="1e0-Gy-51v">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ogni giorno" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hu2-7w-xBI">
+                                                    <rect key="frame" x="20" y="8" width="122" height="28"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="9qS-fo-I9L">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qS-fo-I9L" id="WeV-ii-d3a">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ogni settimana" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyJ-v6-gO8">
+                                                    <rect key="frame" x="20" y="7" width="131" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="bcg-xu-LSP">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bcg-xu-LSP" id="SMB-S3-t37">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ogni mese" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYB-6b-Pnp">
+                                                    <rect key="frame" x="20" y="8" width="107" height="27"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Memo Notifica" footerTitle="Il Memo è un messaggio che verrà visualizzato nella notifica." id="Zj1-ph-bKy">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="94" id="WXw-gY-ucE">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WXw-gY-ucE" id="rz0-XH-0Ns">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="iGB-4O-XP8">
+                                                    <rect key="frame" x="13" y="3" width="294" height="88"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="I0c-5g-xFW" id="nKT-3Q-2Pi"/>
+                            <outlet property="delegate" destination="I0c-5g-xFW" id="Vnh-td-p0V"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Nuova Notifica" id="pfY-2C-tQn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eZI-0S-obh">
+                            <connections>
+                                <action selector="cancelPressed:" destination="I0c-5g-xFW" id="IOY-5a-VPX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kU3-vk-hr3">
+                            <connections>
+                                <action selector="donePressed:" destination="I0c-5g-xFW" id="Gfb-tG-nbs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="950"/>
+                    <connections>
+                        <outlet property="datePicker" destination="gzm-nW-6DC" id="oGJ-at-doT"/>
+                        <outlet property="memoTextView" destination="iGB-4O-XP8" id="Na1-J3-cvq"/>
+                        <outlet property="selected" destination="kR7-zN-D6u" id="89n-G4-fim"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R1E-Ak-sU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2883" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JhS-bY-a8V">
+            <objects>
+                <navigationController storyboardIdentifier="addFormNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="T5k-R4-7X7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H6U-yV-wQR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GU0-zu-ta4" kind="relationship" relationship="rootViewController" id="sy6-zh-BQL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzf-7P-fkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="-112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xXp-Yi-uZp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AEj-5L-wUP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pEZ-xq-jVr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" red="0.0" green="0.33345148301332994" blue="0.42440132472826086" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5h2-hW-mir" kind="relationship" relationship="rootViewController" id="92r-jA-UlG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWb-mA-wd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="560"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="erP-cS-gFa">
+            <objects>
+                <viewController storyboardIdentifier="presentationController" id="at4-ir-N2h" customClass="InfoViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tTC-PE-6Km"/>
+                        <viewControllerLayoutGuide type="bottom" id="jeL-Pi-JFo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nF7-tL-drP">
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Benvenuto su" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="151" translatesAutoresizingMaskIntoConstraints="NO" id="N3k-Dw-0eQ">
+                                <rect key="frame" x="84" y="67" width="151" height="60"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iPrescription" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-pr-Ds5">
+                                <rect key="frame" x="41" y="98" width="238" height="58"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-Mh-gbZ" userLabel="Horizontal separator">
+                                <rect key="frame" x="45" y="172" width="230" height="1"/>
+                                <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-zE-4LZ">
+                                <rect key="frame" x="0.0" y="190" width="320" height="378"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1f-KA-kvQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Prescription.png" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-kM-M5z">
+                                                <rect key="frame" x="11" y="43" width="55" height="55"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gestisci le tue Prescrizioni" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5l1-JA-mz6">
+                                                <rect key="frame" x="77" y="14" width="241" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Un7-BH-DY9">
+                                                <rect key="frame" x="79" y="30" width="224" height="152"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Gestisci i tuoi farmaci in Prescrizioni. Usa i nomi più consoni per raggrupparli, come ad esempio ALLERGIA, TERAPIA ANTIBIOTICA o MEDICINE DI MARIO.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5T-0d-Lyc" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="43" width="1" height="110"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Medicine.png" translatesAutoresizingMaskIntoConstraints="NO" id="QSd-Sf-zlt">
+                                                <rect key="frame" x="11" y="187" width="55" height="55"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gestisci i tuoi farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZS9-kT-VOS">
+                                                <rect key="frame" x="79" y="161" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="9OC-ga-d7n">
+                                                <rect key="frame" x="79" y="177" width="224" height="125"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Aggiungi i tuoi farmaci nell'apposita Prescrizione da te creata. Gestisci tutti i dettagli fondamentali come la posologia o le istruzioni del medico.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ii-zI-u7d" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="187" width="1" height="125"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crea gli avvisi per i farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7vB-r1-bVo">
+                                                <rect key="frame" x="79" y="320" width="206" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="jRA-HP-UQc">
+                                                <rect key="frame" x="79" y="337" width="224" height="173"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Crea e gestisci le notifiche per i tuoi farmaci in pochi passi. Gestisci la tua terapia in modo da rispettare correttamente i tempi di assunzione. Gestire le notifiche, cancellarle o crearne di nuove è davvero un gioco da ragazzi.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yzg-zm-LaU" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="346" width="1" height="165"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Design semplice ed intuitivo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKL-T7-4c2">
+                                                <rect key="frame" x="79" y="522" width="216" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ZbF-VP-AGY">
+                                                <rect key="frame" x="79" y="540" width="222" height="171"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Con un design minimale, pulito e intuitivo, iPrescription semplificherà notevolmente la gestione delle tue terapie. Troverai la sua interfaccia familiare in quanto lo scopo di iPrescription è di porsi come una estensione di iOS </string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvR-8F-o8n" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="547" width="1" height="170"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXL-7p-aex">
+                                                <rect key="frame" x="121" y="729" width="78" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marco Salafia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNt-dd-KxA">
+                                                <rect key="frame" x="112" y="744" width="96" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add_notification-3.png" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-GI-leP">
+                                                <rect key="frame" x="11" y="350" width="55" height="55"/>
+                                                <color key="backgroundColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconatrasparente.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ZJ-i5-GQ7">
+                                                <rect key="frame" x="11" y="543" width="55" height="55"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="800" id="1Jb-EZ-smx"/>
+                                            <constraint firstAttribute="width" constant="320" id="DH9-ZS-KbE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="x1f-KA-kvQ" secondAttribute="bottom" id="Duy-04-pQE"/>
+                                    <constraint firstItem="x1f-KA-kvQ" firstAttribute="leading" secondItem="8uc-zE-4LZ" secondAttribute="leading" id="FUW-vN-CMb"/>
+                                    <constraint firstItem="x1f-KA-kvQ" firstAttribute="top" secondItem="8uc-zE-4LZ" secondAttribute="top" id="HoT-J9-LsE"/>
+                                    <constraint firstAttribute="trailing" secondItem="x1f-KA-kvQ" secondAttribute="trailing" id="PTC-Xz-M3p"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="v 1.0.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEU-EA-x6w">
+                                <rect key="frame" x="121" y="152" width="78" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94932432432432434" green="1" blue="0.96959459459459463" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8uc-zE-4LZ" firstAttribute="leading" secondItem="nF7-tL-drP" secondAttribute="leading" id="4Bj-Oq-Y48"/>
+                            <constraint firstAttribute="trailing" secondItem="8uc-zE-4LZ" secondAttribute="trailing" id="Ayn-Y5-0hn"/>
+                            <constraint firstItem="jeL-Pi-JFo" firstAttribute="top" secondItem="8uc-zE-4LZ" secondAttribute="bottom" id="JCX-xS-EJ4"/>
+                            <constraint firstItem="8uc-zE-4LZ" firstAttribute="top" secondItem="tTC-PE-6Km" secondAttribute="bottom" constant="126" id="eKT-GW-2vA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3m0-So-ct9"/>
+                    <connections>
+                        <outlet property="designText" destination="ZbF-VP-AGY" id="YEW-SG-Ivl"/>
+                        <outlet property="gestisciFarmaci" destination="9OC-ga-d7n" id="Ody-CF-SXE"/>
+                        <outlet property="gestisciNotifiche" destination="jRA-HP-UQc" id="ZYd-qQ-3vM"/>
+                        <outlet property="gestisciPrescrizioni" destination="Un7-BH-DY9" id="onO-sr-DoC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8PQ-lZ-3cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="1325"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="w3q-5g-gq5">
+            <objects>
+                <pageViewController storyboardIdentifier="pageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FZk-I8-ayS" customClass="InfoPageViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Info" id="ZFU-yc-L9v">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zc7-S3-iHp">
+                            <connections>
+                                <segue destination="5h2-hW-mir" kind="custom" customClass="DismissSegue" customModule="iPrescription" id="UVN-nJ-db9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PMO-YT-dtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="183" y="1325"/>
+        </scene>
+        <!--First Tutorial View Controller-->
+        <scene sceneID="Kfj-Yl-wRs">
+            <objects>
+                <viewController storyboardIdentifier="firstTutorialController" id="NOZ-eH-CsT" customClass="FirstTutorialViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="15N-fw-VZB"/>
+                        <viewControllerLayoutGuide type="bottom" id="LgD-dr-2Ed"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LYt-XH-QnN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-dI-jpy">
+                                <rect key="frame" x="101" y="89" width="119" height="58"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9X-Ah-n8q" userLabel="Horizontal separator">
+                                <rect key="frame" x="45" y="172" width="230" height="1"/>
+                                <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xam-tb-Ren">
+                                <rect key="frame" x="0.0" y="181" width="320" height="387"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-IN-eQe">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1850"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attento ai nomi!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-Wa-nQY">
+                                                <rect key="frame" x="14" y="17" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view alpha="0.49999999999999961" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0M6-HW-KrP" userLabel="Horizontal separator">
+                                                <rect key="frame" x="14" y="38" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Terapie.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="x9s-eV-jDT">
+                                                <rect key="frame" x="36" y="52" width="249" height="94"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="d06-Ob-g6a">
+                                                <rect key="frame" x="14" y="139" width="292" height="128"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Puoi memorizzare un numero indefinito di Prescrizioni e Medicinali, ma due prescrizioni non possono avere lo stesso nome. I medicinali invece non hanno questa limitazione.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Modifica le Prescrizioni e i Farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahq-fk-lCw">
+                                                <rect key="frame" x="8" y="275" width="308" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VQ-MR-URA" userLabel="Horizontal separator">
+                                                <rect key="frame" x="8" y="296" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cancellazione.png" translatesAutoresizingMaskIntoConstraints="NO" id="j0I-3y-vyw">
+                                                <rect key="frame" x="14" y="311" width="292" height="101"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="xDN-oa-8YA">
+                                                <rect key="frame" x="14" y="420" width="292" height="210"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Nella Pagina delle prescrizioni premi il pulsante modifica per entrare in Modalità Modifica. In questa modalità è possibile cancellare le prescrizioni con tutti i medicinali contenuti in esse e le eventuali notifiche attive. Se invece si tocca il nome della prescrizione è possibile cambiarlo con uno nuovo. Per cancellare un medicinale invece basta scorrere la riga corrispondente verso sinistra con il dito.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Twm-wE-TYa" userLabel="Horizontal separator">
+                                                <rect key="frame" x="14" y="659" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dettaglio del farmaco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-ce-0mn">
+                                                <rect key="frame" x="14" y="638" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Dettaglio2.png" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-4V-Ta1">
+                                                <rect key="frame" x="14" y="668" width="292" height="97"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Cur-4I-7xo">
+                                                <rect key="frame" x="14" y="773" width="292" height="191"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Nella pagina Dettaglio è possibile consultare tutte le informazioni inserite precedentemente sul farmaco ed eventualmente modificarle. Per poter cambiare le informazioni bisogna premere il pulsante modifica per entrare nella Modalità Modifica. Inoltre nella pagina Dettaglio è possibile controllare la data dell'ultima assunzione del farmaco!</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-HL-IX8" userLabel="Horizontal separator">
+                                                <rect key="frame" x="14" y="993" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifiche" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9g-LZ-qZC">
+                                                <rect key="frame" x="14" y="972" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Aggiungi Notifica2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Af2-V1-CX2">
+                                                <rect key="frame" x="14" y="1007" width="292" height="128"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aYW-4D-Chd">
+                                                <rect key="frame" x="16" y="1143" width="292" height="247"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Creare degli avvisi per quando prendere una farmaco è un gioco da ragazzi. Premi Aggiungi Notifica in fondo alla pagina Dettaglio e verrai rimandato a una schermata dove creerai un avviso in pochi secondi. Quando hai finito premi Fine per creare la notifica o Cancella per tornare indietro. Premendo Notifiche Attive invece potrai visualizzare tutte le notifiche attive per quel farmaco.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Notifiche.png" translatesAutoresizingMaskIntoConstraints="NO" id="JHv-kd-NIZ">
+                                                <rect key="frame" x="16" y="1398" width="290" height="114"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="L8A-9V-FnR">
+                                                <rect key="frame" x="16" y="1515" width="292" height="107"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Le notifiche dove hai impostato una ripetizione verranno visualizzate con l'intervallo di ripetizione in rosso alla destra dell'ora e la data in cui inizierai ad assumere il farmaco.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sveglia.png" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-7y-c7N">
+                                                <rect key="frame" x="16" y="1630" width="284" height="57"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="QzJ-5A-Tyl">
+                                                <rect key="frame" x="16" y="1695" width="292" height="107"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Tutti i farmaci che hanno almeno una notifica attiva sono segnalati con un'icona rossa a forma di sveglia alla destra della riga.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="sXj-6Y-3aA"/>
+                                            <constraint firstAttribute="height" constant="1850" id="yoS-Cj-bhQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GJk-IN-eQe" firstAttribute="leading" secondItem="Xam-tb-Ren" secondAttribute="leading" id="CGn-8o-NnT"/>
+                                    <constraint firstAttribute="bottom" secondItem="GJk-IN-eQe" secondAttribute="bottom" id="Kf2-jn-mdN"/>
+                                    <constraint firstItem="GJk-IN-eQe" firstAttribute="top" secondItem="Xam-tb-Ren" secondAttribute="top" id="pbt-vY-8Oe"/>
+                                    <constraint firstAttribute="trailing" secondItem="GJk-IN-eQe" secondAttribute="trailing" id="rJv-kI-J9c"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LgD-dr-2Ed" firstAttribute="top" secondItem="Xam-tb-Ren" secondAttribute="bottom" id="4OF-9M-Hu4"/>
+                            <constraint firstItem="Xam-tb-Ren" firstAttribute="leading" secondItem="LYt-XH-QnN" secondAttribute="leading" id="Irm-I4-bad"/>
+                            <constraint firstAttribute="trailing" secondItem="Xam-tb-Ren" secondAttribute="trailing" id="UFa-zz-ho9"/>
+                            <constraint firstItem="Xam-tb-Ren" firstAttribute="top" secondItem="z9X-Ah-n8q" secondAttribute="bottom" constant="8" id="r3t-qQ-b5T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="text1" destination="d06-Ob-g6a" id="jjH-i2-jTw"/>
+                        <outlet property="text2" destination="xDN-oa-8YA" id="poa-z9-lLc"/>
+                        <outlet property="text3" destination="Cur-4I-7xo" id="r72-4r-veb"/>
+                        <outlet property="text4" destination="aYW-4D-Chd" id="lVs-7C-drt"/>
+                        <outlet property="text5" destination="L8A-9V-FnR" id="YoO-ac-3GN"/>
+                        <outlet property="text6" destination="QzJ-5A-Tyl" id="GQ1-Sc-MGJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lqw-jk-3dU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="1325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MFb-x8-KbE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="miY-G4-5fX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ST5-iY-Vb9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I0c-5g-xFW" kind="relationship" relationship="rootViewController" id="hCd-i1-k1A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9BH-5O-wHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2455" y="290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vZE-Jr-0Li">
+            <objects>
+                <navigationController storyboardIdentifier="infoNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Tb4-qj-76t" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uEf-A0-VWL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.71997847619999999" green="1" blue="0.91629773940000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FZk-I8-ayS" kind="relationship" relationship="rootViewController" id="IkR-vt-Cd6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfM-Ol-2Cj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-218" y="1325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jB5-fY-Jnb">
+            <objects>
+                <navigationController storyboardIdentifier="changeDateNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="h5b-pg-p9C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fea-pc-Aou">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wIP-Ww-gcP" kind="relationship" relationship="rootViewController" id="rzS-Ui-jMp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y59-re-O8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="-156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Aggiungi Notifica2.png" width="392" height="159"/>
+        <image name="Cancellazione.png" width="390" height="227"/>
+        <image name="Dettaglio2.png" width="392" height="304"/>
+        <image name="Medicine.png" width="512" height="512"/>
+        <image name="Notifiche.png" width="389" height="189"/>
+        <image name="Prescription.png" width="512" height="512"/>
+        <image name="Sveglia.png" width="389" height="91"/>
+        <image name="Terapie.jpg" width="391" height="230"/>
+        <image name="about-50.png" width="25" height="25"/>
+        <image name="add_notification-3.png" width="256" height="256"/>
+        <image name="add_notification.png" width="256" height="256"/>
+        <image name="all_notification.png" width="256" height="256"/>
+        <image name="iconatrasparente.png" width="512" height="512"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="UVN-nJ-db9"/>
+        <segue reference="WdJ-iG-dZa"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+</document>

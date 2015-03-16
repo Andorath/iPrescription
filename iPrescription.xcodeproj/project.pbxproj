@@ -7,10 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A901F0EE19E6EE880076F565 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A901F0F019E6EE880076F565 /* InfoPlist.strings */; };
+		A901F0F319E6EE890076F565 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A901F0F519E6EE890076F565 /* InfoPlist.strings */; };
+		A901F0F819E6EE890076F565 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A901F0FA19E6EE890076F565 /* Localizable.strings */; };
 		A90528C5195ED005004A54C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90528C4195ED005004A54C4 /* AppDelegate.swift */; };
 		A90528C8195ED005004A54C4 /* iPrescription.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A90528C6195ED005004A54C4 /* iPrescription.xcdatamodeld */; };
 		A90528CA195ED005004A54C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90528C9195ED005004A54C4 /* Images.xcassets */; };
 		A90528D6195ED005004A54C4 /* iPrescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90528D5195ED005004A54C4 /* iPrescriptionTests.swift */; };
+		A905CA3A198BEB210096E519 /* IPDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905CA39198BEB210096E519 /* IPDetailTableViewController.swift */; };
+		A905CA3C198C0DC20096E519 /* IPDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A905CA3B198C0DC20096E519 /* IPDetailNavigationController.swift */; };
+		A912E60519D1D18C00DE2DB0 /* ChangeDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */; };
+		A9161E93197D1D7200B25FBC /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */; };
+		A9161E95197D6FB100B25FBC /* icona settings-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9161E94197D6FB100B25FBC /* icona settings-3.png */; };
+		A918F5A3199000C1006EA37B /* IPMasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918F5A2199000C1006EA37B /* IPMasterNavigationController.swift */; };
+		A928DA681989666A00A7A230 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A928DA671989666A00A7A230 /* Main_ipad.storyboard */; };
+		A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94068DD1981B37900149057 /* NotificationTableViewCell.swift */; };
+		A9541ABC19E7D7CE00978FD6 /* Sveglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541ABE19E7D7CE00978FD6 /* Sveglia.png */; };
+		A9541AC019E7D7DA00978FD6 /* Notifiche.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541AC219E7D7DA00978FD6 /* Notifiche.png */; };
+		A9541AC819E7D7E800978FD6 /* Aggiungi Notifica2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541ACA19E7D7E800978FD6 /* Aggiungi Notifica2.png */; };
+		A9541AD019E7D7F600978FD6 /* Dettaglio2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541AD219E7D7F600978FD6 /* Dettaglio2.png */; };
+		A9541AD419E7D7FD00978FD6 /* Cancellazione.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541AD619E7D7FD00978FD6 /* Cancellazione.png */; };
+		A9541AD819E7D80400978FD6 /* Terapie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9541ADA19E7D80400978FD6 /* Terapie.jpg */; };
+		A961CF4F1987B3A900BA2E77 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CF4D1987B0C900BA2E77 /* DismissSegue.swift */; };
+		A961CF501987B3AA00BA2E77 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CF4D1987B0C900BA2E77 /* DismissSegue.swift */; };
+		A961CF521987B85900BA2E77 /* 58 Retina Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A961CF511987B85900BA2E77 /* 58 Retina Settings@2x.png */; };
+		A96DC428198807CC003BC2FD /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96DC427198807CC003BC2FD /* info@2x.png */; };
+		A96DC42A1988152B003BC2FD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DC4291988152B003BC2FD /* InfoViewController.swift */; };
+		A96DCD65198A941B00C6472E /* IPSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DCD64198A941B00C6472E /* IPSplitViewController.swift */; };
+		A96DCD67198AA43C00C6472E /* IPSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DCD66198AA43C00C6472E /* IPSplashViewController.swift */; };
+		A96DCD69198AA61100C6472E /* iconatrasparente.png in Resources */ = {isa = PBXBuildFile; fileRef = A96DCD68198AA61100C6472E /* iconatrasparente.png */; };
+		A96DCD6D198AAE1C00C6472E /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96DCD6C198AAE1C00C6472E /* menu@2x.png */; };
+		A973706C1964B1A6004085D8 /* MedicineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */; };
+		A974D64A1966BD4800E27F1B /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974D6491966BD4800E27F1B /* PrescriptionTableViewCell.swift */; };
+		A974D64D1966C05A00E27F1B /* MedicineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974D64C1966C05A00E27F1B /* MedicineTableViewCell.swift */; };
+		A974D64F196B18B000E27F1B /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974D64E196B18B000E27F1B /* DetailTableViewController.swift */; };
+		A978E1B21975C24F000503B5 /* PrescriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978E1B11975C24F000503B5 /* PrescriptionTableViewController.swift */; };
+		A97D81A319CC2EF60010E7A4 /* add_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = A97D81A219CC2EF60010E7A4 /* add_notification.png */; };
+		A97D81A519CC2EFD0010E7A4 /* all_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = A97D81A419CC2EFD0010E7A4 /* all_notification.png */; };
+		A986C14C1961C63F00649A91 /* AddFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */; };
+		A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */; };
+		A99CA93B1993CF5700A388BD /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93A1993CF5700A388BD /* InfoPageViewController.swift */; };
+		A99CA93D1993D0AB00A388BD /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93C1993D0AB00A388BD /* PageViewController.swift */; };
+		A99CA9401993DF4B00A388BD /* FirstTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93F1993DF4B00A388BD /* FirstTutorialViewController.swift */; };
+		A99CA9421993FD5A00A388BD /* alarm_trasparente.png in Resources */ = {isa = PBXBuildFile; fileRef = A99CA9411993FD5A00A388BD /* alarm_trasparente.png */; };
+		A9AA1A5E19E538C100EE91A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AA1A6019E538C100EE91A1 /* Main.storyboard */; };
+		A9BF51C719CAE82200F62DC0 /* about-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BF51C619CAE82200F62DC0 /* about-50@2x.png */; };
+		A9CC0BAC196C0E6300022596 /* Medicine.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAA196C0E6300022596 /* Medicine.png */; };
+		A9CC0BAD196C0E6300022596 /* Prescription.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAB196C0E6300022596 /* Prescription.png */; };
+		A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA5197D768300B64FDB /* add_notification-3.png */; };
+		A9CF6BAA197D797700B64FDB /* all_notification-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA9197D797700B64FDB /* all_notification-1.png */; };
+		A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BAB197D894900B64FDB /* alarm_set2.png */; };
+		A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9E00CC71977E495007AA5B8 /* Opening.m4r */; };
+		A9FDA80619805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
+		A9FDA80719805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,9 +70,26 @@
 			remoteGlobalIDString = A90528BE195ED005004A54C4;
 			remoteInfo = iPrescription;
 		};
+		A940A4A2197ECD2500F7852F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A90528B7195ED005004A54C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A90528BE195ED005004A54C4;
+			remoteInfo = iPrescription;
+		};
+		A9FB857F197EA53300724D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A90528B7195ED005004A54C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A90528BE195ED005004A54C4;
+			remoteInfo = iPrescription;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A901F0EF19E6EE880076F565 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A901F0F419E6EE890076F565 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A901F0F919E6EE890076F565 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A90528BF195ED005004A54C4 /* iPrescription.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPrescription.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90528C3195ED005004A54C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A90528C4195ED005004A54C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +98,59 @@
 		A90528CF195ED005004A54C4 /* iPrescriptionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPrescriptionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90528D4195ED005004A54C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A90528D5195ED005004A54C4 /* iPrescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPrescriptionTests.swift; sourceTree = "<group>"; };
+		A905CA39198BEB210096E519 /* IPDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPDetailTableViewController.swift; sourceTree = "<group>"; };
+		A905CA3B198C0DC20096E519 /* IPDetailNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPDetailNavigationController.swift; sourceTree = "<group>"; };
+		A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateTableViewController.swift; sourceTree = "<group>"; };
+		A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		A9161E94197D6FB100B25FBC /* icona settings-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icona settings-3.png"; sourceTree = "<group>"; };
+		A918F5A2199000C1006EA37B /* IPMasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPMasterNavigationController.swift; sourceTree = "<group>"; };
+		A925F48119C6249600024C84 /* iPrescription 1.0.1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iPrescription 1.0.1a.xcdatamodel"; sourceTree = "<group>"; };
+		A928DA671989666A00A7A230 /* Main_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_ipad.storyboard; sourceTree = "<group>"; };
+		A94068DD1981B37900149057 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		A9541ABF19E7D7D400978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Sveglia.png; sourceTree = "<group>"; };
+		A9541AC319E7D7DC00978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Notifiche.png; sourceTree = "<group>"; };
+		A9541ACB19E7D7EA00978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Aggiungi Notifica2.png"; sourceTree = "<group>"; };
+		A9541AD319E7D7F800978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Dettaglio2.png; sourceTree = "<group>"; };
+		A9541AD719E7D7FF00978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Cancellazione.png; sourceTree = "<group>"; };
+		A9541ADB19E7D80500978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = en; path = en.lproj/Terapie.jpg; sourceTree = "<group>"; };
+		A961CF4D1987B0C900BA2E77 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DismissSegue.swift; path = iPrescription/DismissSegue.swift; sourceTree = SOURCE_ROOT; };
+		A961CF511987B85900BA2E77 /* 58 Retina Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "58 Retina Settings@2x.png"; sourceTree = "<group>"; };
+		A96DC427198807CC003BC2FD /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		A96DC4291988152B003BC2FD /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A96DCD64198A941B00C6472E /* IPSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPSplitViewController.swift; sourceTree = "<group>"; };
+		A96DCD66198AA43C00C6472E /* IPSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPSplashViewController.swift; sourceTree = "<group>"; };
+		A96DCD68198AA61100C6472E /* iconatrasparente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconatrasparente.png; sourceTree = "<group>"; };
+		A96DCD6C198AAE1C00C6472E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineTableViewController.swift; sourceTree = "<group>"; };
+		A974D6491966BD4800E27F1B /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		A974D64C1966C05A00E27F1B /* MedicineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineTableViewCell.swift; sourceTree = "<group>"; };
+		A974D64E196B18B000E27F1B /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		A978E1B11975C24F000503B5 /* PrescriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrescriptionTableViewController.swift; path = ../PrescriptionTableViewController.swift; sourceTree = "<group>"; };
+		A97D81A219CC2EF60010E7A4 /* add_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_notification.png; sourceTree = "<group>"; };
+		A97D81A419CC2EFD0010E7A4 /* all_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_notification.png; sourceTree = "<group>"; };
+		A986C14A1961C02F00649A91 /* iPrescription-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPrescription-Bridging-Header.h"; sourceTree = "<group>"; };
+		A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddFormTableViewController.swift; path = ../AddFormTableViewController.swift; sourceTree = "<group>"; };
+		A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewController.swift; sourceTree = "<group>"; };
+		A99CA93A1993CF5700A388BD /* InfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
+		A99CA93C1993D0AB00A388BD /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		A99CA93F1993DF4B00A388BD /* FirstTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewController.swift; sourceTree = "<group>"; };
+		A99CA9411993FD5A00A388BD /* alarm_trasparente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_trasparente.png; sourceTree = "<group>"; };
+		A9B8856419E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = "it.lproj/Aggiungi Notifica2.png"; sourceTree = "<group>"; };
+		A9B8856519E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = it.lproj/Notifiche.png; sourceTree = "<group>"; };
+		A9B8856619E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = it.lproj/Dettaglio2.png; sourceTree = "<group>"; };
+		A9B8856819E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = it; path = it.lproj/Terapie.jpg; sourceTree = "<group>"; };
+		A9B8856919E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = it.lproj/Sveglia.png; sourceTree = "<group>"; };
+		A9B8856A19E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = it.lproj/Cancellazione.png; sourceTree = "<group>"; };
+		A9B8856B19E7E21700DC9804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9B8856C19E7E23700DC9804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A9BF51C619CAE82200F62DC0 /* about-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-50@2x.png"; sourceTree = "<group>"; };
+		A9CC0BAA196C0E6300022596 /* Medicine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Medicine.png; sourceTree = "<group>"; };
+		A9CC0BAB196C0E6300022596 /* Prescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Prescription.png; sourceTree = "<group>"; };
+		A9CF6BA5197D768300B64FDB /* add_notification-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_notification-3.png"; sourceTree = "<group>"; };
+		A9CF6BA9197D797700B64FDB /* all_notification-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_notification-1.png"; sourceTree = "<group>"; };
+		A9CF6BAB197D894900B64FDB /* alarm_set2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_set2.png; sourceTree = "<group>"; };
+		A9E00CC71977E495007AA5B8 /* Opening.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Opening.m4r; sourceTree = "<group>"; };
+		A9FDA80519805F79002E0F0D /* chord.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chord.m4r; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +174,7 @@
 		A90528B6195ED005004A54C4 = {
 			isa = PBXGroup;
 			children = (
+				A959425319896C40005F1A05 /* Storyboards */,
 				A90528C1195ED005004A54C4 /* iPrescription */,
 				A90528D2195ED005004A54C4 /* iPrescriptionTests */,
 				A90528C0195ED005004A54C4 /* Products */,
@@ -74,8 +194,24 @@
 			isa = PBXGroup;
 			children = (
 				A90528C4195ED005004A54C4 /* AppDelegate.swift */,
+				A978E1B11975C24F000503B5 /* PrescriptionTableViewController.swift */,
+				A99CA93A1993CF5700A388BD /* InfoPageViewController.swift */,
+				A96DC4291988152B003BC2FD /* InfoViewController.swift */,
+				A99CA93F1993DF4B00A388BD /* FirstTutorialViewController.swift */,
+				A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */,
+				A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */,
+				A974D64E196B18B000E27F1B /* DetailTableViewController.swift */,
+				A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */,
+				A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */,
+				A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */,
+				A99CA93E1993D1C200A388BD /* Custom Class */,
 				A90528C9195ED005004A54C4 /* Images.xcassets */,
 				A90528C6195ED005004A54C4 /* iPrescription.xcdatamodeld */,
+				A96DCD63198A93B400C6472E /* iPrescription_iPad */,
+				A974D64B1966C02B00E27F1B /* Custom Cells */,
+				A961CF4C1987B08B00BA2E77 /* Custom Segues */,
+				A9AACFF41965C2F800C61B44 /* Images */,
+				A986C14A1961C02F00649A91 /* iPrescription-Bridging-Header.h */,
 				A90528C2195ED005004A54C4 /* Supporting Files */,
 			);
 			path = iPrescription;
@@ -84,6 +220,10 @@
 		A90528C2195ED005004A54C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A901F0FA19E6EE890076F565 /* Localizable.strings */,
+				A901F0F519E6EE890076F565 /* InfoPlist.strings */,
+				A9FDA80519805F79002E0F0D /* chord.m4r */,
+				A9E00CC71977E495007AA5B8 /* Opening.m4r */,
 				A90528C3195ED005004A54C4 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -101,9 +241,93 @@
 		A90528D3195ED005004A54C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A901F0F019E6EE880076F565 /* InfoPlist.strings */,
 				A90528D4195ED005004A54C4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A959425319896C40005F1A05 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A9AA1A6019E538C100EE91A1 /* Main.storyboard */,
+				A928DA671989666A00A7A230 /* Main_ipad.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		A961CF4C1987B08B00BA2E77 /* Custom Segues */ = {
+			isa = PBXGroup;
+			children = (
+				A961CF4D1987B0C900BA2E77 /* DismissSegue.swift */,
+			);
+			name = "Custom Segues";
+			sourceTree = "<group>";
+		};
+		A96B58D419942D41007A3BBD /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				A9541ABE19E7D7CE00978FD6 /* Sveglia.png */,
+				A9541AC219E7D7DA00978FD6 /* Notifiche.png */,
+				A9541ACA19E7D7E800978FD6 /* Aggiungi Notifica2.png */,
+				A9541AD219E7D7F600978FD6 /* Dettaglio2.png */,
+				A9541AD619E7D7FD00978FD6 /* Cancellazione.png */,
+				A9541ADA19E7D80400978FD6 /* Terapie.jpg */,
+			);
+			name = Screenshot;
+			sourceTree = "<group>";
+		};
+		A96DCD63198A93B400C6472E /* iPrescription_iPad */ = {
+			isa = PBXGroup;
+			children = (
+				A96DCD64198A941B00C6472E /* IPSplitViewController.swift */,
+				A96DCD66198AA43C00C6472E /* IPSplashViewController.swift */,
+				A905CA39198BEB210096E519 /* IPDetailTableViewController.swift */,
+				A905CA3B198C0DC20096E519 /* IPDetailNavigationController.swift */,
+				A918F5A2199000C1006EA37B /* IPMasterNavigationController.swift */,
+			);
+			name = iPrescription_iPad;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A974D64B1966C02B00E27F1B /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A974D6491966BD4800E27F1B /* PrescriptionTableViewCell.swift */,
+				A974D64C1966C05A00E27F1B /* MedicineTableViewCell.swift */,
+				A94068DD1981B37900149057 /* NotificationTableViewCell.swift */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		A99CA93E1993D1C200A388BD /* Custom Class */ = {
+			isa = PBXGroup;
+			children = (
+				A99CA93C1993D0AB00A388BD /* PageViewController.swift */,
+			);
+			name = "Custom Class";
+			sourceTree = "<group>";
+		};
+		A9AACFF41965C2F800C61B44 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A96B58D419942D41007A3BBD /* Screenshot */,
+				A99CA9411993FD5A00A388BD /* alarm_trasparente.png */,
+				A97D81A219CC2EF60010E7A4 /* add_notification.png */,
+				A97D81A419CC2EFD0010E7A4 /* all_notification.png */,
+				A96DCD6C198AAE1C00C6472E /* menu@2x.png */,
+				A96DCD68198AA61100C6472E /* iconatrasparente.png */,
+				A96DC427198807CC003BC2FD /* info@2x.png */,
+				A9BF51C619CAE82200F62DC0 /* about-50@2x.png */,
+				A961CF511987B85900BA2E77 /* 58 Retina Settings@2x.png */,
+				A9CF6BAB197D894900B64FDB /* alarm_set2.png */,
+				A9CF6BA9197D797700B64FDB /* all_notification-1.png */,
+				A9CF6BA5197D768300B64FDB /* add_notification-3.png */,
+				A9161E94197D6FB100B25FBC /* icona settings-3.png */,
+				A9CC0BAA196C0E6300022596 /* Medicine.png */,
+				A9CC0BAB196C0E6300022596 /* Prescription.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +340,7 @@
 				A90528BB195ED005004A54C4 /* Sources */,
 				A90528BC195ED005004A54C4 /* Frameworks */,
 				A90528BD195ED005004A54C4 /* Resources */,
+				A9E875FE19CC864F00BC574C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -138,6 +363,8 @@
 			);
 			dependencies = (
 				A90528D1195ED005004A54C4 /* PBXTargetDependency */,
+				A9FB8580197EA53300724D16 /* PBXTargetDependency */,
+				A940A4A3197ECD2500F7852F /* PBXTargetDependency */,
 			);
 			name = iPrescriptionTests;
 			productName = iPrescriptionTests;
@@ -150,11 +377,12 @@
 		A90528B7195ED005004A54C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Marco Salafia";
 				TargetAttributes = {
 					A90528BE195ED005004A54C4 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = AH9ECCRA8U;
 					};
 					A90528CE195ED005004A54C4 = {
 						CreatedOnToolsVersion = 6.0;
@@ -167,7 +395,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				it,
 				en,
+				Base,
 			);
 			mainGroup = A90528B6195ED005004A54C4;
 			productRefGroup = A90528C0195ED005004A54C4 /* Products */;
@@ -185,7 +415,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BF51C719CAE82200F62DC0 /* about-50@2x.png in Resources */,
+				A9541AD419E7D7FD00978FD6 /* Cancellazione.png in Resources */,
+				A97D81A519CC2EFD0010E7A4 /* all_notification.png in Resources */,
+				A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */,
+				A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */,
+				A9541AD019E7D7F600978FD6 /* Dettaglio2.png in Resources */,
+				A9CC0BAC196C0E6300022596 /* Medicine.png in Resources */,
+				A9541AC819E7D7E800978FD6 /* Aggiungi Notifica2.png in Resources */,
+				A9541AD819E7D80400978FD6 /* Terapie.jpg in Resources */,
+				A928DA681989666A00A7A230 /* Main_ipad.storyboard in Resources */,
+				A9161E95197D6FB100B25FBC /* icona settings-3.png in Resources */,
+				A9FDA80619805F79002E0F0D /* chord.m4r in Resources */,
+				A9541ABC19E7D7CE00978FD6 /* Sveglia.png in Resources */,
+				A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */,
+				A901F0F819E6EE890076F565 /* Localizable.strings in Resources */,
+				A97D81A319CC2EF60010E7A4 /* add_notification.png in Resources */,
+				A9541AC019E7D7DA00978FD6 /* Notifiche.png in Resources */,
+				A96DCD6D198AAE1C00C6472E /* menu@2x.png in Resources */,
+				A901F0F319E6EE890076F565 /* InfoPlist.strings in Resources */,
+				A96DCD69198AA61100C6472E /* iconatrasparente.png in Resources */,
+				A96DC428198807CC003BC2FD /* info@2x.png in Resources */,
+				A9CC0BAD196C0E6300022596 /* Prescription.png in Resources */,
+				A99CA9421993FD5A00A388BD /* alarm_trasparente.png in Resources */,
+				A9AA1A5E19E538C100EE91A1 /* Main.storyboard in Resources */,
+				A961CF521987B85900BA2E77 /* 58 Retina Settings@2x.png in Resources */,
 				A90528CA195ED005004A54C4 /* Images.xcassets in Resources */,
+				A9CF6BAA197D797700B64FDB /* all_notification-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,10 +449,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FDA80719805F79002E0F0D /* chord.m4r in Resources */,
+				A901F0EE19E6EE880076F565 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9E875FE19CC864F00BC574C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A90528BB195ED005004A54C4 /* Sources */ = {
@@ -204,7 +478,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90528C5195ED005004A54C4 /* AppDelegate.swift in Sources */,
+				A974D64A1966BD4800E27F1B /* PrescriptionTableViewCell.swift in Sources */,
+				A974D64D1966C05A00E27F1B /* MedicineTableViewCell.swift in Sources */,
+				A905CA3C198C0DC20096E519 /* IPDetailNavigationController.swift in Sources */,
+				A918F5A3199000C1006EA37B /* IPMasterNavigationController.swift in Sources */,
+				A974D64F196B18B000E27F1B /* DetailTableViewController.swift in Sources */,
+				A96DCD65198A941B00C6472E /* IPSplitViewController.swift in Sources */,
+				A973706C1964B1A6004085D8 /* MedicineTableViewController.swift in Sources */,
+				A9161E93197D1D7200B25FBC /* NotificationTableViewController.swift in Sources */,
+				A912E60519D1D18C00DE2DB0 /* ChangeDateTableViewController.swift in Sources */,
+				A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */,
+				A986C14C1961C63F00649A91 /* AddFormTableViewController.swift in Sources */,
+				A99CA9401993DF4B00A388BD /* FirstTutorialViewController.swift in Sources */,
+				A99CA93D1993D0AB00A388BD /* PageViewController.swift in Sources */,
+				A96DCD67198AA43C00C6472E /* IPSplashViewController.swift in Sources */,
 				A90528C8195ED005004A54C4 /* iPrescription.xcdatamodeld in Sources */,
+				A99CA93B1993CF5700A388BD /* InfoPageViewController.swift in Sources */,
+				A96DC42A1988152B003BC2FD /* InfoViewController.swift in Sources */,
+				A978E1B21975C24F000503B5 /* PrescriptionTableViewController.swift in Sources */,
+				A905CA3A198BEB210096E519 /* IPDetailTableViewController.swift in Sources */,
+				A961CF4F1987B3A900BA2E77 /* DismissSegue.swift in Sources */,
+				A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A961CF501987B3AA00BA2E77 /* DismissSegue.swift in Sources */,
 				A90528D6195ED005004A54C4 /* iPrescriptionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +519,107 @@
 			target = A90528BE195ED005004A54C4 /* iPrescription */;
 			targetProxy = A90528D0195ED005004A54C4 /* PBXContainerItemProxy */;
 		};
+		A940A4A3197ECD2500F7852F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A90528BE195ED005004A54C4 /* iPrescription */;
+			targetProxy = A940A4A2197ECD2500F7852F /* PBXContainerItemProxy */;
+		};
+		A9FB8580197EA53300724D16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A90528BE195ED005004A54C4 /* iPrescription */;
+			targetProxy = A9FB857F197EA53300724D16 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A901F0F019E6EE880076F565 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A901F0EF19E6EE880076F565 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A901F0F519E6EE890076F565 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A901F0F419E6EE890076F565 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A901F0FA19E6EE890076F565 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A901F0F919E6EE890076F565 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A9541ABE19E7D7CE00978FD6 /* Sveglia.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541ABF19E7D7D400978FD6 /* en */,
+				A9B8856919E7E20800DC9804 /* it */,
+			);
+			name = Sveglia.png;
+			sourceTree = "<group>";
+		};
+		A9541AC219E7D7DA00978FD6 /* Notifiche.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541AC319E7D7DC00978FD6 /* en */,
+				A9B8856519E7E20800DC9804 /* it */,
+			);
+			name = Notifiche.png;
+			sourceTree = "<group>";
+		};
+		A9541ACA19E7D7E800978FD6 /* Aggiungi Notifica2.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541ACB19E7D7EA00978FD6 /* en */,
+				A9B8856419E7E20800DC9804 /* it */,
+			);
+			name = "Aggiungi Notifica2.png";
+			sourceTree = "<group>";
+		};
+		A9541AD219E7D7F600978FD6 /* Dettaglio2.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541AD319E7D7F800978FD6 /* en */,
+				A9B8856619E7E20800DC9804 /* it */,
+			);
+			name = Dettaglio2.png;
+			sourceTree = "<group>";
+		};
+		A9541AD619E7D7FD00978FD6 /* Cancellazione.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541AD719E7D7FF00978FD6 /* en */,
+				A9B8856A19E7E20800DC9804 /* it */,
+			);
+			name = Cancellazione.png;
+			sourceTree = "<group>";
+		};
+		A9541ADA19E7D80400978FD6 /* Terapie.jpg */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9541ADB19E7D80500978FD6 /* en */,
+				A9B8856819E7E20800DC9804 /* it */,
+			);
+			name = Terapie.jpg;
+			sourceTree = "<group>";
+		};
+		A9AA1A6019E538C100EE91A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9B8856B19E7E21700DC9804 /* Base */,
+				A9B8856C19E7E23700DC9804 /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A90528D7195ED005004A54C4 /* Debug */ = {
@@ -309,9 +704,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iPrescription/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iPrescription;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iPrescription/iPrescription-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +723,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iPrescription/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iPrescription;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iPrescription/iPrescription-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -341,7 +751,7 @@
 				INFOPLIST_FILE = iPrescriptionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iPrescriptionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -357,7 +767,7 @@
 				INFOPLIST_FILE = iPrescriptionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iPrescriptionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -381,6 +791,7 @@
 				A90528DB195ED005004A54C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A90528DC195ED005004A54C4 /* Build configuration list for PBXNativeTarget "iPrescriptionTests" */ = {
 			isa = XCConfigurationList;
@@ -389,6 +800,7 @@
 				A90528DE195ED005004A54C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -396,9 +808,10 @@
 		A90528C6195ED005004A54C4 /* iPrescription.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A925F48119C6249600024C84 /* iPrescription 1.0.1a.xcdatamodel */,
 				A90528C7195ED005004A54C4 /* iPrescription.xcdatamodel */,
 			);
-			currentVersion = A90528C7195ED005004A54C4 /* iPrescription.xcdatamodel */;
+			currentVersion = A925F48119C6249600024C84 /* iPrescription 1.0.1a.xcdatamodel */;
 			path = iPrescription.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
