@@ -28,7 +28,7 @@ class NotificationTableViewController: UITableViewController
         
         let timeFormatter = NSDateFormatter()
         timeFormatter.dateFormat = "hh:mm a"
-        cell!.textLabel.text = timeFormatter.stringFromDate(notification.fireDate!)
+        cell!.textLabel?.text = timeFormatter.stringFromDate(notification.fireDate!)
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEE dd MMMM yyyy"

@@ -223,9 +223,9 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
         }
         
         var terapia: NSManagedObject = therapyList[indexPath.row] as NSManagedObject
-        cell!.textLabel.text = terapia.valueForKey("nome") as? String
+        cell!.textLabel?.text = terapia.valueForKey("nome") as? String
         
-        cell!.imageView.image = UIImage(named: "Prescription.png")
+        cell!.imageView?.image = UIImage(named: "Prescription.png")
         var medicineList = (terapia.valueForKey("medicine") as NSOrderedSet).array
         var medString: String
         if medicineList.count == 1
@@ -259,7 +259,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
     {
         var cell = tableView.cellForRowAtIndexPath(indexPath)
-        selectedRow = cell!.textLabel.text
+        selectedRow = cell!.textLabel?.text
         return indexPath
     }
     
@@ -296,7 +296,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
                     self.context.save(nil)
                     
                     var cell = tableView.cellForRowAtIndexPath(indexPath)
-                    cell!.textLabel.text = (alertChange.textFields![0] as UITextField).text
+                    cell!.textLabel?.text = (alertChange.textFields![0] as UITextField).text
                     
                     self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
                     //removeTextFieldObserver()

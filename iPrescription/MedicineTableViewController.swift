@@ -184,9 +184,9 @@ class MedicineTableViewController: UITableViewController {
         }*/
         
         var medicina: NSManagedObject = medicineList[indexPath.row] as NSManagedObject
-        cell!.textLabel.text = medicina.valueForKey("nome") as? String
+        cell!.textLabel?.text = medicina.valueForKey("nome") as? String
         
-        cell!.imageView.image = UIImage(named: "Medicine.png")
+        cell!.imageView?.image = UIImage(named: "Medicine.png")
         
         //inserimento icona allarme
         var id = medicina.valueForKey("id") as NSString
@@ -206,7 +206,7 @@ class MedicineTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath
     {
         var cell = tableView.cellForRowAtIndexPath(indexPath)
-        selectedMedicineName = cell!.textLabel.text
+        selectedMedicineName = cell!.textLabel?.text
         return indexPath
     }
     
