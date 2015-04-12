@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var audioPlayer: AVAudioPlayer?
     var currentController: UIViewController!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //richiesta permessi per le notifiche
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |
             UIUserNotificationType.Badge, categories: nil
@@ -34,14 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //L'app è stata già lanciata almeno una volta
             println("E' stata già lanciata")
         }
+    
         
         //gestione delle notifiche locali ricevute
-        if let notification: UILocalNotification = launchOptions?.valueForKey(UIApplicationLaunchOptionsLocalNotificationKey) as? UILocalNotification
+        if let notification: UILocalNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
         {
-            var id: String = notification.userInfo!["id"] as NSString
-            var prescription: String = notification.userInfo!["prescrizione"] as NSString
-            var medicine: String = notification.userInfo!["medicina"] as NSString
-            var memo: String = notification.userInfo!["memo"] as NSString
+            var id: String = notification.userInfo!["id"] as! NSString as String
+            var prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
+            var medicine: String = notification.userInfo!["medicina"] as! NSString as String
+            var memo: String = notification.userInfo!["memo"] as! NSString as String
             
             var request = NSFetchRequest(entityName: "Medicina")
             var predicate = NSPredicate(format: "id = %@", id)
@@ -49,13 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.predicate = predicate
             
             var results = managedObjectContext?.executeFetchRequest(request, error: nil)
-            var selectedMedicine = results?[0] as NSManagedObject
+            var selectedMedicine = results?[0] as! NSManagedObject
             
             
             //TENTIAMO DI APPLICARE IL FORCED CONTROLLERS
-            var rootNavigationController = self.window!.rootViewController as UINavigationController
+            var rootNavigationController = self.window!.rootViewController as! UINavigationController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as DetailTableViewController
+            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
             detailViewController.selectedPrescription = prescription
             detailViewController.selectedMedicine = selectedMedicine
             detailViewController.userInfo = notification.userInfo
@@ -75,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication!, didReceiveLocalNotification notification: UILocalNotification!)
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
     {
         NSLog("didRecieveLocalNotification")
         
@@ -89,10 +90,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             audioPlayer!.play()
             
             //Gestisco notifica
-            var id: String = notification.userInfo!["id"] as NSString
-            var prescription: String = notification.userInfo!["prescrizione"] as NSString
-            var medicine: String = notification.userInfo!["medicina"] as NSString
-            var memo: String = notification.userInfo!["memo"] as NSString
+            var id: String = notification.userInfo!["id"] as! NSString as String
+            var prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
+            var medicine: String = notification.userInfo!["medicina"] as! NSString as String
+            var memo: String = notification.userInfo!["memo"] as! NSString as String
             
             var request = NSFetchRequest(entityName: "Medicina")
             var predicate = NSPredicate(format: "id = %@", id)
@@ -100,15 +101,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.predicate = predicate
             
             var results = managedObjectContext?.executeFetchRequest(request, error: nil)
-            var selectedMedicine = results?[0] as NSManagedObject
+            var selectedMedicine = results?[0] as! NSManagedObject
             
             var alert = UIAlertController(title: medicine, message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@", comment: "Messaggio della notifica"), prescription, memo), preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"), style: UIAlertActionStyle.Cancel, handler: nil))
             alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"), style: UIAlertActionStyle.Destructive, handler: { alert in
                 
-                var rootNavigationController = self.window!.rootViewController as UINavigationController
+                var rootNavigationController = self.window!.rootViewController as! UINavigationController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as DetailTableViewController
+                var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
                 detailViewController.selectedPrescription = prescription
                 detailViewController.selectedMedicine = selectedMedicine
                 detailViewController.userInfo = notification.userInfo
@@ -135,8 +136,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else if application.applicationState == UIApplicationState.Inactive
         {
             NSLog("-----> Ero Inattivo")
-            var id: String = notification.userInfo!["id"] as NSString
-            var prescription: String = notification.userInfo!["prescrizione"] as NSString
+            var id: String = notification.userInfo!["id"] as! NSString as String
+            var prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
             
             var request = NSFetchRequest(entityName: "Medicina")
             var predicate = NSPredicate(format: "id = %@", id)
@@ -144,13 +145,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.predicate = predicate
             
             var results = managedObjectContext?.executeFetchRequest(request, error: nil)
-            var selectedMedicine = results?[0] as NSManagedObject
+            var selectedMedicine = results?[0] as! NSManagedObject
             
             
             //TENTIAMO DI APPLICARE IL FORCED CONTROLLERS
-            var rootNavigationController = self.window!.rootViewController as UINavigationController
+            var rootNavigationController = self.window!.rootViewController as! UINavigationController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as DetailTableViewController
+            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
             detailViewController.selectedPrescription = prescription
             detailViewController.selectedMedicine = selectedMedicine
             detailViewController.userInfo = notification.userInfo
@@ -208,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.stain.sattoh" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -233,7 +234,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")

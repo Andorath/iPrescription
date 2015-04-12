@@ -34,7 +34,7 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
     {
         currentTextField?.resignFirstResponder()
         //UNIVERSALIZZATA
-        let del = UIApplication.sharedApplication().delegate as AppDelegate
+        let del = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = del.managedObjectContext
         
         if newPrescription
@@ -60,12 +60,12 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
         if newPrescription && nameTextField.text == ""
         {
             currentTextField?.resignFirstResponder()
-            var nome = self.prescription!.valueForKey("nome") as String
+            var nome = self.prescription!.valueForKey("nome") as! String
             let alert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup medicina vuota"), message: String(format:NSLocalizedString("Non è stato inserito alcun nome per la medicina. La prescrizione %@ sarà vuota. Vuoi comunque continuare?", comment: "Messaggio popup nome medicina vuota"), nome), preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Annulla comando popup medicina vuota"), style: UIAlertActionStyle.Default, handler: nil))
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok comando popup medicina vuota"), style: UIAlertActionStyle.Default, handler: {alert in
                 
-                    let del = UIApplication.sharedApplication().delegate as AppDelegate
+                    let del = UIApplication.sharedApplication().delegate as! AppDelegate
                     let context = del.managedObjectContext
                     context!.save(nil)
                 
@@ -88,10 +88,10 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
         {
             currentTextField?.resignFirstResponder()
             
-            let del = UIApplication.sharedApplication().delegate as AppDelegate
+            let del = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = del.managedObjectContext
             
-            var medicine = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context!) as NSManagedObject
+            var medicine = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context!) as! NSManagedObject
             
             medicine.setValue(nameTextField.text, forKey: "nome")
             medicine.setValue(dosageFormTextField.text, forKey: "forma")
@@ -124,14 +124,14 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
             
             if newPrescription
             {
-                var nome = self.prescription!.valueForKey("nome") as String
+                var nome = self.prescription!.valueForKey("nome") as! String
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let myVC = storyboard.instantiateViewControllerWithIdentifier("medicineList") as MedicineTableViewController
+                let myVC = storyboard.instantiateViewControllerWithIdentifier("medicineList") as! MedicineTableViewController
                 myVC.selectedPrescription = nome
-                let presentingVC = self.navigationController!.presentingViewController as UINavigationController
+                let presentingVC = self.navigationController!.presentingViewController as! UINavigationController
                 
                 self.dismissViewControllerAnimated(true, completion: {presentingVC.pushViewController(myVC, animated: true)
-                    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button da add medicine"), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)})
+                    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button da add medicine"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)})
             }
             else
             {
@@ -163,7 +163,7 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
     
     //Codice Delegato di testo
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         if textField == nameTextField
         {
@@ -189,16 +189,15 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
         return true
     }
     
-    func textFieldDidBeginEditing(textField: UITextField!)
+    func textFieldDidBeginEditing(textField: UITextField)
     {
         currentTextField = textField
     }
     
-    func textViewDidBeginEditing(textView: UITextView!) -> Bool
+    func textViewDidBeginEditing(textView: UITextView)
     {
         currentTextField = textView
         
-        return true
     }
     
     
@@ -221,10 +220,10 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
 
     override func viewDidLoad() {
         
-        let del = UIApplication.sharedApplication().delegate as AppDelegate
+        let del = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = del.managedObjectContext
         
-        medicineSet = (prescription!.valueForKey("medicine") as NSMutableOrderedSet).mutableCopy() as NSMutableOrderedSet
+        medicineSet = (prescription!.valueForKey("medicine") as! NSMutableOrderedSet).mutableCopy() as! NSMutableOrderedSet
         
         var toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
         toolBar.barStyle = UIBarStyle.Default

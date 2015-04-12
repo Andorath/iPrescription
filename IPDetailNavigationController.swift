@@ -18,16 +18,16 @@ class IPDetailNavigationController: UINavigationController, UISplitViewControlle
     
     //Funzioni delegate
     
-    func splitViewController(svc: UISplitViewController!, willHideViewController aViewController: UIViewController!, withBarButtonItem barButtonItem: UIBarButtonItem!, forPopoverController pc: UIPopoverController!)
+    func splitViewController(svc: UISplitViewController, willHideViewController aViewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController pc: UIPopoverController)
     {
         barButtonItem.title = "sattoh"
         barButtonItem.image = UIImage(named: "menu@2x.png")
-        (self.viewControllers[0] as UIViewController).navigationItem.leftBarButtonItem = barButtonItem
+        (self.viewControllers[0] as! UIViewController).navigationItem.leftBarButtonItem = barButtonItem
     }
     
-    func splitViewController(svc: UISplitViewController!, willShowViewController aViewController: UIViewController!, invalidatingBarButtonItem barButtonItem: UIBarButtonItem!)
+    func splitViewController(svc: UISplitViewController, willShowViewController aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem)
     {
-        (self.viewControllers[0] as UIViewController).navigationItem.leftBarButtonItem = nil
+        (self.viewControllers[0] as! UIViewController).navigationItem.leftBarButtonItem = nil
     }
 
 

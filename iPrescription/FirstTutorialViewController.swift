@@ -20,7 +20,7 @@ class FirstTutorialViewController: PageViewController {
     @IBOutlet weak var text6: UITextView!
     
     
-    override init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.pageIndex = 1
     }

@@ -30,7 +30,7 @@ class ChangeDateTableViewController: UITableViewController {
     
     @IBAction func donePressed(sender: AnyObject)
     {
-        ((self.navigationController?.presentingViewController as UINavigationController).topViewController as DetailTableViewController).assumiFarmaco(selettoreData.date)
+        ((self.navigationController?.presentingViewController as! UINavigationController).topViewController as! DetailTableViewController).assumiFarmaco(selettoreData.date)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

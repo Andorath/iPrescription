@@ -22,7 +22,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     
     required init(coder aDecoder: NSCoder)
     {
-        del = UIApplication.sharedApplication().delegate as AppDelegate
+        del = UIApplication.sharedApplication().delegate as! AppDelegate
         context = del.managedObjectContext!
         therapyList = [AnyObject]()
         
@@ -57,9 +57,9 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
         
         let addAction = UIAlertAction(title: NSLocalizedString("Salva", comment: "Azione salva popup creazione nuova prescrizione"), style: UIAlertActionStyle.Default, handler: { alert in
             
-            var stringNoSpaces: NSString = ((addAlertView.textFields![0] as UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            var stringNoSpaces: NSString = ((addAlertView.textFields![0] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
-            if self.alreadyExists(stringNoSpaces)
+            if self.alreadyExists(stringNoSpaces as String)
             {
                 let alreadyExistAlert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup errore nome prescrizione"), message: NSLocalizedString("Esiste già una prescrizione con questo nome", comment: "Messaggio popup errore prescrizione"), preferredStyle: UIAlertControllerStyle.Alert)
                 alreadyExistAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione prescrizione"), style: UIAlertActionStyle.Default, handler: nil))
@@ -68,15 +68,15 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             else
             {
                 
-                var prescription = NSEntityDescription.insertNewObjectForEntityForName("Terapia", inManagedObjectContext: self.context) as NSManagedObject
+                var prescription = NSEntityDescription.insertNewObjectForEntityForName("Terapia", inManagedObjectContext: self.context) as! NSManagedObject
                 
                 prescription.setValue(stringNoSpaces, forKey: "nome")
                 prescription.setValue(NSDate(), forKey: "creazione")
                 
                 //Fa apparire il View Controller isolato nella storyboard
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let myVC = storyboard.instantiateViewControllerWithIdentifier("addFormNavigationController") as UINavigationController
-                (myVC.viewControllers[0] as AddFormTableViewController).prescription = prescription
+                let myVC = storyboard.instantiateViewControllerWithIdentifier("addFormNavigationController") as! UINavigationController
+                (myVC.viewControllers[0] as! AddFormTableViewController).prescription = prescription
                 self.presentViewController(myVC, animated: true, completion: nil)
                 
                 //removeTextFieldObserver()
@@ -107,8 +107,8 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     //handler
     func handleTextFieldTextDidChangeNotification (notification: NSNotification)
     {
-        var textField = notification.object as UITextField
-        AddAlertSaveAction!.enabled = textField.text.utf16Count >= 1
+        var textField = notification.object as! UITextField
+        AddAlertSaveAction!.enabled = count(textField.text.utf16) >= 1
     }
     
     func updateInterface ()
@@ -134,16 +134,16 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     func countNotification(prescription: NSManagedObject) -> Int
     {
         var count: Int = 0
-        var medicineList = (prescription.valueForKey("medicine") as NSOrderedSet).array
+        var medicineList = (prescription.valueForKey("medicine") as! NSOrderedSet).array
         var notifications = UIApplication.sharedApplication().scheduledLocalNotifications
         
         for medicine in medicineList
         {
-            var id = (medicine as NSManagedObject).valueForKey("id") as NSString
+            var id = (medicine as! NSManagedObject).valueForKey("id") as! NSString
             
             for notification in notifications
             {
-                if id == (notification as UILocalNotification).userInfo!["id"] as NSString
+                if id == (notification as! UILocalNotification).userInfo!["id"] as! String
                 {
                     count++
                 }
@@ -176,14 +176,14 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     {
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-            var delObj = therapyList[indexPath.row] as NSManagedObject
+            var delObj = therapyList[indexPath.row] as! NSManagedObject
             
             //Rimuoviamo le notifiche
-            var medicineList = (delObj.valueForKey("medicine") as NSOrderedSet).array
+            var medicineList = (delObj.valueForKey("medicine") as! NSOrderedSet).array
             
             for medicina in medicineList
             {
-                MedicineTableViewController.deleteNotificationForMedicine(medicina as NSManagedObject)
+                MedicineTableViewController.deleteNotificationForMedicine(medicina as! NSManagedObject)
             }
             
             
@@ -193,7 +193,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             
             //Rimuovimao dal TherapyList
             therapyList.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths(NSArray(object: indexPath), withRowAnimation: UITableViewRowAnimation.Right)
+            tableView.deleteRowsAtIndexPaths(NSArray(object: indexPath) as [AnyObject], withRowAnimation: UITableViewRowAnimation.Right)
         }
     }
     
@@ -222,11 +222,11 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             cell = PrescriptionTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "my Cell")
         }
         
-        var terapia: NSManagedObject = therapyList[indexPath.row] as NSManagedObject
+        var terapia: NSManagedObject = therapyList[indexPath.row] as! NSManagedObject
         cell!.textLabel?.text = terapia.valueForKey("nome") as? String
         
         cell!.imageView?.image = UIImage(named: "Prescription.png")
-        var medicineList = (terapia.valueForKey("medicine") as NSOrderedSet).array
+        var medicineList = (terapia.valueForKey("medicine") as! NSOrderedSet).array
         var medString: String
         if medicineList.count == 1
         {
@@ -237,7 +237,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             medString = NSLocalizedString("Medicine", comment: "Sottotitolo riga della prescrizione al plurale")
         }
         
-        var count = countNotification(therapyList[indexPath.row] as NSManagedObject)
+        var count = countNotification(therapyList[indexPath.row] as! NSManagedObject)
         
         if count == 0
         {
@@ -280,9 +280,9 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             
             let changeAction = UIAlertAction(title: NSLocalizedString("Cambia", comment: "comando Cambia popup cambiamento nome prescrizione"), style: UIAlertActionStyle.Default, handler: { alert in
                 
-                var stringNoSpaces: NSString = ((alertChange.textFields![0] as UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                var stringNoSpaces: NSString = ((alertChange.textFields![0] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 
-                if self.alreadyExists(stringNoSpaces)
+                if self.alreadyExists(stringNoSpaces as String)
                 {
                     let alreadyExistAlert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup errore nome prescrizione"), message: NSLocalizedString("Esiste già una prescrizione con questo nome", comment: "Messaggio popup errore prescrizione"), preferredStyle: UIAlertControllerStyle.Alert)
                     alreadyExistAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione prescrizione"), style: UIAlertActionStyle.Default, handler: nil))
@@ -291,12 +291,12 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
                 else
                 {
                     
-                    var selected = self.therapyList[self.tableView.indexPathForSelectedRow()!.row] as NSManagedObject
-                    selected.setValue((alertChange.textFields![0] as UITextField).text, forKey: "nome")
+                    var selected = self.therapyList[self.tableView.indexPathForSelectedRow()!.row] as! NSManagedObject
+                    selected.setValue((alertChange.textFields![0] as! UITextField).text, forKey: "nome")
                     self.context.save(nil)
                     
                     var cell = tableView.cellForRowAtIndexPath(indexPath)
-                    cell!.textLabel?.text = (alertChange.textFields![0] as UITextField).text
+                    cell!.textLabel?.text = (alertChange.textFields![0] as! UITextField).text
                     
                     self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
                     //removeTextFieldObserver()
@@ -335,7 +335,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     
     //Funzioni delegato di testo
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true
@@ -357,10 +357,10 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     {
         if segue.identifier == "toMedicines2"
         {
-            var destinationController = segue.destinationViewController as MedicineTableViewController
+            var destinationController = segue.destinationViewController as! MedicineTableViewController
             destinationController.selectedPrescription = selectedRow!
             //cambio back button
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button prescrizioni"), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button prescrizioni"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         }
     }
     
@@ -368,7 +368,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     {
         //tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
         NSNotificationCenter.defaultCenter().postNotificationName("NSUpdateInterface", object: nil)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button prescrizioni"), style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button prescrizioni"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
         if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
         {

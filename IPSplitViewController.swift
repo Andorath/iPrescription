@@ -15,7 +15,7 @@ class IPSplitViewController: UISplitViewController {
         
         self.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         
-        var detailNavigationController = (viewControllers[1] as IPDetailNavigationController)
+        var detailNavigationController = (viewControllers[1] as! IPDetailNavigationController)
         self.delegate = detailNavigationController
         
         //Notifiche
@@ -32,9 +32,9 @@ class IPSplitViewController: UISplitViewController {
     
     func showDetail(notification: NSNotification)
     {
-        var oldDetail = (self.viewControllers[1] as UINavigationController).viewControllers[0] as UIViewController
+        var oldDetail = (self.viewControllers[1] as! UINavigationController).viewControllers[0] as! UIViewController
         //(notification.object as UIViewController).navigationItem.leftBarButtonItem = oldDetail.navigationItem.leftBarButtonItem
-        var navigation = self.viewControllers[1] as IPDetailNavigationController
+        var navigation = self.viewControllers[1] as! IPDetailNavigationController
         navigation.setViewControllers([notification.object!], animated: true)
     }
 }

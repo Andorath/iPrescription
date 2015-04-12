@@ -16,7 +16,7 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
     {
-        var index = (viewController as PageViewController).pageIndex!
+        var index = (viewController as! PageViewController).pageIndex!
         if (index == 0) || (index == NSNotFound)
         {
             return nil
@@ -29,7 +29,7 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
     {
-        var index = (viewController as PageViewController).pageIndex!
+        var index = (viewController as! PageViewController).pageIndex!
         
         if (index == NSNotFound) || (index == self.pageNumber)
         {
@@ -54,21 +54,21 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
             
         case 0:
             println("Ritorna presentation")
-            return storyboard.instantiateViewControllerWithIdentifier("presentationController") as PageViewController!
+            return storyboard.instantiateViewControllerWithIdentifier("presentationController") as! PageViewController!
         case 1:
             println("Ritorna firstTutorial")
-            return storyboard.instantiateViewControllerWithIdentifier("firstTutorialController") as PageViewController!
+            return storyboard.instantiateViewControllerWithIdentifier("firstTutorialController") as! PageViewController!
         default:
             return nil
         }
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController!) -> Int
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
     {
         return self.pageNumber
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController!) -> Int
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
     {
         return 0
     }

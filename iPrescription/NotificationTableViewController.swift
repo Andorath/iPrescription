@@ -74,7 +74,7 @@ class NotificationTableViewController: UITableViewController
         {
             UIApplication.sharedApplication().cancelLocalNotification(notifications[indexPath.row])
             notifications.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths(NSArray(object: indexPath), withRowAnimation: UITableViewRowAnimation.Right)
+            tableView.deleteRowsAtIndexPaths(NSArray(object: indexPath) as [AnyObject], withRowAnimation: UITableViewRowAnimation.Right)
             NSNotificationCenter.defaultCenter().postNotificationName("NSUpdateInterface", object: nil)
         }
     }

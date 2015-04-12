@@ -30,7 +30,7 @@ class IPSplashViewController: UIViewController, UISplitViewControllerDelegate {
         self.view.addSubview(blurredBackgroundView)
         
         
-        var vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurredBackgroundView.effect as UIBlurEffect)
+        var vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurredBackgroundView.effect as! UIBlurEffect)
         var vibrantLabelContainerView = UIVisualEffectView(effect: vibrancyEffect)
         vibrantLabelContainerView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
         vibrantLabelContainerView.frame = self.view.bounds

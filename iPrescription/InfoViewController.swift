@@ -18,7 +18,7 @@ class InfoViewController: PageViewController {
     @IBOutlet weak var gestisciNotifiche: UITextView!
     @IBOutlet weak var designText: UITextView!
     
-    override init(coder aDecoder: NSCoder)
+    required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         self.pageIndex = 0
