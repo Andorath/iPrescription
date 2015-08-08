@@ -45,7 +45,9 @@
 		A97D81A319CC2EF60010E7A4 /* add_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = A97D81A219CC2EF60010E7A4 /* add_notification.png */; };
 		A97D81A519CC2EFD0010E7A4 /* all_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = A97D81A419CC2EFD0010E7A4 /* all_notification.png */; };
 		A982EFA81B767511008C238E /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A982EFA71B767511008C238E /* Main2.storyboard */; };
-		A982EFAB1B7678EA008C238E /* PrescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982EFAA1B7678EA008C238E /* PrescriptionModel.swift */; };
+		A982EFAB1B7678EA008C238E /* PrescriptionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982EFAA1B7678EA008C238E /* PrescriptionList.swift */; };
+		A982EFAE1B7680AE008C238E /* NPrescriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982EFAD1B7680AE008C238E /* NPrescriptionTableViewController.swift */; };
+		A982EFB01B76AD87008C238E /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982EFAF1B76AD87008C238E /* Prescription.swift */; };
 		A986C14C1961C63F00649A91 /* AddFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */; };
 		A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */; };
 		A99CA93B1993CF5700A388BD /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93A1993CF5700A388BD /* InfoPageViewController.swift */; };
@@ -131,7 +133,9 @@
 		A97D81A219CC2EF60010E7A4 /* add_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_notification.png; sourceTree = "<group>"; };
 		A97D81A419CC2EFD0010E7A4 /* all_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_notification.png; sourceTree = "<group>"; };
 		A982EFA71B767511008C238E /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
-		A982EFAA1B7678EA008C238E /* PrescriptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionModel.swift; sourceTree = "<group>"; };
+		A982EFAA1B7678EA008C238E /* PrescriptionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionList.swift; sourceTree = "<group>"; };
+		A982EFAD1B7680AE008C238E /* NPrescriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPrescriptionTableViewController.swift; sourceTree = "<group>"; };
+		A982EFAF1B76AD87008C238E /* Prescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
 		A986C14A1961C02F00649A91 /* iPrescription-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPrescription-Bridging-Header.h"; sourceTree = "<group>"; };
 		A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddFormTableViewController.swift; path = ../AddFormTableViewController.swift; sourceTree = "<group>"; };
 		A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */,
 				A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */,
 				A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */,
+				A982EFAC1B768064008C238E /* 2.0 */,
 				A982EFA91B7678C9008C238E /* Model */,
 				A99CA93E1993D1C200A388BD /* Custom Class */,
 				A90528C9195ED005004A54C4 /* Images.xcassets */,
@@ -309,9 +314,18 @@
 		A982EFA91B7678C9008C238E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A982EFAA1B7678EA008C238E /* PrescriptionModel.swift */,
+				A982EFAA1B7678EA008C238E /* PrescriptionList.swift */,
+				A982EFAF1B76AD87008C238E /* Prescription.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A982EFAC1B768064008C238E /* 2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				A982EFAD1B7680AE008C238E /* NPrescriptionTableViewController.swift */,
+			);
+			name = 2.0;
 			sourceTree = "<group>";
 		};
 		A99CA93E1993D1C200A388BD /* Custom Class */ = {
@@ -509,10 +523,12 @@
 				A99CA9401993DF4B00A388BD /* FirstTutorialViewController.swift in Sources */,
 				A99CA93D1993D0AB00A388BD /* PageViewController.swift in Sources */,
 				A96DCD67198AA43C00C6472E /* IPSplashViewController.swift in Sources */,
-				A982EFAB1B7678EA008C238E /* PrescriptionModel.swift in Sources */,
+				A982EFAB1B7678EA008C238E /* PrescriptionList.swift in Sources */,
+				A982EFAE1B7680AE008C238E /* NPrescriptionTableViewController.swift in Sources */,
 				A90528C8195ED005004A54C4 /* iPrescription.xcdatamodeld in Sources */,
 				A99CA93B1993CF5700A388BD /* InfoPageViewController.swift in Sources */,
 				A96DC42A1988152B003BC2FD /* InfoViewController.swift in Sources */,
+				A982EFB01B76AD87008C238E /* Prescription.swift in Sources */,
 				A978E1B21975C24F000503B5 /* PrescriptionTableViewController.swift in Sources */,
 				A905CA3A198BEB210096E519 /* IPDetailTableViewController.swift in Sources */,
 				A961CF4F1987B3A900BA2E77 /* DismissSegue.swift in Sources */,
@@ -721,7 +737,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -740,7 +755,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

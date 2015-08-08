@@ -19,9 +19,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>179</string>
+	<string>189</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>Main2</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main2</string>
 	<key>UIRequiredDeviceCapabilities</key>
