@@ -48,16 +48,16 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
             return nil
         }
         
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         switch index {
             
         case 0:
-            println("Ritorna presentation")
-            return storyboard.instantiateViewControllerWithIdentifier("presentationController") as! PageViewController!
+            print("Ritorna presentation")
+            return storyboard.instantiateViewControllerWithIdentifier("presentationController") as? PageViewController
         case 1:
-            println("Ritorna firstTutorial")
-            return storyboard.instantiateViewControllerWithIdentifier("firstTutorialController") as! PageViewController!
+            print("Ritorna firstTutorial")
+            return storyboard.instantiateViewControllerWithIdentifier("firstTutorialController") as? PageViewController
         default:
             return nil
         }
@@ -80,8 +80,8 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
         self.dataSource = self
         self.view.backgroundColor = UIColor(red: 0.624, green: 0.988, blue: 0.898, alpha: 1)
         
-        var first = self.viewControllerAtIndex(0)!
-        var controllers = [first]
+        let first = self.viewControllerAtIndex(0)!
+        let controllers = [first]
         self.setViewControllers(controllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
     }
 

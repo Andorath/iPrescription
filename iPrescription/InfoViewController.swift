@@ -18,7 +18,7 @@ class InfoViewController: PageViewController {
     @IBOutlet weak var gestisciNotifiche: UITextView!
     @IBOutlet weak var designText: UITextView!
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         self.pageIndex = 0
@@ -26,7 +26,7 @@ class InfoViewController: PageViewController {
     
     override func viewWillAppear(animated: Bool)
     {
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         super.viewWillAppear(animated)
     }

@@ -30,7 +30,7 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
     @IBOutlet var noteTextView: UITextView!
     @IBOutlet var doctorTextField: UITextField!
 
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         del = UIApplication.sharedApplication().delegate as! AppDelegate
         context = del.managedObjectContext!
@@ -58,11 +58,11 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
             doctorTextField.userInteractionEnabled = true
             doctorTextField.borderStyle = UITextBorderStyle.RoundedRect
             
-            var toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+            let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
             toolBar.barStyle = UIBarStyle.Default
-            var doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della Barbutton Detail"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
+            let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della Barbutton Detail"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
             doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
-            var arrayItem = [doneButton]
+            let arrayItem = [doneButton]
             toolBar.items = arrayItem
             
             noteTextView.inputAccessoryView = toolBar
@@ -95,7 +95,10 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
             selectedMedicine!.setValue(noteTextView.text, forKey: "note")
             selectedMedicine!.setValue(doctorTextField.text, forKey: "dottore")
             
-            context.save(nil)
+            do {
+                try context.save()
+            } catch _ {
+            }
             
             NSNotificationCenter.defaultCenter().postNotificationName("NSUpdateInterface", object: nil)
         }
@@ -122,7 +125,10 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
     func assumiFarmaco(dataAssunzione: NSDate)
     {
         selectedMedicine!.setValue(dataAssunzione, forKey: "data_ultima_assunzione")
-        context.save(nil)
+        do {
+            try context.save()
+        } catch _ {
+        }
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEE dd MMMM hh:mm a"
         self.dataAssunzione.text = dateFormatter.stringFromDate(dataAssunzione)
@@ -133,21 +139,24 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
     {
         dataAssunzione.text = ""
         selectedMedicine!.setValue(nil, forKey: "data_ultima_assunzione")
-        context.save(nil)
+        do {
+            try context.save()
+        } catch _ {
+        }
     }
     
     func showAssunzioneAlert()
     {
-        println("E' arrivato")
+        print("E' arrivato")
         var id: String = self.userInfo!["id"] as! NSString as String
-        var prescription: String = self.userInfo!["prescrizione"] as! NSString as String
-        var medicine: String = self.userInfo!["medicina"] as! NSString as String
-        var memo: String = self.userInfo!["memo"] as! NSString as String
+        let prescription: String = self.userInfo!["prescrizione"] as! NSString as String
+        let medicine: String = self.userInfo!["medicina"] as! NSString as String
+        let memo: String = self.userInfo!["memo"] as! NSString as String
         
         //Creiamo l'avviso per l'assunzione del farmaco
         
         
-        var alert = UIAlertController(title: medicine, message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@\n\nVuoi assumere il farmaco adesso?", comment: "Messaggio popup notifica assunzione farmaco"), prescription, memo), preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: medicine, message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@\n\nVuoi assumere il farmaco adesso?", comment: "Messaggio popup notifica assunzione farmaco"), prescription, memo), preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Comando no popup assunzione farmaco"), style: UIAlertActionStyle.Cancel, handler: nil))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Comando si popup assunzione farmaco"), style: UIAlertActionStyle.Default, handler: { alert in self.assumiFarmaco(NSDate())}))
         
@@ -204,17 +213,19 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
         }
         else if segue.identifier == "toNotificationList"
         {
-            var scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification]
             var selectedNotifications = [UILocalNotification]()
             var id: AnyObject? = selectedMedicine?.valueForKey("id")
             
-            for notification in scheduledNotifications
+            if let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications
             {
-                let userInfo = notification.userInfo
-                
-                if userInfo!["id"] as! String == id as! String
+                for notification in scheduledNotifications
                 {
-                    selectedNotifications.append(notification)
+                    let userInfo = notification.userInfo
+                    
+                    if userInfo!["id"] as! String == id as! String
+                    {
+                        selectedNotifications.append(notification)
+                    }
                 }
             }
             
@@ -225,7 +236,7 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
     
     override func viewWillAppear(animated: Bool)
     {
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Backbutton detaiil"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
@@ -246,13 +257,13 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
 
         
         var viewControllers = self.navigationController!.viewControllers
-        var n = viewControllers.count
+        let n = viewControllers.count
         
         if !(viewControllers[n - 2] is MedicineTableViewController)
         {
             UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var medicineController = storyboard.instantiateViewControllerWithIdentifier("medicineList") as! MedicineTableViewController
+            let medicineController = storyboard.instantiateViewControllerWithIdentifier("medicineList") as! MedicineTableViewController
             medicineController.selectedMedicineName = selectedMedicine!.valueForKey("nome") as? String
             medicineController.selectedPrescription = selectedPrescription
             self.navigationController!.setViewControllers([medicineController, self], animated: true)
@@ -264,7 +275,7 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
         periodTextField.text = selectedMedicine!.valueForKey("durata") as! String
         noteTextView.text = selectedMedicine!.valueForKey("note") as! String
         doctorTextField.text = selectedMedicine!.valueForKey("dottore") as! String
-        var data = selectedMedicine!.valueForKey("data_ultima_assunzione") as! NSDate?
+        let data = selectedMedicine!.valueForKey("data_ultima_assunzione") as! NSDate?
         if data != nil
         {
             let dateFormatter = NSDateFormatter()

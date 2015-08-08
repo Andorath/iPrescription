@@ -21,18 +21,18 @@ class IPSplashViewController: UIViewController, UISplitViewControllerDelegate {
         //Questa linea di codice è fondamentale per eliminare un artefatto del backbutton drante la transizione
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
-        var blurredBackgroundView = UIVisualEffectView(effect: blurEffect)
-        blurredBackgroundView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+        let blurredBackgroundView = UIVisualEffectView(effect: blurEffect)
+        blurredBackgroundView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         blurredBackgroundView.frame = self.view.bounds
         blurredBackgroundView.contentView.frame = blurredBackgroundView.frame
         
         self.view.addSubview(blurredBackgroundView)
         
         
-        var vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurredBackgroundView.effect as! UIBlurEffect)
-        var vibrantLabelContainerView = UIVisualEffectView(effect: vibrancyEffect)
-        vibrantLabelContainerView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        let vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurredBackgroundView.effect as! UIBlurEffect)
+        let vibrantLabelContainerView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrantLabelContainerView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         vibrantLabelContainerView.frame = self.view.bounds
         
         blurredBackgroundView.contentView.addSubview(vibrantLabelContainerView)

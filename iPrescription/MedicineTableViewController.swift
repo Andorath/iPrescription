@@ -19,7 +19,7 @@ class MedicineTableViewController: UITableViewController {
     var context: NSManagedObjectContext
     var medicineList: [AnyObject]
 
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         del = UIApplication.sharedApplication().delegate as! AppDelegate
         context = del.managedObjectContext!
@@ -31,13 +31,18 @@ class MedicineTableViewController: UITableViewController {
     
     @IBAction func addMedicine(sender: AnyObject)
     {
-        var request = NSFetchRequest(entityName: "Terapia")
-        var predicate = NSPredicate(format: "nome = %@", selectedPrescription!)
+        let request = NSFetchRequest(entityName: "Terapia")
+        let predicate = NSPredicate(format: "nome = %@", selectedPrescription!)
         request.returnsObjectsAsFaults = false
         request.predicate = predicate
         
-        var results = context.executeFetchRequest(request, error: nil)
-        var selectedTerapia = (results![0] as! NSManagedObject)
+        var results: [AnyObject]?
+        do {
+            results = try context.executeFetchRequest(request)
+        } catch _ {
+            results = nil
+        }
+        let selectedTerapia = (results![0] as! NSManagedObject)
         
         let myVC = storyboard!.instantiateViewControllerWithIdentifier("addFormNavigationController") as! UINavigationController
         (myVC.viewControllers[0] as! AddFormTableViewController).prescription = selectedTerapia
@@ -49,41 +54,44 @@ class MedicineTableViewController: UITableViewController {
     
     class func deleteNotificationForMedicine(medicine: NSManagedObject)
     {
-        var notifications = UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification]
         var id = medicine.valueForKey("id") as! NSString
         
         var count =  0
         
-        for notification in notifications
+        if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
         {
-            let userInfo = notification.userInfo
-            
-            if userInfo!["id"] as! NSString == id
+            for notification in notifications
             {
-                UIApplication.sharedApplication().cancelLocalNotification(notification)
-                count++
-            }
+                let userInfo = notification.userInfo
+                
+                if userInfo!["id"] as! NSString == id
+                {
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    count++
+                }
 
+            }
         }
         
-        println("Sono state cancellate \(count) notifiche.")
+        print("Sono state cancellate \(count) notifiche.")
     }
     
     func thereIsNotificationFor (id: String) -> Bool
     {
         
-        let notifications = UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification]
-        
-        if notifications.count == 0
+        if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
         {
-            return false
-        }
-        
-        for notification in notifications
-        {
-            if notification.userInfo!["id"] as! String == id
+            if notifications.count == 0
             {
-                return true
+                return false
+            }
+            
+            for notification in notifications
+            {
+                if notification.userInfo!["id"] as! String == id
+                {
+                    return true
+                }
             }
         }
         
@@ -92,7 +100,7 @@ class MedicineTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool)
     {
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "BackButton medicine"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
@@ -105,24 +113,29 @@ class MedicineTableViewController: UITableViewController {
         tableView.reloadData()
         
         //tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
-        var requestMedicina = NSFetchRequest(entityName: "Medicina")
+        let requestMedicina = NSFetchRequest(entityName: "Medicina")
         requestMedicina.returnsObjectsAsFaults = false
-        var listMedicina = context.executeFetchRequest(requestMedicina, error: nil) as! [NSManagedObject]
-        println("\(listMedicina.count) elementi in Medicina")
+        var listMedicina = try! context.executeFetchRequest(requestMedicina) as! [NSManagedObject]
+        print("\(listMedicina.count) elementi in Medicina")
         super.viewWillAppear(animated)
     }
     
     func updateInterface ()
     {
-        var request = NSFetchRequest(entityName: "Terapia")
-        var predicate = NSPredicate(format: "nome = %@", selectedPrescription!)
+        let request = NSFetchRequest(entityName: "Terapia")
+        let predicate = NSPredicate(format: "nome = %@", selectedPrescription!)
         request.returnsObjectsAsFaults = false
         request.predicate = predicate
         
-        var results = context.executeFetchRequest(request, error: nil)
+        var results: [AnyObject]?
+        do {
+            results = try context.executeFetchRequest(request)
+        } catch _ {
+            results = nil
+        }
         if !results!.isEmpty
         {
-            var selectedTerapia = (results![0] as! NSManagedObject)
+            let selectedTerapia = (results![0] as! NSManagedObject)
             medicineList = (selectedTerapia.valueForKey("medicine") as! NSOrderedSet).array
         }
         tableView.reloadData()
@@ -131,22 +144,27 @@ class MedicineTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         var viewControllers = self.navigationController!.viewControllers
-        var n = viewControllers.count
+        let n = viewControllers.count
         
         if n == 1
         {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var prescriptionController = storyboard.instantiateViewControllerWithIdentifier("prescriptionList") as! PrescriptionTableViewController
+            let prescriptionController = storyboard.instantiateViewControllerWithIdentifier("prescriptionList") as! PrescriptionTableViewController
             prescriptionController.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "BackButton medicine"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
             self.navigationController!.setViewControllers([prescriptionController, self], animated: true)
         }
         
-        var request = NSFetchRequest(entityName: "Terapia")
-        var predicate = NSPredicate(format: "nome = %@", selectedPrescription!)
+        let request = NSFetchRequest(entityName: "Terapia")
+        let predicate = NSPredicate(format: "nome = %@", selectedPrescription!)
         request.returnsObjectsAsFaults = false
         request.predicate = predicate
-        var results = context.executeFetchRequest(request, error: nil)
-        var selectedTerapia = (results![0] as! NSManagedObject)
+        var results: [AnyObject]?
+        do {
+            results = try context.executeFetchRequest(request)
+        } catch _ {
+            results = nil
+        }
+        let selectedTerapia = (results![0] as! NSManagedObject)
         medicineList = (selectedTerapia.valueForKey("medicine") as! NSOrderedSet).array
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "NSUpdateInterface", object: nil)
@@ -176,20 +194,20 @@ class MedicineTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: MedicineTableViewCell? = tableView.dequeueReusableCellWithIdentifier("my Cell", forIndexPath: indexPath) as? MedicineTableViewCell
+        let cell: MedicineTableViewCell? = tableView.dequeueReusableCellWithIdentifier("my Cell", forIndexPath: indexPath) as? MedicineTableViewCell
         
         /*if cell == nil
         {
             cell = MedicineTableViewCell(style: UITableViewCellStyle., reuseIdentifier: "my Cell")
         }*/
         
-        var medicina: NSManagedObject = medicineList[indexPath.row] as! NSManagedObject
+        let medicina: NSManagedObject = medicineList[indexPath.row] as! NSManagedObject
         cell!.textLabel?.text = medicina.valueForKey("nome") as? String
         
         cell!.imageView?.image = UIImage(named: "Medicine.png")
         
         //inserimento icona allarme
-        var id = medicina.valueForKey("id") as! NSString
+        let id = medicina.valueForKey("id") as! NSString
         if thereIsNotificationFor(id as String)
         {
             cell!.alarmIcon.image = UIImage(named: "alarm_trasparente.png")
@@ -205,7 +223,7 @@ class MedicineTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath
     {
-        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
         selectedMedicineName = cell!.textLabel?.text
         return indexPath
     }
@@ -235,25 +253,28 @@ class MedicineTableViewController: UITableViewController {
         
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-            var delObj = medicineList[indexPath!.row] as! NSManagedObject
+            let delObj = medicineList[indexPath!.row] as! NSManagedObject
             
             //Rimuoviamo le notifiche
             MedicineTableViewController.deleteNotificationForMedicine(delObj)
             
             //Rimuoviamo il record dal database
             context.deleteObject(delObj)
-            context.save(nil)
-            println("\(medicineList.count) elementi nell'array")
+            do {
+                try context.save()
+            } catch _ {
+            }
+            print("\(medicineList.count) elementi nell'array")
             
             //Probabilmente non è necessario rimuovere  dall'array perchè deleteObject() lo cancella per riferimento
             //UPDATE: dopo Beta 6-7 la riga seguente è necessaria!
             medicineList.removeAtIndex(indexPath!.row)
-            tableView!.deleteRowsAtIndexPaths(NSArray(object: indexPath!) as [AnyObject], withRowAnimation: UITableViewRowAnimation.Right)
+            tableView!.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Right)
             
             //Codice di Diagnostica
-            var requestMedicina = NSFetchRequest(entityName: "Medicina")
-            var listMedicina = context.executeFetchRequest(requestMedicina, error: nil) as! [NSManagedObject]
-            println("\(listMedicina.count) elementi in Medicina")
+            let requestMedicina = NSFetchRequest(entityName: "Medicina")
+            var listMedicina = try! context.executeFetchRequest(requestMedicina) as! [NSManagedObject]
+            print("\(listMedicina.count) elementi in Medicina")
             
         }
         
@@ -279,13 +300,18 @@ class MedicineTableViewController: UITableViewController {
     {
         if segue.identifier == "toDetail"
         {
-            var destinationController = segue.destinationViewController as! DetailTableViewController
-            var request = NSFetchRequest(entityName: "Medicina")
-            var predicate = NSPredicate(format: "nome = %@", selectedMedicineName!)
+            let destinationController = segue.destinationViewController as! DetailTableViewController
+            let request = NSFetchRequest(entityName: "Medicina")
+            let predicate = NSPredicate(format: "nome = %@", selectedMedicineName!)
             request.returnsObjectsAsFaults = false
             request.predicate = predicate
-            var results = context.executeFetchRequest(request, error: nil)
-            var selectedMedicina = (results![0] as! NSManagedObject)            
+            var results: [AnyObject]?
+            do {
+                results = try context.executeFetchRequest(request)
+            } catch _ {
+                results = nil
+            }
+            let selectedMedicina = (results![0] as! NSManagedObject)            
             
             destinationController.selectedMedicine = selectedMedicina
             destinationController.selectedPrescription = selectedPrescription

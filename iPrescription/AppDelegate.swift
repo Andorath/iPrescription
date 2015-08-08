@@ -22,42 +22,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //richiesta permessi per le notifiche
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |
-            UIUserNotificationType.Badge, categories: nil
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories: nil
             ))
         
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCurrentController:", name: "UpdateCurrentControllerNotification", object: nil)
-        println(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
+        print(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         
         if NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")
         {
             //L'app è stata già lanciata almeno una volta
-            println("E' stata già lanciata")
+            print("E' stata già lanciata")
         }
     
         
         //gestione delle notifiche locali ricevute
         if let notification: UILocalNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
         {
-            var id: String = notification.userInfo!["id"] as! NSString as String
-            var prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
+            let id: String = notification.userInfo!["id"] as! NSString as String
+            let prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
             var medicine: String = notification.userInfo!["medicina"] as! NSString as String
             var memo: String = notification.userInfo!["memo"] as! NSString as String
             
-            var request = NSFetchRequest(entityName: "Medicina")
-            var predicate = NSPredicate(format: "id = %@", id)
+            let request = NSFetchRequest(entityName: "Medicina")
+            let predicate = NSPredicate(format: "id = %@", id)
             request.returnsObjectsAsFaults = false
             request.predicate = predicate
             
-            var results = managedObjectContext?.executeFetchRequest(request, error: nil)
-            var selectedMedicine = results?[0] as! NSManagedObject
+            var results: [AnyObject]?
+            do {
+                results = try managedObjectContext?.executeFetchRequest(request)
+            } catch _ {
+                results = nil
+            }
+            let selectedMedicine = results?[0] as! NSManagedObject
             
             
             //TENTIAMO DI APPLICARE IL FORCED CONTROLLERS
-            var rootNavigationController = self.window!.rootViewController as! UINavigationController
+            let rootNavigationController = self.window!.rootViewController as! UINavigationController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
+            let detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
             detailViewController.selectedPrescription = prescription
             detailViewController.selectedMedicine = selectedMedicine
             detailViewController.userInfo = notification.userInfo
@@ -70,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //fine gestione notifiche locali
             
         //Inizio gestione Appearance
-        var pageControl = UIPageControl.appearance()
+        let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 0.4)
         pageControl.currentPageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
 
@@ -85,32 +89,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             NSLog("----> Stato Attivo")
             //creo il suono
-            var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chord", ofType: "m4r")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)
+            let alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chord", ofType: "m4r")!)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOfURL: alertSound)
+            } catch _ {
+                audioPlayer = nil
+            }
             audioPlayer!.prepareToPlay()
             audioPlayer!.play()
             
             //Gestisco notifica
-            var id: String = notification.userInfo!["id"] as! NSString as String
-            var prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
-            var medicine: String = notification.userInfo!["medicina"] as! NSString as String
-            var memo: String = notification.userInfo!["memo"] as! NSString as String
+            let id: String = notification.userInfo!["id"] as! NSString as String
+            let prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
+            let medicine: String = notification.userInfo!["medicina"] as! NSString as String
+            let memo: String = notification.userInfo!["memo"] as! NSString as String
             
-            var request = NSFetchRequest(entityName: "Medicina")
-            var predicate = NSPredicate(format: "id = %@", id)
+            let request = NSFetchRequest(entityName: "Medicina")
+            let predicate = NSPredicate(format: "id = %@", id)
             request.returnsObjectsAsFaults = false
             request.predicate = predicate
             
-            var results = managedObjectContext?.executeFetchRequest(request, error: nil)
-            var selectedMedicine = results?[0] as! NSManagedObject
+            var results: [AnyObject]?
+            do {
+                results = try managedObjectContext?.executeFetchRequest(request)
+            } catch _ {
+                results = nil
+            }
+            let selectedMedicine = results?[0] as! NSManagedObject
             
-            var alert = UIAlertController(title: medicine, message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@", comment: "Messaggio della notifica"), prescription, memo), preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: medicine, message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@", comment: "Messaggio della notifica"), prescription, memo), preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"), style: UIAlertActionStyle.Cancel, handler: nil))
             alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"), style: UIAlertActionStyle.Destructive, handler: { alert in
                 
-                var rootNavigationController = self.window!.rootViewController as! UINavigationController
+                let rootNavigationController = self.window!.rootViewController as! UINavigationController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
+                let detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
                 detailViewController.selectedPrescription = prescription
                 detailViewController.selectedMedicine = selectedMedicine
                 detailViewController.userInfo = notification.userInfo
@@ -118,9 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 {
                     self.currentController.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
                 }
-                println("Detail view Controller: \(detailViewController)")
-                println("selected prescription: \(detailViewController.selectedPrescription)")
-                println("selectedMedicine: \(detailViewController.selectedMedicine)")
+                print("Detail view Controller: \(detailViewController)")
+                print("selected prescription: \(detailViewController.selectedPrescription)")
+                print("selectedMedicine: \(detailViewController.selectedMedicine)")
                 rootNavigationController.setViewControllers([UIViewController(), detailViewController], animated: true)
             }))
             
@@ -137,22 +150,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else if application.applicationState == UIApplicationState.Inactive
         {
             NSLog("-----> Ero Inattivo")
-            var id: String = notification.userInfo!["id"] as! NSString as String
-            var prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
+            let id: String = notification.userInfo!["id"] as! NSString as String
+            let prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
             
-            var request = NSFetchRequest(entityName: "Medicina")
-            var predicate = NSPredicate(format: "id = %@", id)
+            let request = NSFetchRequest(entityName: "Medicina")
+            let predicate = NSPredicate(format: "id = %@", id)
             request.returnsObjectsAsFaults = false
             request.predicate = predicate
             
-            var results = managedObjectContext?.executeFetchRequest(request, error: nil)
-            var selectedMedicine = results?[0] as! NSManagedObject
+            var results: [AnyObject]?
+            do {
+                results = try managedObjectContext?.executeFetchRequest(request)
+            } catch _ {
+                results = nil
+            }
+            let selectedMedicine = results?[0] as! NSManagedObject
             
             
             //TENTIAMO DI APPLICARE IL FORCED CONTROLLERS
-            var rootNavigationController = self.window!.rootViewController as! UINavigationController
+            let rootNavigationController = self.window!.rootViewController as! UINavigationController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
+            let detailViewController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DetailTableViewController
             detailViewController.selectedPrescription = prescription
             detailViewController.selectedMedicine = selectedMedicine
             detailViewController.userInfo = notification.userInfo
@@ -210,7 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.stain.sattoh" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -228,18 +246,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var failureReason = "There was an error creating or loading the application's saved data."
         
         var options = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true]
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
-            let dict = NSMutableDictionary()
+            var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -261,11 +284,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }

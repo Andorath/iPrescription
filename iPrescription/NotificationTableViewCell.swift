@@ -11,7 +11,7 @@ import UIKit
 class NotificationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var detail: UILabel!
-    @IBOutlet weak var repeat: UILabel!
+    @IBOutlet weak var `repeat`: UILabel!
     
     override func layoutSubviews()
     {

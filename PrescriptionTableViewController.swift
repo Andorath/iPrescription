@@ -20,18 +20,18 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     
     var AddAlertSaveAction: UIAlertAction?
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         del = UIApplication.sharedApplication().delegate as! AppDelegate
         context = del.managedObjectContext!
         therapyList = [AnyObject]()
         
-        var request = NSFetchRequest(entityName: "Terapia")
+        let request = NSFetchRequest(entityName: "Terapia")
         request.returnsObjectsAsFaults = false
-        var sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
-        therapyList = context.executeFetchRequest(request, error: nil)!
+        therapyList = try! context.executeFetchRequest(request)
         
         super.init(coder: aDecoder)
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -57,7 +57,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
         
         let addAction = UIAlertAction(title: NSLocalizedString("Salva", comment: "Azione salva popup creazione nuova prescrizione"), style: UIAlertActionStyle.Default, handler: { alert in
             
-            var stringNoSpaces: NSString = ((addAlertView.textFields![0] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            var stringNoSpaces: NSString = ((addAlertView.textFields![0] as! UITextField).text)!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
             if self.alreadyExists(stringNoSpaces as String)
             {
@@ -68,7 +68,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             else
             {
                 
-                var prescription = NSEntityDescription.insertNewObjectForEntityForName("Terapia", inManagedObjectContext: self.context) as! NSManagedObject
+                var prescription = NSEntityDescription.insertNewObjectForEntityForName("Terapia", inManagedObjectContext: self.context) 
                 
                 prescription.setValue(stringNoSpaces, forKey: "nome")
                 prescription.setValue(NSDate(), forKey: "creazione")
@@ -108,25 +108,30 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     func handleTextFieldTextDidChangeNotification (notification: NSNotification)
     {
         var textField = notification.object as! UITextField
-        AddAlertSaveAction!.enabled = count(textField.text.utf16) >= 1
+        AddAlertSaveAction!.enabled = textField.text!.utf16.count >= 1
     }
     
     func updateInterface ()
     {
-        var requestTerapia = NSFetchRequest(entityName: "Terapia")
-        var sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        let requestTerapia = NSFetchRequest(entityName: "Terapia")
+        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
         requestTerapia.sortDescriptors = [sortDescriptor]
-        therapyList = context.executeFetchRequest(requestTerapia, error: nil)!
+        therapyList = try! context.executeFetchRequest(requestTerapia)
         tableView.reloadData()
     }
     
     func alreadyExists (name: String) -> Bool
     {
-        var request = NSFetchRequest(entityName: "Terapia")
+        let request = NSFetchRequest(entityName: "Terapia")
         request.returnsObjectsAsFaults = false
-        var predicate = NSPredicate(format: "nome = %@", name)
+        let predicate = NSPredicate(format: "nome = %@", name)
         request.predicate = predicate
-        var results = context.executeFetchRequest(request, error: nil)
+        var results: [AnyObject]?
+        do {
+            results = try context.executeFetchRequest(request)
+        } catch _ {
+            results = nil
+        }
         
         return !results!.isEmpty
     }
@@ -141,7 +146,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
         {
             var id = (medicine as! NSManagedObject).valueForKey("id") as! NSString
             
-            for notification in notifications
+            for notification in notifications!
             {
                 if id == (notification as! UILocalNotification).userInfo!["id"] as! String
                 {
@@ -176,10 +181,10 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     {
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-            var delObj = therapyList[indexPath.row] as! NSManagedObject
+            let delObj = therapyList[indexPath.row] as! NSManagedObject
             
             //Rimuoviamo le notifiche
-            var medicineList = (delObj.valueForKey("medicine") as! NSOrderedSet).array
+            let medicineList = (delObj.valueForKey("medicine") as! NSOrderedSet).array
             
             for medicina in medicineList
             {
@@ -189,11 +194,14 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             
             //Rimuoviamo il record dal database
             context.deleteObject(delObj)
-            context.save(nil)
+            do {
+                try context.save()
+            } catch _ {
+            }
             
             //Rimuovimao dal TherapyList
             therapyList.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths(NSArray(object: indexPath) as [AnyObject], withRowAnimation: UITableViewRowAnimation.Right)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
         }
     }
     
@@ -222,7 +230,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             cell = PrescriptionTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "my Cell")
         }
         
-        var terapia: NSManagedObject = therapyList[indexPath.row] as! NSManagedObject
+        let terapia: NSManagedObject = therapyList[indexPath.row] as! NSManagedObject
         cell!.textLabel?.text = terapia.valueForKey("nome") as? String
         
         cell!.imageView?.image = UIImage(named: "Prescription.png")
@@ -237,7 +245,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             medString = NSLocalizedString("Medicine", comment: "Sottotitolo riga della prescrizione al plurale")
         }
         
-        var count = countNotification(therapyList[indexPath.row] as! NSManagedObject)
+        let count = countNotification(therapyList[indexPath.row] as! NSManagedObject)
         
         if count == 0
         {
@@ -258,7 +266,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
     {
-        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
         selectedRow = cell!.textLabel?.text
         return indexPath
     }
@@ -280,7 +288,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
             
             let changeAction = UIAlertAction(title: NSLocalizedString("Cambia", comment: "comando Cambia popup cambiamento nome prescrizione"), style: UIAlertActionStyle.Default, handler: { alert in
                 
-                var stringNoSpaces: NSString = ((alertChange.textFields![0] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                var stringNoSpaces: NSString = ((alertChange.textFields![0] as! UITextField).text)!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 
                 if self.alreadyExists(stringNoSpaces as String)
                 {
@@ -291,14 +299,17 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
                 else
                 {
                     
-                    var selected = self.therapyList[self.tableView.indexPathForSelectedRow()!.row] as! NSManagedObject
-                    selected.setValue((alertChange.textFields![0] as! UITextField).text, forKey: "nome")
-                    self.context.save(nil)
+                    var selected = self.therapyList[self.tableView.indexPathForSelectedRow!.row] as! NSManagedObject
+                    selected.setValue((alertChange.textFields![0] ).text, forKey: "nome")
+                    do {
+                        try self.context.save()
+                    } catch _ {
+                    }
                     
                     var cell = tableView.cellForRowAtIndexPath(indexPath)
-                    cell!.textLabel?.text = (alertChange.textFields![0] as! UITextField).text
+                    cell!.textLabel?.text = (alertChange.textFields![0] ).text
                     
-                    self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
+                    self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
                     //removeTextFieldObserver()
                 }
                 
@@ -313,7 +324,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
                 style: UIAlertActionStyle.Default,
                 handler: {action in
                     
-                    self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
+                    self.tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
                     /*removeTextFieldObserver()*/}))
             
             alertChange.addAction(changeAction)
@@ -343,7 +354,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     
     //Segues
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
     {
         if self.editing == true
         {
@@ -357,7 +368,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     {
         if segue.identifier == "toMedicines2"
         {
-            var destinationController = segue.destinationViewController as! MedicineTableViewController
+            let destinationController = segue.destinationViewController as! MedicineTableViewController
             destinationController.selectedPrescription = selectedRow!
             //cambio back button
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Indietro", comment: "Back button prescrizioni"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
@@ -374,7 +385,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
         {
             self.navigationController!.setToolbarHidden(false, animated: false)
         }
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         
         //Azione del primo avvio (che brutta cosa che c'è sritta sotto)
@@ -386,10 +397,15 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
         }
         
         //codice di diagnostica
-        var requestTerapia = NSFetchRequest(entityName: "Terapia")
+        let requestTerapia = NSFetchRequest(entityName: "Terapia")
         requestTerapia.returnsObjectsAsFaults = false
-        var listTerapia = context.executeFetchRequest(requestTerapia, error: nil)
-        println("\(listTerapia!.count) elementi in Terapia")
+        var listTerapia: [AnyObject]?
+        do {
+            listTerapia = try context.executeFetchRequest(requestTerapia)
+        } catch _ {
+            listTerapia = nil
+        }
+        print("\(listTerapia!.count) elementi in Terapia")
         
         super.viewWillAppear(animated)
         

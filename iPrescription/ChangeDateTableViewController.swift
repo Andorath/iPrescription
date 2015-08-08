@@ -15,7 +15,7 @@ class ChangeDateTableViewController: UITableViewController {
     @IBOutlet weak var dataAssunzione: UILabel!
     @IBOutlet weak var selettoreData: UIDatePicker!
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
@@ -41,7 +41,7 @@ class ChangeDateTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool)
     {
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         super.viewWillAppear(animated)
     }

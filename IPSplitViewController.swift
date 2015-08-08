@@ -34,7 +34,7 @@ class IPSplitViewController: UISplitViewController {
     {
         var oldDetail = (self.viewControllers[1] as! UINavigationController).viewControllers[0] as! UIViewController
         //(notification.object as UIViewController).navigationItem.leftBarButtonItem = oldDetail.navigationItem.leftBarButtonItem
-        var navigation = self.viewControllers[1] as! IPDetailNavigationController
-        navigation.setViewControllers([notification.object!], animated: true)
+        let navigation = self.viewControllers[1] as! IPDetailNavigationController
+        navigation.setViewControllers([notification.object! as! UIViewController], animated: true)
     }
 }

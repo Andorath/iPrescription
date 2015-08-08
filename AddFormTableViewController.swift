@@ -60,14 +60,17 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
         if newPrescription && nameTextField.text == ""
         {
             currentTextField?.resignFirstResponder()
-            var nome = self.prescription!.valueForKey("nome") as! String
+            let nome = self.prescription!.valueForKey("nome") as! String
             let alert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup medicina vuota"), message: String(format:NSLocalizedString("Non è stato inserito alcun nome per la medicina. La prescrizione %@ sarà vuota. Vuoi comunque continuare?", comment: "Messaggio popup nome medicina vuota"), nome), preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Annulla comando popup medicina vuota"), style: UIAlertActionStyle.Default, handler: nil))
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok comando popup medicina vuota"), style: UIAlertActionStyle.Default, handler: {alert in
                 
                     let del = UIApplication.sharedApplication().delegate as! AppDelegate
                     let context = del.managedObjectContext
-                    context!.save(nil)
+                    do {
+                        try context!.save()
+                    } catch _ {
+                    }
                 
                     NSNotificationCenter.defaultCenter().postNotificationName("NSUpdateInterface", object: nil)
                     
@@ -91,7 +94,7 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
             let del = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = del.managedObjectContext
             
-            var medicine = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context!) as! NSManagedObject
+            let medicine = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context!) 
             
             medicine.setValue(nameTextField.text, forKey: "nome")
             medicine.setValue(dosageFormTextField.text, forKey: "forma")
@@ -110,21 +113,34 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
 
             medicineSet.addObjectsFromArray(self.medicineList)
             prescription!.setValue(self.medicineSet, forKey: "medicine")
-            context?.save(nil)
+            do {
+                try context?.save()
+            } catch _ {
+            }
             
             //Codice di diagnostica
-            var requestTerapia = NSFetchRequest(entityName: "Terapia")
-            var listTerapia = context?.executeFetchRequest(requestTerapia, error: nil)
-            var requestMedicina = NSFetchRequest(entityName: "Medicina")
-            var listMedicina = context?.executeFetchRequest(requestMedicina, error: nil)
+            let requestTerapia = NSFetchRequest(entityName: "Terapia")
+            var listTerapia: [AnyObject]?
+            do {
+                listTerapia = try context?.executeFetchRequest(requestTerapia)
+            } catch _ {
+                listTerapia = nil
+            }
+            let requestMedicina = NSFetchRequest(entityName: "Medicina")
+            var listMedicina: [AnyObject]?
+            do {
+                listMedicina = try context?.executeFetchRequest(requestMedicina)
+            } catch _ {
+                listMedicina = nil
+            }
             
-            println("\(listTerapia!.count) elementi in Terapia e \(listMedicina!.count) elementi in Medicina")
+            print("\(listTerapia!.count) elementi in Terapia e \(listMedicina!.count) elementi in Medicina")
             
             NSNotificationCenter.defaultCenter().postNotificationName("NSUpdateInterface", object: nil)
             
             if newPrescription
             {
-                var nome = self.prescription!.valueForKey("nome") as! String
+                let nome = self.prescription!.valueForKey("nome") as! String
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let myVC = storyboard.instantiateViewControllerWithIdentifier("medicineList") as! MedicineTableViewController
                 myVC.selectedPrescription = nome
@@ -206,7 +222,7 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
     
     override func viewWillAppear(animated: Bool)
     {
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         
         super.viewWillAppear(animated)
@@ -225,11 +241,11 @@ class AddFormTableViewController: UITableViewController, UITextFieldDelegate, UI
         
         medicineSet = (prescription!.valueForKey("medicine") as! NSMutableOrderedSet).mutableCopy() as! NSMutableOrderedSet
         
-        var toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
         toolBar.barStyle = UIBarStyle.Default
-        var doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della toolbar add medicine"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della toolbar add medicine"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
         doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
-        var arrayItem = [doneButton]
+        let arrayItem = [doneButton]
         toolBar.items = arrayItem
         
         noteTextView.inputAccessoryView = toolBar

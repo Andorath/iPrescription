@@ -34,7 +34,7 @@ class AddNotificationTableViewController: UITableViewController {
     
     @IBAction func donePressed(sender: AnyObject)
     {
-        var notification = UILocalNotification()
+        let notification = UILocalNotification()
         notification.fireDate = datePicker.date
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.alertBody = String(format: NSLocalizedString("Notifica per %@ della prescrizione %@\nMemo: %@", comment: "Messaggio della Local Notification"), medicina!, prescription!, memoTextView.text)
@@ -79,17 +79,17 @@ class AddNotificationTableViewController: UITableViewController {
             switch (indexPath!.row)
             {
                 case 1:
-                    self.repeatInterval = NSCalendarUnit.CalendarUnitDay
-                    println("Hai scelto Ogni Giorno")
+                    self.repeatInterval = NSCalendarUnit.Day
+                    print("Hai scelto Ogni Giorno")
                 case 2:
-                    self.repeatInterval = NSCalendarUnit.CalendarUnitWeekOfYear
-                    println("Hai scelto Ogni Settimana")
+                    self.repeatInterval = NSCalendarUnit.WeekOfYear
+                    print("Hai scelto Ogni Settimana")
                 case 3:
-                    self.repeatInterval = NSCalendarUnit.CalendarUnitMonth
-                    println("Hai scelto Ogni Mese")
+                    self.repeatInterval = NSCalendarUnit.Month
+                    print("Hai scelto Ogni Mese")
                 default:
                     self.repeatInterval = nil
-                    println("Hai scelto Nessuna")
+                    print("Hai scelto Nessuna")
             }
             
             tableView.reloadData()
@@ -127,7 +127,7 @@ class AddNotificationTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool)
     {
-        var userInfo = ["currentController" : self]
+        let userInfo = ["currentController" : self]
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         super.viewWillAppear(animated)
     }
@@ -140,11 +140,11 @@ class AddNotificationTableViewController: UITableViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         selected.text = dateFormatter.stringFromDate(datePicker.date)
         
-        var toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
         toolBar.barStyle = UIBarStyle.Default
-        var doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done per toolbar"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done per toolbar"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
         doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
-        var arrayItem = [doneButton]
+        let arrayItem = [doneButton]
         toolBar.items = arrayItem
         
         memoTextView.inputAccessoryView = toolBar
@@ -162,7 +162,8 @@ class AddNotificationTableViewController: UITableViewController {
     
     @IBAction func stampaNumeroNotifiche(sender: AnyObject)
     {
-        var numberOfNotfication = UIApplication.sharedApplication().scheduledLocalNotifications.count
+        //Possibile errore dovuto al ritorno di nil in assenza di notifiche
+        var numberOfNotfication = UIApplication.sharedApplication().scheduledLocalNotifications!.count
         
         var alert = UIAlertController(title: "Diagnostica Developer", message: "Ci sono \(numberOfNotfication) notifiche attive per l'App", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Destructive, handler: nil))
@@ -173,7 +174,7 @@ class AddNotificationTableViewController: UITableViewController {
     @IBAction func deleteAllNotifications(sender: AnyObject)
     {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
-        println("Tutte le norifche locali cancellate!")
+        print("Tutte le norifche locali cancellate!")
     }
 
 }
