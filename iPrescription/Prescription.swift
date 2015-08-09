@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Prescription
+class Prescriptione
 {
     var nome: String
     var creazione: NSDate

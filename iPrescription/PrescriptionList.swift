@@ -15,7 +15,7 @@ class PrescriptionList
     let del: AppDelegate
     let context: NSManagedObjectContext
     
-    var prescriptions: [NSManagedObject]?
+    var prescriptions: [Prescription]?
     
     init()
     {
@@ -31,7 +31,7 @@ class PrescriptionList
         let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
-        prescriptions = try! context.executeFetchRequest(request) as? [NSManagedObject]
+        prescriptions = try! context.executeFetchRequest(request) as? [Prescription]
     }
     
     func numberOfPrescriptions() -> Int
@@ -41,28 +41,24 @@ class PrescriptionList
     
     func getPrescriptionAtIndex(index: Int) -> Prescription
     {
-        let selectedPrecription = prescriptions?[index]
-        let nome = selectedPrecription?.valueForKey("nome") as! String
-        let creazione = selectedPrecription?.valueForKey("creazione") as! NSDate
-        
-        return Prescription(nome: nome, creazione: creazione)
+        return prescriptions![index]
     }
     
     func numberOfDrugsForPrescriptionAtIndex(index: Int) -> Int
     {
-        let medicineList = (prescriptions![index].valueForKey("medicine") as! NSOrderedSet).array
+        let medicineList = prescriptions![index].medicine
         return medicineList.count
     }
     
     func numberOfNotificationsForPrescriptionAtIndex(index: Int) -> Int
     {
         var count: Int = 0
-        let medicineList = (prescriptions![index].valueForKey("medicine") as! NSOrderedSet).array
+        let medicineList = prescriptions![index].medicine
         let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
         
         for medicine in medicineList
         {
-            let id = (medicine as! NSManagedObject).valueForKey("id") as! String
+            let id = medicine.id
             
             for notification in notifications!
             {
