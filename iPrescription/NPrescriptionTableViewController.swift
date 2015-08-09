@@ -11,16 +11,30 @@ import UIKit
 class NPrescriptionTableViewController: UITableViewController
 {
     lazy var prescriptions: PrescriptionList? = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
+    
+    var prescriptionDelegate: PrescriptionAddingDelegate?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
     }
+    
+    // MARK: - Metodi relativi al Controller
+    
+    @IBAction func addNewPrescription(sender: AnyObject)
+    {
+        if let pdel = prescriptionDelegate
+        {
+            pdel.showAlertController()
+        }
+    }
+    
 
     // MARK: - Table view data source
 
@@ -92,14 +106,23 @@ class NPrescriptionTableViewController: UITableViewController
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "toAddDrugs"
+        {
+            if let destinationNavigationController = segue.destinationViewController as? UINavigationController
+            {
+                /*if let formViewController = (destinationNavigationController.viewControllers[0] as AddFormViewController)
+                {
+                    
+                }*/
+            }
+        }
     }
-    */
+    
 
 }
