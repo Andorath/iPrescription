@@ -25,6 +25,7 @@ class PrescriptionAddingPerformer : NSObject, PrescriptionAddingDelegate, UIText
 {
     var delegator: UITableViewController?
     var prescription: Prescription?
+    
     var alertController: UIAlertController?
     var saveAction: UIAlertAction?
     
@@ -74,7 +75,20 @@ class PrescriptionAddingPerformer : NSObject, PrescriptionAddingDelegate, UIText
     {
         if let stringNoSpaces = alertController!.textFields?[0].text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         {
-            if prescriptionExists(stringNoSpaces)
+            if stringNoSpaces.isEmpty
+            {
+                let emptyNameAlert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup errore nome prescrizione vuoto"),
+                    message: NSLocalizedString("Non è possibile creare prescrizioni con il nome vuoto!",
+                                               comment: "Messaggio popup errore prescrizione"),
+                    preferredStyle: UIAlertControllerStyle.Alert)
+                
+                emptyNameAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione prescrizione"),
+                    style: UIAlertActionStyle.Default,
+                    handler: nil))
+                
+                delegator!.presentViewController(emptyNameAlert, animated: true, completion: nil)
+            }
+            else if prescriptionExists(stringNoSpaces)
             {
                 let alreadyExistAlert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup errore nome prescrizione"),
                                                           message: NSLocalizedString("Esiste già una prescrizione con questo nome",

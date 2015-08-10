@@ -44,8 +44,40 @@ class PrescriptionList
         let managedPresc = prescriptions![index]
         let name = managedPresc.valueForKey("nome") as! String
         let creation = managedPresc.valueForKey("creazione") as! NSDate
-        let prescription = Prescription(nome: name, creazione: creation)
+        let medicineManaged = (managedPresc.valueForKey("medicine") as! NSOrderedSet).array as! [NSManagedObject]
+        let medicine = getDrugsFromManagedDrugs(medicineManaged)
+        let prescription = Prescription(nome: name, creazione: creation, drugs: medicine)
         return prescription
+    }
+    
+    func getDrugsFromManagedDrugs(managedDrugs: [NSManagedObject]) -> [Drug]
+    {
+        var drugs = [Drug]()
+        
+        for manaDrug in managedDrugs
+        {
+            let nome = manaDrug.valueForKey("nome") as! String
+            let forma = manaDrug.valueForKey("forma") as! String
+            let dosaggio = manaDrug.valueForKey("dosaggio") as! String
+            let durata = manaDrug.valueForKey("durata") as! String
+            let note = manaDrug.valueForKey("note") as! String
+            let dottore = manaDrug.valueForKey("dottore") as! String
+            let id = manaDrug.valueForKey("id") as! String
+            let data_ultima_assunzione = manaDrug.valueForKey("data_ultima_assunzione") as? NSDate
+            
+            let drug = Drug(name: nome,
+                            dosage: dosaggio,
+                            doc: dottore,
+                            period: durata,
+                            form: forma,
+                            note: note,
+                            id: id,
+                            date_last_assumption: data_ultima_assunzione)
+            
+            drugs.append(drug)
+        }
+        
+        return drugs
     }
     
     func numberOfDrugsForPrescriptionAtIndex(index: Int) -> Int
@@ -85,13 +117,61 @@ class PrescriptionList
         let predicate = NSPredicate(format: "nome = %@", prescriptionName)
         request.predicate = predicate
         var results: [AnyObject]?
-        do {
+        do
+        {
             results = try context.executeFetchRequest(request)
-        } catch _ {
+        }
+        catch _
+        {
             results = nil
         }
         
         return !results!.isEmpty
+    }
+    
+    func addPrescription(pres: Prescription)
+    {
+        let prescription = NSEntityDescription.insertNewObjectForEntityForName("Terapia", inManagedObjectContext: context)
+        prescription.setValue(pres.nome, forKey: "nome")
+        prescription.setValue(pres.creazione, forKey: "creazione")
+        
+        let drugsSet = getManagedDrugsFromDrugs(pres.medicine)
+        prescription.setValue(drugsSet, forKey: "medicine")
+        
+        do
+        {
+            try context.save()
+        }
+        catch _
+        {
+            
+        }
+        
+        updateDataFromModel()
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterface", object: nil)
+    }
+    
+    func getManagedDrugsFromDrugs(drugs: [Drug]) -> NSOrderedSet
+    {
+        let managedDrugs = NSMutableOrderedSet()
+
+        for drug in drugs
+        {
+            let managedDrug = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context)
+            
+            managedDrug.setValue(drug.nome, forKey: "nome")
+            managedDrug.setValue(drug.forma, forKey: "forma")
+            managedDrug.setValue(drug.durata, forKey: "durata")
+            managedDrug.setValue(drug.dosaggio, forKey: "dosaggio")
+            managedDrug.setValue(drug.dottore, forKey: "dottore")
+            managedDrug.setValue(drug.note, forKey: "note")
+            managedDrug.setValue(drug.id, forKey: "id")
+            managedDrug.setValue(drug.data_ultima_assunzione, forKey: "data_ultima_assunzione")
+            
+            managedDrugs.addObject(managedDrug)
+        }
+        
+        return managedDrugs
     }
     
 }

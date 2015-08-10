@@ -107,7 +107,7 @@ class PrescriptionTableViewController: UITableViewController, UITextFieldDelegat
     //handler
     func handleTextFieldTextDidChangeNotification (notification: NSNotification)
     {
-        var textField = notification.object as! UITextField
+        let textField = notification.object as! UITextField
         AddAlertSaveAction!.enabled = textField.text!.utf16.count >= 1
     }
     

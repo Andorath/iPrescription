@@ -10,14 +10,20 @@ import UIKit
 
 class NPrescriptionTableViewController: UITableViewController
 {
-    lazy var prescriptions: PrescriptionList? = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
+    lazy var prescriptionsModel: PrescriptionList? = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
     
     var prescriptionDelegate: PrescriptionAddingDelegate?
 
     override func viewDidLoad()
     {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterface", object: nil)
+        
         super.viewDidLoad()
-        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
+    }
+    
+    func updateInterface()
+    {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning()
@@ -29,10 +35,8 @@ class NPrescriptionTableViewController: UITableViewController
     
     @IBAction func addNewPrescription(sender: AnyObject)
     {
-        if let pdel = prescriptionDelegate
-        {
-            pdel.showAlertController()
-        }
+        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
+        prescriptionDelegate!.showAlertController()
     }
     
 
@@ -46,18 +50,20 @@ class NPrescriptionTableViewController: UITableViewController
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
-        return prescriptions!.numberOfPrescriptions()
+        return prescriptionsModel!.numberOfPrescriptions()
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell: PrescriptionTableViewCell? = tableView.dequeueReusableCellWithIdentifier("my Cell") as? PrescriptionTableViewCell
-        let selectedPrescription = prescriptions?.getPrescriptionAtIndex(indexPath.row)
+        let selectedPrescription = prescriptionsModel?.getPrescriptionAtIndex(indexPath.row)
         cell!.textLabel?.text = selectedPrescription?.nome        
         cell!.imageView?.image = UIImage(named: "Prescription.png")
+        
+        // TODO: Fare Refactoring di questa parte in un metodo di forwarding.
         var medString: String
-        let drugsNumber = prescriptions!.numberOfDrugsForPrescriptionAtIndex(indexPath.row)
+        let drugsNumber = prescriptionsModel!.numberOfDrugsForPrescriptionAtIndex(indexPath.row)
         if drugsNumber == 1
         {
             medString = NSLocalizedString("Medicina", comment: "Sottotitolo riga della prescrizione al singolare")
@@ -67,7 +73,7 @@ class NPrescriptionTableViewController: UITableViewController
             medString = NSLocalizedString("Medicine", comment: "Sottotitolo riga della prescrizione al plurale")
         }
         
-        let notificationNumber = prescriptions!.numberOfNotificationsForPrescriptionAtIndex(indexPath.row)
+        let notificationNumber = prescriptionsModel!.numberOfNotificationsForPrescriptionAtIndex(indexPath.row)
         
         if notificationNumber == 0
         {
@@ -116,10 +122,14 @@ class NPrescriptionTableViewController: UITableViewController
         {
             if let destinationNavigationController = segue.destinationViewController as? UINavigationController
             {
-                /*if let formViewController = (destinationNavigationController.viewControllers[0] as AddFormViewController)
+                if let formViewController = (destinationNavigationController.viewControllers[0] as? AddDrugFormController)
                 {
-                    
-                }*/
+                    if let presenter = sender as? PrescriptionAddingDelegate
+                    {
+                        formViewController.setCurrentPrescription(presenter.prescription!)
+                        formViewController.workingOnNewPrescription()
+                    }
+                }
             }
         }
     }
