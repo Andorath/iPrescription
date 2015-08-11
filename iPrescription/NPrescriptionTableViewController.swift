@@ -10,7 +10,7 @@ import UIKit
 
 class NPrescriptionTableViewController: UITableViewController
 {
-    lazy var prescriptionsModel: PrescriptionList? = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
+    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
     
     var prescriptionDelegate: PrescriptionAddingDelegate?
 
@@ -59,20 +59,20 @@ class NPrescriptionTableViewController: UITableViewController
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return prescriptionsModel!.numberOfPrescriptions()
+        return prescriptionsModel.numberOfPrescriptions()
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell: PrescriptionTableViewCell? = tableView.dequeueReusableCellWithIdentifier("my Cell") as? PrescriptionTableViewCell
-        let selectedPrescription = prescriptionsModel?.getPrescriptionAtIndex(indexPath.row)
-        cell!.textLabel?.text = selectedPrescription?.nome        
+        let selectedPrescription = prescriptionsModel.getPrescriptionAtIndex(indexPath.row)
+        cell!.textLabel?.text = selectedPrescription.nome        
         cell!.imageView?.image = UIImage(named: "Prescription.png")
         
         // TODO: Fare Refactoring di questa parte in un metodo di forwarding.
         var medString: String
-        let drugsNumber = prescriptionsModel!.numberOfDrugsForPrescriptionAtIndex(indexPath.row)
+        let drugsNumber = prescriptionsModel.numberOfDrugsForPrescriptionAtIndex(indexPath.row)
         if drugsNumber == 1
         {
             medString = NSLocalizedString("Medicina", comment: "Sottotitolo riga della prescrizione al singolare")
@@ -82,7 +82,7 @@ class NPrescriptionTableViewController: UITableViewController
             medString = NSLocalizedString("Medicine", comment: "Sottotitolo riga della prescrizione al plurale")
         }
         
-        let notificationNumber = prescriptionsModel!.numberOfNotificationsForPrescriptionAtIndex(indexPath.row)
+        let notificationNumber = prescriptionsModel.numberOfNotificationsForPrescriptionAtIndex(indexPath.row)
         
         if notificationNumber == 0
         {
@@ -105,7 +105,7 @@ class NPrescriptionTableViewController: UITableViewController
     {
         if editingStyle == .Delete
         {
-            prescriptionsModel?.deletePrescriptionAtIndex(indexPath.row)
+            prescriptionsModel.deletePrescriptionAtIndex(indexPath.row)
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
@@ -125,11 +125,10 @@ class NPrescriptionTableViewController: UITableViewController
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: editLabel)
         {
             (action, index) in
-            if let prescription = self.prescriptionsModel?.getPrescriptionAtIndex(index.row)
-            {
-                let editingDelegate: PrescriptionEditingDelegate = PrescriptionEditingPerformer(delegator: self, prescription: prescription)
-                editingDelegate.performEditingProcedure()
-            }
+            let prescription = self.prescriptionsModel.getPrescriptionAtIndex(index.row)            
+            let editingDelegate: PrescriptionEditingDelegate = PrescriptionEditingPerformer(delegator: self, prescription: prescription)
+            editingDelegate.performEditingProcedure()
+            
         }
         editAction.backgroundColor = UIColor(red: 35.0/255.0, green: 146.0/255.0, blue: 199.0/255.0, alpha: 1)
         
@@ -148,25 +147,53 @@ class NPrescriptionTableViewController: UITableViewController
         return deleteAction
     }
     
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+    {
+        if self.editing
+        {
+            return UITableViewCellEditingStyle.Delete
+        }
+        return UITableViewCellEditingStyle.None
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue.identifier == "toAddDrugs"
+        if let segueId = segue.identifier
         {
-            if let destinationNavigationController = segue.destinationViewController as? UINavigationController
+            switch segueId
             {
-                if let formViewController = (destinationNavigationController.viewControllers[0] as? AddDrugFormController)
-                {
-                    if let presenter = sender as? PrescriptionAddingDelegate
+                case "toAddDrugs":
+                    
+                    if let destinationNavigationController = segue.destinationViewController as? UINavigationController
                     {
-                        formViewController.setCurrentPrescription(presenter.prescription!)
-                        formViewController.workingOnNewPrescription()
+                        if let formViewController = (destinationNavigationController.viewControllers[0] as? AddDrugFormController)
+                        {
+                            if let presenter = sender as? PrescriptionAddingDelegate
+                            {
+                                formViewController.setCurrentPrescription(presenter.prescription!)
+                                formViewController.workingOnNewPrescription()
+                            }
+                        }
                     }
-                }
+                case "toDrugs":
+                    
+                    if let destinationDrugController = segue.destinationViewController as? DrugTableViewController
+                    {
+                        if let selectedIndex = self.tableView.indexPathForCell(sender as! PrescriptionTableViewCell)
+                        {
+                            let prescription = prescriptionsModel.getPrescriptionAtIndex(selectedIndex.row)
+                            destinationDrugController.setCurrentPrescription(prescription)
+                        }
+                    }
+                
+                default:
+                    print("default")
             }
         }
+        
     }
     
 

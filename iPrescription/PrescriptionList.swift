@@ -83,8 +83,19 @@ class PrescriptionList
     func numberOfDrugsForPrescriptionAtIndex(index: Int) -> Int
     {
         let prescription = prescriptions![index]
-        let medicineList = (prescription.valueForKey("medicine") as! NSOrderedSet).array
+        return numberOfDrugsForManagedPrescription(prescription)
+    }
+    
+    func numberOfDrugsForManagedPrescription(managedPrescription: NSManagedObject) -> Int
+    {
+        let medicineList = (managedPrescription.valueForKey("medicine") as! NSOrderedSet).array
         return medicineList.count
+    }
+    
+    func numberOfDrugsForPrescription(prescription: Prescription) -> Int
+    {
+        let managedPrescription = getManagedPrescriptionFromPrescription(prescription)
+        return numberOfDrugsForManagedPrescription(managedPrescription)
     }
     
     func numberOfNotificationsForPrescriptionAtIndex(index: Int) -> Int
@@ -247,6 +258,40 @@ class PrescriptionList
         }
         
         return results![0]
+    }
+    
+    // MARK: - Metodi per medicine
+    
+    func getManagedDrugsFromPrescription(prescription: Prescription) -> [NSManagedObject]
+    {
+        let managedPrescription = getManagedPrescriptionFromPrescription(prescription)
+        let managedDrugs = (managedPrescription.valueForKey("medicine") as! NSOrderedSet).array as! [NSManagedObject]
+        return managedDrugs
+    }
+    
+    func getDrugsFromPrescription(prescription: Prescription) -> [Drug]
+    {
+        let managedDrugs = getManagedDrugsFromPrescription(prescription)
+        let drugs = getDrugsFromManagedDrugs(managedDrugs)
+        
+        return drugs
+    }
+    
+    func thereAreNotificationsForDrug(drug: Drug) -> Bool
+    {
+        let id = drug.id
+        if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
+        {
+            for notification in notifications
+            {
+                if notification.userInfo!["id"] as! String == id
+                {
+                    return true
+                }
+            }
+        }
+        
+        return false
     }
     
 }

@@ -195,11 +195,7 @@ class MedicineTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell: MedicineTableViewCell? = tableView.dequeueReusableCellWithIdentifier("my Cell", forIndexPath: indexPath) as? MedicineTableViewCell
-        
-        /*if cell == nil
-        {
-            cell = MedicineTableViewCell(style: UITableViewCellStyle., reuseIdentifier: "my Cell")
-        }*/
+
         
         let medicina: NSManagedObject = medicineList[indexPath.row] as! NSManagedObject
         cell!.textLabel?.text = medicina.valueForKey("nome") as? String
