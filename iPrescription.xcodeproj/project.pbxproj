@@ -62,6 +62,7 @@
 		A9CF6BAA197D797700B64FDB /* all_notification-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA9197D797700B64FDB /* all_notification-1.png */; };
 		A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BAB197D894900B64FDB /* alarm_set2.png */; };
 		A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9E00CC71977E495007AA5B8 /* Opening.m4r */; };
+		A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */; };
 		A9E371811B7768E400A69480 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E371801B7768E400A69480 /* Main2.storyboard */; };
 		A9E371831B776C9500A69480 /* PrescriptionAddingPerfrmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */; };
 		A9FDA80619805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
@@ -160,6 +161,7 @@
 		A9CF6BA9197D797700B64FDB /* all_notification-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_notification-1.png"; sourceTree = "<group>"; };
 		A9CF6BAB197D894900B64FDB /* alarm_set2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_set2.png; sourceTree = "<group>"; };
 		A9E00CC71977E495007AA5B8 /* Opening.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Opening.m4r; sourceTree = "<group>"; };
+		A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionEditingPerformer.swift; sourceTree = "<group>"; };
 		A9E371801B7768E400A69480 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main2.storyboard; path = ../../../.Trash/Main2.storyboard; sourceTree = "<group>"; };
 		A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionAddingPerfrmer.swift; sourceTree = "<group>"; };
 		A9FDA80519805F79002E0F0D /* chord.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chord.m4r; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			children = (
 				A982EFAD1B7680AE008C238E /* NPrescriptionTableViewController.swift */,
 				A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */,
+				A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */,
 				A993B63E1B77B9570017349F /* AddDrugFormController.swift */,
 			);
 			name = 2.0;
@@ -523,6 +526,7 @@
 				A96DCD65198A941B00C6472E /* IPSplitViewController.swift in Sources */,
 				A993B63F1B77B9570017349F /* AddDrugFormController.swift in Sources */,
 				A973706C1964B1A6004085D8 /* MedicineTableViewController.swift in Sources */,
+				A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */,
 				A9161E93197D1D7200B25FBC /* NotificationTableViewController.swift in Sources */,
 				A912E60519D1D18C00DE2DB0 /* ChangeDateTableViewController.swift in Sources */,
 				A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */,

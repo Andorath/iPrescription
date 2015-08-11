@@ -88,6 +88,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok comando popup medicina vuota"),
                 style: UIAlertActionStyle.Default){
                                                      alert in self.storePrescription()
+                                                              self.dismissViewControllerAnimated(true, completion: nil)
                                                   })
             
             presentViewController(alert, animated: true, completion: nil)

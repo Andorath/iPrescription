@@ -16,9 +16,20 @@ class NPrescriptionTableViewController: UITableViewController
 
     override func viewDidLoad()
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterface", object: nil)
+        addAllNecessaryObservers()
+        setUserInterfaceComponents()
         
         super.viewDidLoad()
+    }
+    
+    func addAllNecessaryObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterface", object: nil)
+    }
+    
+    func setUserInterfaceComponents()
+    {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func updateInterface()
@@ -38,7 +49,6 @@ class NPrescriptionTableViewController: UITableViewController
         prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
         prescriptionDelegate!.showAlertController()
     }
-    
 
     // MARK: - Table view data source
 
@@ -49,7 +59,6 @@ class NPrescriptionTableViewController: UITableViewController
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
         return prescriptionsModel!.numberOfPrescriptions()
     }
 
@@ -92,26 +101,52 @@ class NPrescriptionTableViewController: UITableViewController
         return cell!
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            prescriptionsModel?.deletePrescriptionAtIndex(indexPath.row)
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    {
+        let editAction = getEditRowAction()
+        let deleteAction = getDeleteRowAction()
+        
+        return [deleteAction, editAction]
+    }
+    
+    func getEditRowAction() -> UITableViewRowAction
+    {
+        let editLabel = NSLocalizedString("Modifica", comment: "Azione modifica")
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: editLabel)
+        {
+            (action, index) in
+            if let prescription = self.prescriptionsModel?.getPrescriptionAtIndex(index.row)
+            {
+                let editingDelegate: PrescriptionEditingDelegate = PrescriptionEditingPerformer(delegator: self, prescription: prescription)
+                editingDelegate.performEditingProcedure()
+            }
+        }
+        editAction.backgroundColor = UIColor(red: 35.0/255.0, green: 146.0/255.0, blue: 199.0/255.0, alpha: 1)
+        
+        return editAction
+    }
+    
+    func getDeleteRowAction() -> UITableViewRowAction
+    {
+        let deleteLabel = NSLocalizedString("Elimina", comment: "Azione cancella")
+        let tv: UITableView? = tableView
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: deleteLabel)
+        {
+            (action, index) in tv!.dataSource?.tableView!(tv!, commitEditingStyle: .Delete, forRowAtIndexPath: index)
+        }
+        
+        return deleteAction
+    }
     
     // MARK: - Navigation
 

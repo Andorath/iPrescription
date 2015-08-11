@@ -43,11 +43,11 @@ class PrescriptionAddingPerformer : NSObject, PrescriptionAddingDelegate, UIText
                                                                        comment: "Messaggio popup creazione nuova prescrizione"),
                                             preferredStyle: UIAlertControllerStyle.Alert)
         alertController!.addTextFieldWithConfigurationHandler(textFieldConfigurationHandler)
+        alertController!.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Annulla popup creazione nuova prescrizione"),
+                                                style: UIAlertActionStyle.Cancel,
+                                                handler: nil))
         let addPrescription = initAddPrescriptionAction()
         alertController!.addAction(addPrescription)
-        alertController!.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Annulla popup creazione nuova prescrizione"),
-                                                style: UIAlertActionStyle.Default,
-                                                handler: nil))
     }
     
     func textFieldConfigurationHandler(textField: UITextField)

@@ -174,4 +174,79 @@ class PrescriptionList
         return managedDrugs
     }
     
+    func deletePrescriptionAtIndex(index: Int)
+    {
+        let prescription = prescriptions![index]
+        let medicine = (prescription.valueForKey("medicine") as! NSOrderedSet).array as! [NSManagedObject]
+        deleteNotificationsForDrugs(medicine)
+        context.deleteObject(prescription)
+        do
+        {
+            try context.save()
+        }
+        catch _
+        {
+        }
+        
+        updateDataFromModel()
+    }
+    
+    func deleteNotificationsForDrugs(drugs: [NSManagedObject])
+    {
+        for drug in drugs
+        {
+            let id = drug.valueForKey("id") as! String
+            
+            if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
+            {
+                for notification in notifications
+                {
+                    let userInfo = notification.userInfo
+                    
+                    if userInfo!["id"] as! String == id
+                    {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    func setNewNameForPrescription(prescription: Prescription, withNewName newName: String)
+    {
+        let editingPrescription = getManagedPrescriptionFromPrescription(prescription)
+        editingPrescription.setValue(newName, forKey: "nome")
+        do
+        {
+            try context.save()
+        }
+        catch _
+        {
+            
+        }
+        
+        updateDataFromModel()
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterface", object: nil)
+    }
+    
+    func getManagedPrescriptionFromPrescription(prescription: Prescription) -> NSManagedObject
+    {
+        let prescriptionName = prescription.nome
+        let request = NSFetchRequest(entityName: "Terapia")
+        request.returnsObjectsAsFaults = false
+        let predicate = NSPredicate(format: "nome = %@", prescriptionName)
+        request.predicate = predicate
+        var results: [NSManagedObject]?
+        do
+        {
+            results = try context.executeFetchRequest(request) as? [NSManagedObject]
+        }
+        catch _
+        {
+        }
+        
+        return results![0]
+    }
+    
 }
