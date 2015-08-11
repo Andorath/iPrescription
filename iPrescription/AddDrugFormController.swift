@@ -22,6 +22,51 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
     @IBOutlet weak var doctorTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
     
+    // MARK: - Metodi di classe
+    
+    override func viewDidLoad()
+    {
+        noteTextView.inputAccessoryView = getDoneToolbar()
+        super.viewDidLoad()
+    }
+    
+    func getDoneToolbar() -> UIToolbar
+    {
+        let doneToolbar = UIToolbar()
+        doneToolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della toolbar add medicine"),
+            style: UIBarButtonItemStyle.Done,
+            target: self,
+            action: "dismissKeyboard")
+        
+        doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
+        let arrayItem = [doneButton]
+        doneToolbar.items = arrayItem
+        
+        return doneToolbar
+    }
+    
+    func dismissKeyboard()
+    {
+        if noteTextView.isFirstResponder()
+        {
+            noteTextView.resignFirstResponder()
+            
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        nameTextField.becomeFirstResponder()
+        super.viewDidAppear(animated)
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
     func setCurrentPrescription(prescription: Prescription)
     {
         self.prescription = prescription
@@ -153,21 +198,17 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         
     }
     
-    // TODO: Mancano le funzioni di delegato della TextView per rilasciare la tastiera
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        // FIXME: C'è qualche errore dovuto al copia incolla della vecchia versione.
         if textField == nameTextField
         {
             textField.resignFirstResponder()
-            
-        }
-        else if textField == dosageFormTextField
-        {
-            dosageTextField.becomeFirstResponder()
         }
         else if textField == dosageTextField
+        {
+            dosageFormTextField.becomeFirstResponder()
+        }
+        else if textField == dosageFormTextField
         {
             periodTextField.becomeFirstResponder()
         }
@@ -180,16 +221,6 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
             doctorTextField.resignFirstResponder()
         }
         return true
-    }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Navigation

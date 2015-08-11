@@ -21,6 +21,7 @@
 		A9161E95197D6FB100B25FBC /* icona settings-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9161E94197D6FB100B25FBC /* icona settings-3.png */; };
 		A918F5A3199000C1006EA37B /* IPMasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918F5A2199000C1006EA37B /* IPMasterNavigationController.swift */; };
 		A928DA681989666A00A7A230 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A928DA671989666A00A7A230 /* Main_ipad.storyboard */; };
+		A936DBF01B7A0BE2002C41C6 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */; };
 		A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94068DD1981B37900149057 /* NotificationTableViewCell.swift */; };
 		A9541ABC19E7D7CE00978FD6 /* Sveglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541ABE19E7D7CE00978FD6 /* Sveglia.png */; };
 		A9541AC019E7D7DA00978FD6 /* Notifiche.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541AC219E7D7DA00978FD6 /* Notifiche.png */; };
@@ -63,7 +64,6 @@
 		A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BAB197D894900B64FDB /* alarm_set2.png */; };
 		A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9E00CC71977E495007AA5B8 /* Opening.m4r */; };
 		A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */; };
-		A9E371811B7768E400A69480 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E371801B7768E400A69480 /* Main2.storyboard */; };
 		A9E371831B776C9500A69480 /* PrescriptionAddingPerfrmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */; };
 		A9FDA80619805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
 		A9FDA80719805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
@@ -113,6 +113,7 @@
 		A918F5A2199000C1006EA37B /* IPMasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPMasterNavigationController.swift; sourceTree = "<group>"; };
 		A925F48119C6249600024C84 /* iPrescription 1.0.1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iPrescription 1.0.1a.xcdatamodel"; sourceTree = "<group>"; };
 		A928DA671989666A00A7A230 /* Main_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_ipad.storyboard; sourceTree = "<group>"; };
+		A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		A94068DD1981B37900149057 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		A9541ABF19E7D7D400978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Sveglia.png; sourceTree = "<group>"; };
 		A9541AC319E7D7DC00978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Notifiche.png; sourceTree = "<group>"; };
@@ -162,7 +163,6 @@
 		A9CF6BAB197D894900B64FDB /* alarm_set2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_set2.png; sourceTree = "<group>"; };
 		A9E00CC71977E495007AA5B8 /* Opening.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Opening.m4r; sourceTree = "<group>"; };
 		A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionEditingPerformer.swift; sourceTree = "<group>"; };
-		A9E371801B7768E400A69480 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main2.storyboard; path = ../../../.Trash/Main2.storyboard; sourceTree = "<group>"; };
 		A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionAddingPerfrmer.swift; sourceTree = "<group>"; };
 		A9FDA80519805F79002E0F0D /* chord.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chord.m4r; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,7 +268,7 @@
 			children = (
 				A9AA1A6019E538C100EE91A1 /* Main.storyboard */,
 				A928DA671989666A00A7A230 /* Main_ipad.storyboard */,
-				A9E371801B7768E400A69480 /* Main2.storyboard */,
+				A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -456,7 +456,7 @@
 			files = (
 				A9BF51C719CAE82200F62DC0 /* about-50@2x.png in Resources */,
 				A9541AD419E7D7FD00978FD6 /* Cancellazione.png in Resources */,
-				A9E371811B7768E400A69480 /* Main2.storyboard in Resources */,
+				A936DBF01B7A0BE2002C41C6 /* Main2.storyboard in Resources */,
 				A97D81A519CC2EFD0010E7A4 /* all_notification.png in Resources */,
 				A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */,
 				A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */,
@@ -753,7 +753,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iPrescription/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = iPrescription;
 				PROVISIONING_PROFILE = "";
@@ -771,7 +771,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iPrescription/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = iPrescription;
 				PROVISIONING_PROFILE = "";
