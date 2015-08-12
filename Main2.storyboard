@@ -368,7 +368,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ark-Gr-3KC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="-152"/>
+            <point key="canvasLocation" x="3183" y="-274"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZlH-6d-hmd">
@@ -387,7 +387,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kb0-l2-zP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="-152"/>
+            <point key="canvasLocation" x="2392" y="-274"/>
         </scene>
         <!--Medicine-->
         <scene sceneID="pbi-wV-uD2">
@@ -431,7 +431,7 @@
                     <navigationItem key="navigationItem" title="Medicine" id="wfD-pF-87D">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nqp-UG-pwK">
                             <connections>
-                                <action selector="addMedicine:" destination="fD3-u7-849" id="YE3-uF-2tr"/>
+                                <segue destination="sCW-d9-Vps" kind="presentation" identifier="toAddDrugs" id="05h-NK-AfG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -444,5 +444,8 @@
     <resources>
         <image name="about-50.png" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="05h-NK-AfG"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.12549019607843137" green="0.51764705882352946" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
 </document>

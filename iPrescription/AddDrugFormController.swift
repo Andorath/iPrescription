@@ -132,20 +132,21 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
             
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok comando popup medicina vuota"),
                 style: UIAlertActionStyle.Default){
-                                                     alert in self.storePrescription()
-                                                              self.dismissViewControllerAnimated(true, completion: nil)
+                                                     alert in
+                                                              if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptions
+                                                              {
+                                                                  self.storeNewPrescriptionInModel(prescriptionModel)
+                                                                  self.dismissViewControllerAnimated(true, completion: nil)
+                                                              }
                                                   })
             
             presentViewController(alert, animated: true, completion: nil)
         }
     }
     
-    func storePrescription()
+    func storeNewPrescriptionInModel(model: PrescriptionList)
     {
-        if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptions
-        {
-            prescriptionModel.addPrescription(self.prescription!)
-        }
+        model.addPrescription(self.prescription!)
     }
     
     func showEmptyPrescriptionAlert()
@@ -166,7 +167,17 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         let drug: Drug = buildCurrentDrug()
         prescription!.medicine.append(drug)
         
-        storePrescription()
+        if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptions
+        {
+            if newPrescription
+            {
+                storeNewPrescriptionInModel(prescriptionModel)
+            }
+            else
+            {
+                storeDrugForExistingPrescriptionInModel(prescriptionModel)
+            }
+        }
     }
     
     func buildCurrentDrug() -> Drug
@@ -177,6 +188,11 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
                     period: periodTextField.text!,
                     form: dosageFormTextField.text!,
                     note: noteTextView.text)
+    }
+    
+    func storeDrugForExistingPrescriptionInModel(model: PrescriptionList)
+    {
+        model.addDrugForPrescription(prescription!)
     }
     
     @IBAction func cancelAction(sender: AnyObject)

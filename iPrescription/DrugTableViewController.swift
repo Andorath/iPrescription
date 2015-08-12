@@ -18,9 +18,22 @@ class DrugTableViewController: UITableViewController
 
     override func viewDidLoad()
     {
+        addAllNecessaryObservers()
+        
         super.viewDidLoad()
     }
-
+    
+    func addAllNecessaryObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterface", object: nil)
+    }
+    
+    func updateInterface()
+    {
+        currentPrescription = prescriptionsModel.updateConsistencyForPrescription(currentPrescription!)
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -88,11 +101,29 @@ class DrugTableViewController: UITableViewController
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let segueId = segue.identifier
+        {
+            switch segueId
+            {
+                case "toAddDrugs":
+                
+                    if let destinationNavigationController = segue.destinationViewController as? UINavigationController
+                    {
+                        if let formViewController = (destinationNavigationController.viewControllers[0] as? AddDrugFormController)
+                        {
+                            if let _ = sender as? UIBarButtonItem
+                            {
+                                formViewController.setCurrentPrescription(currentPrescription!)
+                            }
+                        }
+                    }
+                
+                default:
+                    break
+            }
+        }
     }
 
 }

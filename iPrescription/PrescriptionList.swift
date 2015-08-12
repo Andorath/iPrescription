@@ -42,11 +42,7 @@ class PrescriptionList
     func getPrescriptionAtIndex(index: Int) -> Prescription
     {
         let managedPresc = prescriptions![index]
-        let name = managedPresc.valueForKey("nome") as! String
-        let creation = managedPresc.valueForKey("creazione") as! NSDate
-        let medicineManaged = (managedPresc.valueForKey("medicine") as! NSOrderedSet).array as! [NSManagedObject]
-        let medicine = getDrugsFromManagedDrugs(medicineManaged)
-        let prescription = Prescription(nome: name, creazione: creation, drugs: medicine)
+        let prescription = getPrescriptionFromManagedPrescription(managedPresc)
         return prescription
     }
     
@@ -78,6 +74,17 @@ class PrescriptionList
         }
         
         return drugs
+    }
+    
+    func getPrescriptionFromManagedPrescription(managedPrescription: NSManagedObject) -> Prescription
+    {
+        let name = managedPrescription.valueForKey("nome") as! String
+        let creation = managedPrescription.valueForKey("creazione") as! NSDate
+        let medicineManaged = (managedPrescription.valueForKey("medicine") as! NSOrderedSet).array as! [NSManagedObject]
+        let medicine = getDrugsFromManagedDrugs(medicineManaged)
+        let prescription = Prescription(nome: name, creazione: creation, drugs: medicine)
+        
+        return prescription
     }
     
     func numberOfDrugsForPrescriptionAtIndex(index: Int) -> Int
@@ -260,6 +267,13 @@ class PrescriptionList
         return results![0]
     }
     
+    func updateConsistencyForPrescription(prescription: Prescription) -> Prescription
+    {
+        let managedPrescription = getManagedPrescriptionFromPrescription(prescription)
+        let consistentPrescription = getPrescriptionFromManagedPrescription(managedPrescription)
+        return consistentPrescription
+    }
+    
     // MARK: - Metodi per medicine
     
     func getManagedDrugsFromPrescription(prescription: Prescription) -> [NSManagedObject]
@@ -292,6 +306,26 @@ class PrescriptionList
         }
         
         return false
+    }
+    
+    func addDrugForPrescription(prescription: Prescription)
+    {
+        let managedPrescription = getManagedPrescriptionFromPrescription(prescription)
+        
+        let drugsSet = getManagedDrugsFromDrugs(prescription.medicine)
+        managedPrescription.setValue(drugsSet, forKey: "medicine")
+        
+        do
+        {
+            try context.save()
+        }
+        catch _
+        {
+            
+        }
+        
+        updateDataFromModel()
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterface", object: nil)
     }
     
 }
