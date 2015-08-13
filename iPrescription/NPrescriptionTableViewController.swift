@@ -24,7 +24,7 @@ class NPrescriptionTableViewController: UITableViewController
     
     func addAllNecessaryObservers()
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterface", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdatePrescriptionInterface", object: nil)
     }
     
     func setUserInterfaceComponents()

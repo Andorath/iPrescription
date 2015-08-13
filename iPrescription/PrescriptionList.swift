@@ -166,7 +166,7 @@ class PrescriptionList
         }
         
         updateDataFromModel()
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
     }
     
     func getManagedDrugsFromDrugs(drugs: [Drug]) -> NSOrderedSet
@@ -213,20 +213,25 @@ class PrescriptionList
     {
         for drug in drugs
         {
-            let id = drug.valueForKey("id") as! String
-            
-            if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
+            deleteNotificationforDrug(drug)
+        }
+    }
+    
+    func deleteNotificationforDrug(drug: NSManagedObject)
+    {
+        let id = drug.valueForKey("id") as! String
+        
+        if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
+        {
+            for notification in notifications
             {
-                for notification in notifications
+                let userInfo = notification.userInfo
+                
+                if userInfo!["id"] as! String == id
                 {
-                    let userInfo = notification.userInfo
-                    
-                    if userInfo!["id"] as! String == id
-                    {
-                        UIApplication.sharedApplication().cancelLocalNotification(notification)
-                    }
-                    
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
                 }
+                
             }
         }
     }
@@ -245,7 +250,7 @@ class PrescriptionList
         }
         
         updateDataFromModel()
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
     }
     
     func getManagedPrescriptionFromPrescription(prescription: Prescription) -> NSManagedObject
@@ -325,7 +330,26 @@ class PrescriptionList
         }
         
         updateDataFromModel()
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+    }
+    
+    func deleteDrugForPrescription(prescription: Prescription, atIndex index: Int)
+    {
+        let managedDrug = getManagedDrugsFromPrescription(prescription)
+        let deletingDrug = managedDrug[index]
+        deleteNotificationforDrug(deletingDrug)
+        context.deleteObject(deletingDrug)
+        
+        do
+        {
+            try context.save()
+        } catch _
+        {
+        }
+        
+        updateDataFromModel()
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
     }
     
 }

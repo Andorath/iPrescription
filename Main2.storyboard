@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tWv-U1-3rP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tWv-U1-3rP">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,7 +31,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="my Cell" textLabel="nu6-Jp-gsJ" detailTextLabel="wk0-H2-Vus" style="IBUITableViewCellStyleSubtitle" id="RIr-26-9RO" customClass="PrescriptionTableViewCell" customModule="iPrescription" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="60"/>
@@ -154,7 +153,7 @@
                             <tableViewSection headerTitle="Posologia" id="p8l-bw-jF0">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="VxO-y4-xnz">
-                                        <rect key="frame" x="0.0" y="238" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="225" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VxO-y4-xnz" id="giQ-5n-zEm">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -190,7 +189,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="qU4-tu-4iZ">
-                                        <rect key="frame" x="0.0" y="298" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="285" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qU4-tu-4iZ" id="AiI-aU-KbZ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -226,7 +225,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Wob-3Q-eaS">
-                                        <rect key="frame" x="0.0" y="358" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="345" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wob-3Q-eaS" id="Ygy-w3-ZQf">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -266,7 +265,7 @@
                             <tableViewSection headerTitle="Info" id="Fqj-Hf-jgs">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="IZP-Zd-GGT">
-                                        <rect key="frame" x="0.0" y="461" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="448" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IZP-Zd-GGT" id="KyR-OC-C4B">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -302,7 +301,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="9aa-HB-1bO">
-                                        <rect key="frame" x="0.0" y="521" width="600" height="131"/>
+                                        <rect key="frame" x="0.0" y="508" width="600" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aa-HB-1bO" id="Vei-gu-XSM">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
@@ -397,7 +396,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="my Cell" id="l95-3F-NVU" customClass="MedicineTableViewCell" customModule="iPrescription" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="60"/>
