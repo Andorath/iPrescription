@@ -19,6 +19,7 @@ class DrugTableViewController: UITableViewController
     override func viewDidLoad()
     {
         addAllNecessaryObservers()
+        initUserInterface()
         
         super.viewDidLoad()
     }
@@ -26,6 +27,11 @@ class DrugTableViewController: UITableViewController
     func addAllNecessaryObservers()
     {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateDrugsInterface", object: nil)
+    }
+    
+    func initUserInterface()
+    {
+        self.title = currentPrescription?.nome
     }
     
     func updateInterface()
@@ -107,6 +113,18 @@ class DrugTableViewController: UITableViewController
                                 formViewController.setCurrentPrescription(currentPrescription!)
                             }
                         }
+                    }
+                
+                case "toDetail":
+                    
+                    if let destinationController = segue.destinationViewController as? DrugDetailController
+                    {
+                        if let selectedIndex = self.tableView.indexPathForCell(sender as! MedicineTableViewCell)
+                        {
+                            let drug = prescriptionsModel.getDrugAtIndex(selectedIndex.row ,forPrescription: currentPrescription!)
+                            destinationController.setCurrentDrug(drug)
+                        }
+
                     }
                 
                 default:

@@ -46,36 +46,6 @@ class PrescriptionList
         return prescription
     }
     
-    func getDrugsFromManagedDrugs(managedDrugs: [NSManagedObject]) -> [Drug]
-    {
-        var drugs = [Drug]()
-        
-        for manaDrug in managedDrugs
-        {
-            let nome = manaDrug.valueForKey("nome") as! String
-            let forma = manaDrug.valueForKey("forma") as! String
-            let dosaggio = manaDrug.valueForKey("dosaggio") as! String
-            let durata = manaDrug.valueForKey("durata") as! String
-            let note = manaDrug.valueForKey("note") as! String
-            let dottore = manaDrug.valueForKey("dottore") as! String
-            let id = manaDrug.valueForKey("id") as! String
-            let data_ultima_assunzione = manaDrug.valueForKey("data_ultima_assunzione") as? NSDate
-            
-            let drug = Drug(name: nome,
-                            dosage: dosaggio,
-                            doc: dottore,
-                            period: durata,
-                            form: forma,
-                            note: note,
-                            id: id,
-                            date_last_assumption: data_ultima_assunzione)
-            
-            drugs.append(drug)
-        }
-        
-        return drugs
-    }
-    
     func getPrescriptionFromManagedPrescription(managedPrescription: NSManagedObject) -> Prescription
     {
         let name = managedPrescription.valueForKey("nome") as! String
@@ -85,6 +55,41 @@ class PrescriptionList
         let prescription = Prescription(nome: name, creazione: creation, drugs: medicine)
         
         return prescription
+    }
+    
+    func getDrugsFromManagedDrugs(managedDrugs: [NSManagedObject]) -> [Drug]
+    {
+        var drugs = [Drug]()
+        
+        for manaDrug in managedDrugs
+        {
+            let drug = getDrugFromManagedDrug(manaDrug)
+            
+            drugs.append(drug)
+        }
+        
+        return drugs
+    }
+    
+    func getDrugFromManagedDrug(manaDrug: NSManagedObject) -> Drug
+    {
+        let nome = manaDrug.valueForKey("nome") as! String
+        let forma = manaDrug.valueForKey("forma") as! String
+        let dosaggio = manaDrug.valueForKey("dosaggio") as! String
+        let durata = manaDrug.valueForKey("durata") as! String
+        let note = manaDrug.valueForKey("note") as! String
+        let dottore = manaDrug.valueForKey("dottore") as! String
+        let id = manaDrug.valueForKey("id") as! String
+        let data_ultima_assunzione = manaDrug.valueForKey("data_ultima_assunzione") as? NSDate
+        
+        return Drug(name: nome,
+                    dosage: dosaggio,
+                    doc: dottore,
+                    period: durata,
+                    form: forma,
+                    note: note,
+                    id: id,
+                    date_last_assumption: data_ultima_assunzione)
     }
     
     func numberOfDrugsForPrescriptionAtIndex(index: Int) -> Int
@@ -350,6 +355,13 @@ class PrescriptionList
         
         updateDataFromModel()
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+    }
+    
+    func getDrugAtIndex(index: Int, forPrescription prescription: Prescription) -> Drug
+    {
+        let managedDrugs = getManagedDrugsFromPrescription(prescription)
+        let managedSelectedDrug = managedDrugs[index]
+        return getDrugFromManagedDrug(managedSelectedDrug)
     }
     
 }
