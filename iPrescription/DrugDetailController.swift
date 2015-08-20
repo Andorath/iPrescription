@@ -186,6 +186,49 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         return UITableViewCellEditingStyle.None
     }
     
+    @IBAction func manageDataAction(sender: AnyObject)
+    {
+        let alertSheet = UIAlertController(title: NSLocalizedString("Data ultima assunzione", comment: "Titolo data di assunzione alert sheet"),
+                                           message: NSLocalizedString("Come vuoi gestire la data dell'ultima assunzione?",
+                                           comment: "Messaggio data di assunzione alert sheet"),
+                                           preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        alertSheet.addAction(UIAlertAction(title: NSLocalizedString("Assumi il farmaco adesso", comment: "Comando 1 data di assunzione alert sheet"),
+                                           style: UIAlertActionStyle.Default){
+                                                                                alert in
+                                                                                self.assumiFarmaco(NSDate())
+                                                                             })
+        
+        alertSheet.addAction(UIAlertAction(title: NSLocalizedString("Imposta la data manualmente", comment: "Comando 2 data di assunzione alert sheet"),
+                                           style: UIAlertActionStyle.Default){
+                                                                                alert in
+                                                                                self.performSegueWithIdentifier("toEditDate", sender: self)
+                                                                             })
+        
+        alertSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancella data", comment: "Comando 3 data di assunzione alert sheet"),
+                                           style: UIAlertActionStyle.Destructive){
+                                                                                    alert in self.resetDataAssunzione()
+                                                                                 })
+        alertSheet.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Comando annulla data di assunzione sheet"), style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        
+        self.presentViewController(alertSheet, animated: true, completion: nil)
+    }
+    
+    func assumiFarmaco(dataAssunzione: NSDate)
+    {
+        prescriptionsModel.setDate(dataAssunzione, forDrug: currentDrug!)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE dd MMMM hh:mm a"
+        lastAssumptionLabel.text = dateFormatter.stringFromDate(dataAssunzione)
+        
+    }
+    
+    func resetDataAssunzione()
+    {
+        prescriptionsModel.setDate(nil, forDrug: currentDrug!)
+        lastAssumptionLabel.text = ""
+    }
     // MARK: - Delegato di testo
     
     func textFieldShouldReturn(textField: UITextField) -> Bool
@@ -199,7 +242,6 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         if noteTextView.isFirstResponder()
         {
             noteTextView.resignFirstResponder()
-            
         }
     }
     

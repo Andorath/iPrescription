@@ -15,11 +15,6 @@ class ChangeDateTableViewController: UITableViewController {
     @IBOutlet weak var dataAssunzione: UILabel!
     @IBOutlet weak var selettoreData: UIDatePicker!
     
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-    }
-    
     @IBAction func valueChanged(sender: AnyObject)
     {
         let dateFormatter = NSDateFormatter()
@@ -30,7 +25,7 @@ class ChangeDateTableViewController: UITableViewController {
     
     @IBAction func donePressed(sender: AnyObject)
     {
-        ((self.navigationController?.presentingViewController as! UINavigationController).topViewController as! DetailTableViewController).assumiFarmaco(selettoreData.date)
+        ((self.navigationController?.presentingViewController as! UINavigationController).topViewController as! DrugDetailController).assumiFarmaco(selettoreData.date)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -219,7 +219,6 @@
 				A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */,
 				A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */,
 				A974D64E196B18B000E27F1B /* DetailTableViewController.swift */,
-				A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */,
 				A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */,
 				A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */,
 				A982EFAC1B768064008C238E /* 2.0 */,
@@ -339,6 +338,7 @@
 				A993B63E1B77B9570017349F /* AddDrugFormController.swift */,
 				A99CCBA01B7A952200F446A1 /* DrugTableViewController.swift */,
 				A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */,
+				A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */,
 			);
 			name = 2.0;
 			sourceTree = "<group>";
