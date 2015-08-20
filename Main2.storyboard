@@ -508,6 +508,9 @@
                                                             <exclude reference="C0C-zc-IxH"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gh7-1F-A7A" id="D80-Jg-sJi"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv0-Fx-wiv" userLabel="Horizontal separator">
                                                     <rect key="frame" x="20" y="88" width="560" height="1"/>
@@ -652,6 +655,9 @@
                                                     <rect key="frame" x="20" y="21" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gh7-1F-A7A" id="lAJ-5C-2hw"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -697,6 +703,9 @@
                                                     <rect key="frame" x="20" y="21" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gh7-1F-A7A" id="iH1-Bk-IXn"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -730,6 +739,9 @@
                                                     <rect key="frame" x="20" y="21" width="561" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gh7-1F-A7A" id="pkz-yS-Blc"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -758,6 +770,9 @@
                                                     <rect key="frame" x="20" y="21" width="559" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gh7-1F-A7A" id="BW9-eO-86n"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medico:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2y-dA-L8M">
                                                     <rect key="frame" x="20" y="0.0" width="174" height="24"/>
@@ -809,6 +824,9 @@
                                                             <exclude reference="dFw-wt-AvP"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gh7-1F-A7A" id="EgR-oO-X8f"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>
@@ -958,7 +976,7 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Dettaglio" id="IjP-FN-9cZ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Gav-Ix-TcO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Gav-Ix-TcO"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="890"/>
@@ -966,6 +984,7 @@
                         <outlet property="doctorTextField" destination="Q9N-Fu-0qy" id="PtA-ym-3IE"/>
                         <outlet property="dosageTextField" destination="p2y-9Y-EgQ" id="Gcc-WT-xy5"/>
                         <outlet property="formTextField" destination="pqt-gk-fOA" id="dDF-jL-jp6"/>
+                        <outlet property="gestioneDataButton" destination="zKP-5s-ozV" id="7sg-zS-UJf"/>
                         <outlet property="lastAssumptionLabel" destination="NIq-qT-sgP" id="pfL-C8-ec9"/>
                         <outlet property="nameTextField" destination="QF2-ez-Yh2" id="GPu-GG-cfX"/>
                         <outlet property="noteTextView" destination="cUt-EG-iwa" id="Ki6-Ph-myY"/>

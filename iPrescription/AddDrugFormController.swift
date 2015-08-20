@@ -96,7 +96,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
             }
             else
             {
-                showEmptyPrescriptionAlert()
+                showEmptyDrugAlert()
             }
         }
         else
@@ -149,7 +149,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         model.addPrescription(self.prescription!)
     }
     
-    func showEmptyPrescriptionAlert()
+    func showEmptyDrugAlert()
     {
         let alert = UIAlertController(title: NSLocalizedString("Attenzione!", comment: "Titolo popup medicina vuota 2"),
                                       message: NSLocalizedString("Non è stato inserito alcun nome per la medicina",

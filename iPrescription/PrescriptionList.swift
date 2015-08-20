@@ -364,4 +364,45 @@ class PrescriptionList
         return getDrugFromManagedDrug(managedSelectedDrug)
     }
     
+    func updateDrug(drug: Drug)
+    {
+        let request = NSFetchRequest(entityName: "Medicina")
+        request.returnsObjectsAsFaults = false
+        let predicate = NSPredicate(format: "id = %@", drug.id)
+        request.predicate = predicate
+        var results: [AnyObject]?
+        do
+        {
+            results = try context.executeFetchRequest(request)
+        }
+        catch _
+        {
+            results = nil
+        }
+        
+        if let drugs = results as? [NSManagedObject]
+        {
+            for managedDrug in drugs
+            {
+                managedDrug.setValue(drug.nome, forKey: "nome")
+                managedDrug.setValue(drug.forma, forKey: "forma")
+                managedDrug.setValue(drug.durata, forKey: "durata")
+                managedDrug.setValue(drug.dosaggio, forKey: "dosaggio")
+                managedDrug.setValue(drug.dottore, forKey: "dottore")
+                managedDrug.setValue(drug.note, forKey: "note")
+                managedDrug.setValue(drug.id, forKey: "id")
+                managedDrug.setValue(drug.data_ultima_assunzione, forKey: "data_ultima_assunzione")
+            }
+        }
+        
+        do
+        {
+            try context.save()
+        } catch _
+        {
+        }
+        
+        updateDataFromModel()
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+    }
 }
