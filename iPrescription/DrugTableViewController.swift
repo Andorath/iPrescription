@@ -10,7 +10,7 @@ import UIKit
 
 class DrugTableViewController: UITableViewController
 {
-    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
+    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
     
     private var currentPrescription: Prescription?
     

@@ -206,10 +206,11 @@ class DetailTableViewController: UITableViewController, UITextFieldDelegate, UIT
         {
             var destination = segue.destinationViewController as! UINavigationController
             var myVC = destination.viewControllers[0] as! AddNotificationTableViewController
-            myVC.medicina = nameTextField.text
-            var id: AnyObject? = selectedMedicine?.valueForKey("id")
-            myVC.uuid = id as? String;
-            myVC.prescription = selectedPrescription
+            //Commentati per problemi di incompatibilità con la versione 2.0.1
+//            myVC.medicina = nameTextField.text
+//            var id: AnyObject? = selectedMedicine?.valueForKey("id")
+//            myVC.uuid = id as? String;
+//            myVC.prescription = selectedPrescription
         }
         else if segue.identifier == "toNotificationList"
         {

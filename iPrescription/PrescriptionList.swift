@@ -422,4 +422,12 @@ class PrescriptionList
         updateDataFromModel()
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
     }
+    
+    func getPrescriptionFromDrug(drug: Drug) -> Prescription
+    {
+        let managedDrug = getManagedDrugFromDrug(drug)
+        let managedPrescription = managedDrug.valueForKey("terapia") as! NSManagedObject
+        let ownerPrescription = getPrescriptionFromManagedPrescription(managedPrescription)
+        return ownerPrescription
+    }
 }

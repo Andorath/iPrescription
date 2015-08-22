@@ -133,7 +133,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
             alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok comando popup medicina vuota"),
                 style: UIAlertActionStyle.Default){
                                                      alert in
-                                                              if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptions
+                                                              if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptionsModel
                                                               {
                                                                   self.storeNewPrescriptionInModel(prescriptionModel)
                                                                   self.dismissViewControllerAnimated(true, completion: nil)
@@ -167,7 +167,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         let drug: Drug = buildCurrentDrug()
         prescription!.medicine.append(drug)
         
-        if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptions
+        if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptionsModel
         {
             if newPrescription
             {

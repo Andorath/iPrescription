@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     var window: UIWindow?
     var audioPlayer: AVAudioPlayer?
     var currentController: UIViewController!
-    lazy var prescriptions: PrescriptionList = PrescriptionList()
+    lazy var prescriptionsModel: PrescriptionList = PrescriptionList()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //richiesta permessi per le notifiche

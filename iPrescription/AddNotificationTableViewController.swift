@@ -10,11 +10,12 @@
 
 import UIKit
 
-class AddNotificationTableViewController: UITableViewController {
+class AddNotificationTableViewController: UITableViewController
+{
+    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
     
-    var medicina: String?
-    var prescription: String?
-    var uuid: String?
+    var currentDrug: Drug?
+
     var repeatInterval: NSCalendarUnit?
     
     var lastIndexPath = NSIndexPath(forRow: 0, inSection: 1)
@@ -23,8 +24,15 @@ class AddNotificationTableViewController: UITableViewController {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet weak var memoTextView: UITextView!
     
+    override func viewDidLoad()
+    {
+        setDateLabel()
+        memoTextView.inputAccessoryView = getDoneToolbar()
+        
+        super.viewDidLoad()
+    }
     
-    @IBAction func valueChanged(sender: AnyObject)
+    func setDateLabel()
     {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -32,20 +40,65 @@ class AddNotificationTableViewController: UITableViewController {
         selected.text = dateFormatter.stringFromDate(datePicker.date)
     }
     
+    func getDoneToolbar() -> UIToolbar
+    {
+        let doneToolbar = UIToolbar()
+        doneToolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della Barbutton Detail"),
+            style: UIBarButtonItemStyle.Done,
+            target: self,
+            action: "dismissKeyboard")
+        
+        doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
+        let arrayItem = [doneButton]
+        doneToolbar.items = arrayItem
+        
+        return doneToolbar
+    }
+    
+    func setCurrentDrug(drug: Drug)
+    {
+        self.currentDrug = drug
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func valueChanged(sender: AnyObject)
+    {
+        setDateLabel()
+    }
+    
     @IBAction func donePressed(sender: AnyObject)
     {
+        let notification = getNewLocalNotificationWithSound("Opening.m4r")
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func getNewLocalNotificationWithSound(sound: String) -> UILocalNotification
+    {
+        let prescription = prescriptionsModel.getPrescriptionFromDrug(currentDrug!)
         let notification = UILocalNotification()
         notification.fireDate = datePicker.date
         notification.timeZone = NSTimeZone.defaultTimeZone()
-        notification.alertBody = String(format: NSLocalizedString("Notifica per %@ della prescrizione %@\nMemo: %@", comment: "Messaggio della Local Notification"), medicina!, prescription!, memoTextView.text)
-            
-        //notification.soundName = UILocalNotificationDefaultSoundName
-        notification.soundName = "Opening.m4r"
+        notification.alertBody = String(format: NSLocalizedString("Notifica per %@ della prescrizione %@\nMemo: %@",
+                                                                  comment: "Messaggio della Local Notification"),
+                                        currentDrug!.nome,
+                                        prescription.nome,
+                                        memoTextView.text)
+        
+        notification.soundName = sound
         
         var userInfo = [String : String]()
-        userInfo["id"] = uuid!
-        userInfo["prescrizione"] = prescription!
-        userInfo["medicina"] = medicina!
+        userInfo["id"] = currentDrug!.id
+        userInfo["prescrizione"] = prescription.nome
+        userInfo["medicina"] = currentDrug!.nome
         userInfo["memo"] = memoTextView.text
         
         notification.userInfo = userInfo
@@ -57,9 +110,7 @@ class AddNotificationTableViewController: UITableViewController {
         
         notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        return notification
     }
     
     
@@ -68,7 +119,7 @@ class AddNotificationTableViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    //funzioni delegate e datasource tableview
+    //MARK: - metodi delegate e datasource tableview
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath?)
     {
@@ -80,16 +131,12 @@ class AddNotificationTableViewController: UITableViewController {
             {
                 case 1:
                     self.repeatInterval = NSCalendarUnit.Day
-                    print("Hai scelto Ogni Giorno")
                 case 2:
                     self.repeatInterval = NSCalendarUnit.WeekOfYear
-                    print("Hai scelto Ogni Settimana")
                 case 3:
                     self.repeatInterval = NSCalendarUnit.Month
-                    print("Hai scelto Ogni Mese")
                 default:
                     self.repeatInterval = nil
-                    print("Hai scelto Nessuna")
             }
             
             tableView.reloadData()
@@ -127,54 +174,10 @@ class AddNotificationTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool)
     {
-        let userInfo = ["currentController" : self]
-        NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
+        //TODO: controllare se aggiornare queste istruzioni per la versione 2.0.1
+        //let userInfo = ["currentController" : self]
+        //NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         super.viewWillAppear(animated)
-    }
-    
-    override func viewDidLoad()
-    {
-
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        selected.text = dateFormatter.stringFromDate(datePicker.date)
-        
-        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
-        toolBar.barStyle = UIBarStyle.Default
-        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done per toolbar"), style: UIBarButtonItemStyle.Done, target: self, action: "dismissKeyboard")
-        doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
-        let arrayItem = [doneButton]
-        toolBar.items = arrayItem
-        
-        memoTextView.inputAccessoryView = toolBar
-        
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //Funzioni di diagnostica del developer
-    
-    
-    @IBAction func stampaNumeroNotifiche(sender: AnyObject)
-    {
-        //Possibile errore dovuto al ritorno di nil in assenza di notifiche
-        var numberOfNotfication = UIApplication.sharedApplication().scheduledLocalNotifications!.count
-        
-        var alert = UIAlertController(title: "Diagnostica Developer", message: "Ci sono \(numberOfNotfication) notifiche attive per l'App", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Destructive, handler: nil))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-
-    @IBAction func deleteAllNotifications(sender: AnyObject)
-    {
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
-        print("Tutte le norifche locali cancellate!")
     }
 
 }

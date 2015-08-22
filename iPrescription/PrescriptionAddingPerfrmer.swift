@@ -111,7 +111,7 @@ class PrescriptionAddingPerformer : NSObject, PrescriptionAddingDelegate, UIText
     
     func prescriptionExists(name: String) -> Bool
     {
-        let prescriptionModel = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
+        let prescriptionModel = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
         return prescriptionModel.alreadyExistsPrescription(name)
     }
     

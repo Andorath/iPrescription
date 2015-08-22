@@ -10,7 +10,7 @@ import UIKit
 
 class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextViewDelegate
 {
-    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptions
+    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
     
     // TODO: Verificare che questo campo serva solo all'inizializzazione del controller
     //in quanto se modificati i campi del controller tale proprietà è inconsistente.
@@ -245,14 +245,28 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         }
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let segueId = segue.identifier
+        {
+            switch segueId
+            {
+            case "toAddNotification":
+                
+                if let destinationNavigationController = segue.destinationViewController as? UINavigationController
+                {
+                    if let addNotificationController = (destinationNavigationController.viewControllers[0] as? AddNotificationTableViewController)
+                    {
+                        addNotificationController.setCurrentDrug(currentDrug!)
+                    }
+                }
+                
+            default:
+                break
+            }
+        }
     }
-    */
 
 }
