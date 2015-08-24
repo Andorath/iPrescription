@@ -12,13 +12,13 @@ class NPrescriptionTableViewController: UITableViewController
 {
     lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
     
-    var prescriptionDelegate: PrescriptionAddingDelegate?
+    var prescriptionDelegate: PrescriptionAddingDelegate? 
 
     override func viewDidLoad()
     {
         addAllNecessaryObservers()
         setUserInterfaceComponents()
-        
+        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
         super.viewDidLoad()
     }
     
@@ -34,7 +34,7 @@ class NPrescriptionTableViewController: UITableViewController
     
     func updateInterface()
     {
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
     }
 
     override func didReceiveMemoryWarning()
@@ -46,7 +46,6 @@ class NPrescriptionTableViewController: UITableViewController
     
     @IBAction func addNewPrescription(sender: AnyObject)
     {
-        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
         prescriptionDelegate!.showAlertController()
     }
 
@@ -106,7 +105,6 @@ class NPrescriptionTableViewController: UITableViewController
         if editingStyle == .Delete
         {
             prescriptionsModel.deletePrescriptionAtIndex(indexPath.row)
-            // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
@@ -182,10 +180,17 @@ class NPrescriptionTableViewController: UITableViewController
                     
                     if let destinationDrugController = segue.destinationViewController as? DrugTableViewController
                     {
-                        if let selectedIndex = self.tableView.indexPathForCell(sender as! PrescriptionTableViewCell)
+                        if let cell = sender as? PrescriptionTableViewCell
                         {
-                            let prescription = prescriptionsModel.getPrescriptionAtIndex(selectedIndex.row)
-                            destinationDrugController.setCurrentPrescription(prescription)
+                            if let selectedIndex = self.tableView.indexPathForCell(cell)
+                            {
+                                let prescription = prescriptionsModel.getPrescriptionAtIndex(selectedIndex.row)
+                                destinationDrugController.setCurrentPrescription(prescription)
+                            }
+                        }
+                        else if let presenter = sender as? AddDrugFormController
+                        {
+                            destinationDrugController.setCurrentPrescription(presenter.prescription!)
                         }
                     }
                 
@@ -195,6 +200,4 @@ class NPrescriptionTableViewController: UITableViewController
         }
         
     }
-    
-
 }

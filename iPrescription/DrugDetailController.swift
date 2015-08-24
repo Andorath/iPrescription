@@ -253,15 +253,22 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         {
             switch segueId
             {
-            case "toAddNotification":
+                case "toAddNotification":
                 
-                if let destinationNavigationController = segue.destinationViewController as? UINavigationController
-                {
-                    if let addNotificationController = (destinationNavigationController.viewControllers[0] as? AddNotificationTableViewController)
+                    if let destinationNavigationController = segue.destinationViewController as? UINavigationController
                     {
-                        addNotificationController.setCurrentDrug(currentDrug!)
+                        if let addNotificationController = (destinationNavigationController.viewControllers[0] as? AddNotificationTableViewController)
+                        {
+                            addNotificationController.setCurrentDrug(currentDrug!)
+                        }
                     }
-                }
+                
+                case "toNotificationsList":
+                
+                    if let destinationController = segue.destinationViewController as? NotificationsListController
+                    {
+                        destinationController.setNotificationsForDrug(currentDrug!)
+                    }
                 
             default:
                 break
@@ -269,4 +276,41 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         }
     }
 
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+    {
+        if identifier == "toNotificationsList"
+        {
+            let thereAreNotifications =  prescriptionsModel.thereAreNotificationsForDrug(currentDrug!)
+            
+            if !thereAreNotifications
+            {
+                if let cell = sender as? UITableViewCell
+                {
+                    if let lastIndexPath = tableView.indexPathForCell(cell)
+                    {
+                        tableView.deselectRowAtIndexPath(lastIndexPath, animated: true)
+                    }
+                }
+                
+                showNotificationEmptyAlert()
+            }
+            
+            return thereAreNotifications
+        }
+        
+        return true
+    }
+    
+    func showNotificationEmptyAlert()
+    {
+        let alert = UIAlertController(title: NSLocalizedString("Nessuna Notifica", comment: "Titolo popup No Notification"),
+            message: NSLocalizedString("Non ci sono notifiche per questo farmaco", comment: "Messaggio popup No Notification"),
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok Action no notification"),
+            style: UIAlertActionStyle.Default,
+            handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }

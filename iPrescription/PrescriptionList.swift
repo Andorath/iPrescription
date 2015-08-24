@@ -174,27 +174,87 @@ class PrescriptionList
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
     }
     
+    //FIXIT: Sei tu la fonte del probelema!! Crei NSmanagedObject ogni volta che converti!
     func getManagedDrugsFromDrugs(drugs: [Drug]) -> NSOrderedSet
     {
         let managedDrugs = NSMutableOrderedSet()
-
+        
         for drug in drugs
         {
-            let managedDrug = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context)
-            
-            managedDrug.setValue(drug.nome, forKey: "nome")
-            managedDrug.setValue(drug.forma, forKey: "forma")
-            managedDrug.setValue(drug.durata, forKey: "durata")
-            managedDrug.setValue(drug.dosaggio, forKey: "dosaggio")
-            managedDrug.setValue(drug.dottore, forKey: "dottore")
-            managedDrug.setValue(drug.note, forKey: "note")
-            managedDrug.setValue(drug.id, forKey: "id")
-            managedDrug.setValue(drug.data_ultima_assunzione, forKey: "data_ultima_assunzione")
-            
-            managedDrugs.addObject(managedDrug)
+            if modelContainsDrug(drug)
+            {
+                let managedDrug = getManagedDrugFromDrug(drug)
+                managedDrugs.addObject(managedDrug)
+            }
+            else
+            {
+                let managedDrug = createManagedDrugFromDrug(drug)
+                
+                managedDrugs.addObject(managedDrug)
+            }
         }
         
+//        let managedDrugs = NSMutableOrderedSet()
+//
+//        for drug in drugs
+//        {
+//            let managedDrug = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context)
+//            
+//            managedDrug.setValue(drug.nome, forKey: "nome")
+//            managedDrug.setValue(drug.forma, forKey: "forma")
+//            managedDrug.setValue(drug.durata, forKey: "durata")
+//            managedDrug.setValue(drug.dosaggio, forKey: "dosaggio")
+//            managedDrug.setValue(drug.dottore, forKey: "dottore")
+//            managedDrug.setValue(drug.note, forKey: "note")
+//            managedDrug.setValue(drug.id, forKey: "id")
+//            managedDrug.setValue(drug.data_ultima_assunzione, forKey: "data_ultima_assunzione")
+//            
+//            managedDrugs.addObject(managedDrug)
+//        }
+//        
         return managedDrugs
+    }
+    
+    func modelContainsDrug(drug:Drug) -> Bool
+    {
+        let request = NSFetchRequest(entityName: "Medicina")
+        request.returnsObjectsAsFaults = false
+        let predicate = NSPredicate(format: "id = %@", drug.id)
+        request.predicate = predicate
+        var results: [AnyObject]?
+        do
+        {
+            results = try context.executeFetchRequest(request)
+        }
+        catch _
+        {
+            results = nil
+        }
+        
+        if results!.isEmpty
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
+    
+    func createManagedDrugFromDrug(drug: Drug) -> NSManagedObject
+    {
+        let managedDrug = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context)
+
+        managedDrug.setValue(drug.nome, forKey: "nome")
+        managedDrug.setValue(drug.forma, forKey: "forma")
+        managedDrug.setValue(drug.durata, forKey: "durata")
+        managedDrug.setValue(drug.dosaggio, forKey: "dosaggio")
+        managedDrug.setValue(drug.dottore, forKey: "dottore")
+        managedDrug.setValue(drug.note, forKey: "note")
+        managedDrug.setValue(drug.id, forKey: "id")
+        managedDrug.setValue(drug.data_ultima_assunzione, forKey: "data_ultima_assunzione")
+        
+        return managedDrug
     }
     
     func deletePrescriptionAtIndex(index: Int)
@@ -429,5 +489,30 @@ class PrescriptionList
         let managedPrescription = managedDrug.valueForKey("terapia") as! NSManagedObject
         let ownerPrescription = getPrescriptionFromManagedPrescription(managedPrescription)
         return ownerPrescription
+    }
+    
+    //MARK: - Funzioni di diagnostica e debugging
+    //TODO: Eliminare tutte le funzioni di diagnostica
+    
+    func countPrescriptions()
+    {
+        let request = NSFetchRequest(entityName: "Terapia")
+        request.returnsObjectsAsFaults = false
+        //let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
+        //request.sortDescriptors = [sortDescriptor]
+        
+        let allPrescriptions = try! context.executeFetchRequest(request) as? [NSManagedObject]
+        print("Numero di Prescrizioni: \(allPrescriptions!.count)")
+    }
+    
+    func countDrugs()
+    {
+        let request = NSFetchRequest(entityName: "Medicina")
+        request.returnsObjectsAsFaults = false
+        //let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
+        //request.sortDescriptors = [sortDescriptor]
+        
+        let allDrugs = try! context.executeFetchRequest(request) as? [NSManagedObject]
+        print("Numero di medicine: \(allDrugs!.count)")
     }
 }

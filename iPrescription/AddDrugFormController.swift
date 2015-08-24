@@ -12,7 +12,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
 {
     var currentResponder: UIResponder?
     
-    private var prescription: Prescription?
+    var prescription: Prescription?
     private var newPrescription: Bool = false
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -102,7 +102,6 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         else
         {
             addDrug()
-            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -135,18 +134,13 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
                                                      alert in
                                                               if let prescriptionModel = (UIApplication.sharedApplication().delegate as? AppDelegate)?.prescriptionsModel
                                                               {
-                                                                  self.storeNewPrescriptionInModel(prescriptionModel)
+                                                                  prescriptionModel.addPrescription(self.prescription!)
                                                                   self.dismissViewControllerAnimated(true, completion: nil)
                                                               }
                                                   })
             
             presentViewController(alert, animated: true, completion: nil)
         }
-    }
-    
-    func storeNewPrescriptionInModel(model: PrescriptionList)
-    {
-        model.addPrescription(self.prescription!)
     }
     
     func showEmptyDrugAlert()
@@ -171,11 +165,14 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         {
             if newPrescription
             {
-                storeNewPrescriptionInModel(prescriptionModel)
+                prescriptionModel.addPrescription(self.prescription!)
+                
+                forcedDrugController()
             }
             else
             {
-                storeDrugForExistingPrescriptionInModel(prescriptionModel)
+                prescriptionModel.addDrugForPrescription(prescription!)
+                dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
@@ -190,9 +187,17 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
                     note: noteTextView.text)
     }
     
-    func storeDrugForExistingPrescriptionInModel(model: PrescriptionList)
+    func forcedDrugController()
     {
-        model.addDrugForPrescription(prescription!)
+        if let pvc = self.presentingViewController as? UINavigationController
+        {
+            if let prescriptionVC = pvc.topViewController as? NPrescriptionTableViewController
+            {
+                dismissViewControllerAnimated(true){
+                    prescriptionVC.performSegueWithIdentifier("toDrugs", sender: self)
+                }
+            }
+        }
     }
     
     @IBAction func cancelAction(sender: AnyObject)
@@ -211,7 +216,6 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
     func textViewDidBeginEditing(textView: UITextView)
     {
         currentResponder = textView
-        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool

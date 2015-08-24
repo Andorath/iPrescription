@@ -22,6 +22,7 @@
 		A918F5A3199000C1006EA37B /* IPMasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918F5A2199000C1006EA37B /* IPMasterNavigationController.swift */; };
 		A928DA681989666A00A7A230 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A928DA671989666A00A7A230 /* Main_ipad.storyboard */; };
 		A936DBF01B7A0BE2002C41C6 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */; };
+		A9372A951B88D8DF000F696B /* NotifictionsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9372A941B88D8DF000F696B /* NotifictionsListController.swift */; };
 		A938D48D1B8143E2004DC7B0 /* DrugDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */; };
 		A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94068DD1981B37900149057 /* NotificationTableViewCell.swift */; };
 		A9541ABC19E7D7CE00978FD6 /* Sveglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541ABE19E7D7CE00978FD6 /* Sveglia.png */; };
@@ -116,6 +117,7 @@
 		A925F48119C6249600024C84 /* iPrescription 1.0.1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iPrescription 1.0.1a.xcdatamodel"; sourceTree = "<group>"; };
 		A928DA671989666A00A7A230 /* Main_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_ipad.storyboard; sourceTree = "<group>"; };
 		A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
+		A9372A941B88D8DF000F696B /* NotifictionsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifictionsListController.swift; sourceTree = "<group>"; };
 		A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailController.swift; sourceTree = "<group>"; };
 		A94068DD1981B37900149057 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		A9541ABF19E7D7D400978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Sveglia.png; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */,
 				A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */,
 				A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */,
+				A9372A941B88D8DF000F696B /* NotifictionsListController.swift */,
 			);
 			name = 2.0;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				A978E1B21975C24F000503B5 /* PrescriptionTableViewController.swift in Sources */,
 				A905CA3A198BEB210096E519 /* IPDetailTableViewController.swift in Sources */,
 				A961CF4F1987B3A900BA2E77 /* DismissSegue.swift in Sources */,
+				A9372A951B88D8DF000F696B /* NotifictionsListController.swift in Sources */,
 				A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,24 +32,24 @@ class NotificationTableViewController: UITableViewController
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEE dd MMMM yyyy"
-        cell!.detail.text = dateFormatter.stringFromDate(notification.fireDate!)
+        cell!.detailLabel.text = dateFormatter.stringFromDate(notification.fireDate!)
         
         if notification.repeatInterval.rawValue != 0
         {
-            cell!.detail.text = NSLocalizedString("Inizio: ", comment: "Dettaglio cella elenco notifiche") + cell!.detail.text!
+            cell!.detailLabel.text = NSLocalizedString("Inizio: ", comment: "Dettaglio cella elenco notifiche") + cell!.detailLabel.text!
             
             switch notification.repeatInterval
             {
                 case NSCalendarUnit.Minute:
-                    cell!.`repeat`.text = NSLocalizedString("Ogni Minuto", comment: "Ripetizione ogni minuto")
+                    cell!.repeatLabel.text = NSLocalizedString("Ogni Minuto", comment: "Ripetizione ogni minuto")
                 case NSCalendarUnit.Day:
-                    cell!.`repeat`.text = NSLocalizedString("Ogni Giorno", comment: "Ripetizione ogni giorno")
+                    cell!.repeatLabel.text = NSLocalizedString("Ogni Giorno", comment: "Ripetizione ogni giorno")
                 case NSCalendarUnit.WeekOfYear:
-                    cell!.`repeat`.text = NSLocalizedString("Ogni Settimana", comment: "Ripetizione ogni settimana")
+                    cell!.repeatLabel.text = NSLocalizedString("Ogni Settimana", comment: "Ripetizione ogni settimana")
                 case NSCalendarUnit.Month:
-                    cell!.`repeat`.text = NSLocalizedString("Ogni Mese", comment: "Ripetizione ogni mese")
+                    cell!.repeatLabel.text = NSLocalizedString("Ogni Mese", comment: "Ripetizione ogni mese")
                 default:
-                    cell!.`repeat`.text = ""
+                    cell!.repeatLabel.text = ""
                 
             }
         }

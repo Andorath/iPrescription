@@ -33,6 +33,7 @@ class PrescriptionAddingPerformer : NSObject, PrescriptionAddingDelegate, UIText
     {
         super.init()
         self.delegator = delegator
+        self.prescription = nil
         initAlertController()
     }
     
@@ -42,10 +43,13 @@ class PrescriptionAddingPerformer : NSObject, PrescriptionAddingDelegate, UIText
                                             message: NSLocalizedString("Inserisci un nome per questa prescrizione",
                                                                        comment: "Messaggio popup creazione nuova prescrizione"),
                                             preferredStyle: UIAlertControllerStyle.Alert)
+        
         alertController!.addTextFieldWithConfigurationHandler(textFieldConfigurationHandler)
+        
         alertController!.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Annulla popup creazione nuova prescrizione"),
                                                 style: UIAlertActionStyle.Cancel,
                                                 handler: nil))
+        
         let addPrescription = initAddPrescriptionAction()
         alertController!.addAction(addPrescription)
     }
