@@ -174,7 +174,6 @@ class PrescriptionList
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
     }
     
-    //FIXIT: Sei tu la fonte del probelema!! Crei NSmanagedObject ogni volta che converti!
     func getManagedDrugsFromDrugs(drugs: [Drug]) -> NSOrderedSet
     {
         let managedDrugs = NSMutableOrderedSet()
@@ -194,24 +193,6 @@ class PrescriptionList
             }
         }
         
-//        let managedDrugs = NSMutableOrderedSet()
-//
-//        for drug in drugs
-//        {
-//            let managedDrug = NSEntityDescription.insertNewObjectForEntityForName("Medicina", inManagedObjectContext: context)
-//            
-//            managedDrug.setValue(drug.nome, forKey: "nome")
-//            managedDrug.setValue(drug.forma, forKey: "forma")
-//            managedDrug.setValue(drug.durata, forKey: "durata")
-//            managedDrug.setValue(drug.dosaggio, forKey: "dosaggio")
-//            managedDrug.setValue(drug.dottore, forKey: "dottore")
-//            managedDrug.setValue(drug.note, forKey: "note")
-//            managedDrug.setValue(drug.id, forKey: "id")
-//            managedDrug.setValue(drug.data_ultima_assunzione, forKey: "data_ultima_assunzione")
-//            
-//            managedDrugs.addObject(managedDrug)
-//        }
-//        
         return managedDrugs
     }
     
@@ -321,9 +302,21 @@ class PrescriptionList
     func getManagedPrescriptionFromPrescription(prescription: Prescription) -> NSManagedObject
     {
         let prescriptionName = prescription.nome
+        return getManagedPrescriptionWithName(prescriptionName)
+    }
+    
+    func getPrescriptionWithName(name: String) -> Prescription
+    {
+        let managedPrescription = getManagedPrescriptionWithName(name)
+        let prescription = getPrescriptionFromManagedPrescription(managedPrescription)
+        return prescription
+    }
+    
+    func getManagedPrescriptionWithName(name: String) -> NSManagedObject
+    {
         let request = NSFetchRequest(entityName: "Terapia")
         request.returnsObjectsAsFaults = false
-        let predicate = NSPredicate(format: "nome = %@", prescriptionName)
+        let predicate = NSPredicate(format: "nome = %@", name)
         request.predicate = predicate
         var results: [NSManagedObject]?
         do
@@ -450,9 +443,14 @@ class PrescriptionList
     
     func getManagedDrugFromDrug(drug: Drug) -> NSManagedObject
     {
+        return getManagedDrugWithId(drug.id)
+    }
+    
+    func getManagedDrugWithId(id: String) -> NSManagedObject
+    {
         let request = NSFetchRequest(entityName: "Medicina")
         request.returnsObjectsAsFaults = false
-        let predicate = NSPredicate(format: "id = %@", drug.id)
+        let predicate = NSPredicate(format: "id = %@", id)
         request.predicate = predicate
         var results: [AnyObject]?
         do
@@ -465,6 +463,12 @@ class PrescriptionList
         }
         
         return results![0] as! NSManagedObject
+    }
+    
+    func getDrugWithId(id: String) -> Drug
+    {
+        let managedDrug = getManagedDrugWithId(id)
+        return getDrugFromManagedDrug(managedDrug)
     }
     
     func setDate(date: NSDate?, forDrug drug: Drug)

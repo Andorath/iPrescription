@@ -12,27 +12,13 @@ import AVFoundation
 class SoundManager : NSObject
 {
     var alertSound: NSURL
-    var audioPlayer: AVAudioPlayer? {
-        
-        get {
-            let player: AVAudioPlayer?
-            do
-            {
-                player = try AVAudioPlayer(contentsOfURL: alertSound)
-            }
-            catch _
-            {
-                player = nil
-            }
-            
-            return player
-        }
-    }
+    var audioPlayer: AVAudioPlayer?
     
     init(soundURL: NSURL)
     {
         self.alertSound = soundURL
         super.init()
+        self.audioPlayer = self.getAudioPlayer()
     }
     
     convenience init(resource: String, ofType: String)
@@ -48,5 +34,20 @@ class SoundManager : NSObject
             player.prepareToPlay()
             player.play()
         }
+    }
+    
+    func getAudioPlayer() -> AVAudioPlayer
+    {
+        let player: AVAudioPlayer?
+        do
+        {
+            player = try AVAudioPlayer(contentsOfURL: alertSound)
+        }
+        catch _
+        {
+            player = nil
+        }
+        
+        return player!
     }
 }

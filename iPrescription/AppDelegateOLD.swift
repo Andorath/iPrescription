@@ -13,8 +13,8 @@ import UIKit
 import CoreData
 import AVFoundation
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
+//@UIApplicationMain
+class AppDelegateOLD: UIResponder, UIApplicationDelegate
 {
                             
     var window: UIWindow?
@@ -135,9 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                 {
                     self.currentController.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
                 }
-                print("Detail view Controller: \(detailViewController)")
-                print("selected prescription: \(detailViewController.selectedPrescription)")
-                print("selectedMedicine: \(detailViewController.selectedMedicine)")
+            
                 rootNavigationController.setViewControllers([UIViewController(), detailViewController], animated: true)
             }))
             
