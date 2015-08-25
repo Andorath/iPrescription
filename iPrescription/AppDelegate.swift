@@ -22,29 +22,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     var currentController: UIViewController!
     lazy var prescriptionsModel: PrescriptionList = PrescriptionList()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         //richiesta permessi per le notifiche
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories: nil
-            ))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound,
+                                                                                           UIUserNotificationType.Alert,
+                                                                                           UIUserNotificationType.Badge],
+                                                                                categories: nil))
         
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCurrentController:", name: "UpdateCurrentControllerNotification", object: nil)
-        print(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         
-        if NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")
-        {
-            //L'app è stata già lanciata almeno una volta
-            print("E' stata già lanciata")
-        }
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCurrentController:", name: "UpdateCurrentControllerNotification", object: nil)
+        
+//        print(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
+//        
+//        if NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")
+//        {
+//            //L'app è stata già lanciata almeno una volta
+//            print("E' stata già lanciata")
+//        }
     
         
         //gestione delle notifiche locali ricevute
         if let notification: UILocalNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
         {
-            let id: String = notification.userInfo!["id"] as! NSString as String
-            let prescription: String = notification.userInfo!["prescrizione"] as! NSString as String
-            var medicine: String = notification.userInfo!["medicina"] as! NSString as String
-            var memo: String = notification.userInfo!["memo"] as! NSString as String
+            let id = notification.userInfo!["id"] as! String
+            let prescription = notification.userInfo!["prescrizione"] as! String
+            var medicine = notification.userInfo!["medicina"] as! String
+            var memo = notification.userInfo!["memo"] as! String
             
             let request = NSFetchRequest(entityName: "Medicina")
             let predicate = NSPredicate(format: "id = %@", id)
@@ -76,20 +81,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         //fine gestione notifiche locali
             
         //Inizio gestione Appearance
-        let pageControl = UIPageControl.appearance()
-        pageControl.pageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 0.4)
-        pageControl.currentPageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
+//        let pageControl = UIPageControl.appearance()
+//        pageControl.pageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 0.4)
+//        pageControl.currentPageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
 
         return true
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
     {
-        NSLog("didRecieveLocalNotification")
-        
         if(application.applicationState == UIApplicationState.Active)
         {
-            NSLog("----> Stato Attivo")
             //creo il suono
             let alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chord", ofType: "m4r")!)
             do {
@@ -199,23 +201,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         }
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        //NSLog("Resign Active")
-    }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        //NSLog("Did Enter Background")
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        //NSLog("Will Enter Foreground")
+    func applicationWillResignActive(application: UIApplication)
+    {
         
+    }
+
+    func applicationDidEnterBackground(application: UIApplication)
+    {
+        
+    }
+
+    func applicationWillEnterForeground(application: UIApplication)
+    {
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
-        //NSLog("Did Become Active")
-
+    func applicationDidBecomeActive(application: UIApplication)
+    {
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "NSUpdateInterface", object: nil))
     }
 

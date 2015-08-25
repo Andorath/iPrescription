@@ -51,6 +51,7 @@
 		A982EFAE1B7680AE008C238E /* NPrescriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982EFAD1B7680AE008C238E /* NPrescriptionTableViewController.swift */; };
 		A982EFB01B76AD87008C238E /* ModelClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982EFAF1B76AD87008C238E /* ModelClasses.swift */; };
 		A986C14C1961C63F00649A91 /* AddFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */; };
+		A98D95491B8C6CE50013680B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D95481B8C6CE50013680B /* SoundManager.swift */; };
 		A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */; };
 		A993B63F1B77B9570017349F /* AddDrugFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993B63E1B77B9570017349F /* AddDrugFormController.swift */; };
 		A99CA93B1993CF5700A388BD /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93A1993CF5700A388BD /* InfoPageViewController.swift */; };
@@ -146,6 +147,7 @@
 		A982EFAF1B76AD87008C238E /* ModelClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClasses.swift; sourceTree = "<group>"; };
 		A986C14A1961C02F00649A91 /* iPrescription-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPrescription-Bridging-Header.h"; sourceTree = "<group>"; };
 		A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddFormTableViewController.swift; path = ../AddFormTableViewController.swift; sourceTree = "<group>"; };
+		A98D95481B8C6CE50013680B /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewController.swift; sourceTree = "<group>"; };
 		A993B63E1B77B9570017349F /* AddDrugFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDrugFormController.swift; sourceTree = "<group>"; };
 		A99CA93A1993CF5700A388BD /* InfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				A912E60419D1D18C00DE2DB0 /* ChangeDateTableViewController.swift */,
 				A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */,
 				A9372A941B88D8DF000F696B /* NotifictionsListController.swift */,
+				A98D95481B8C6CE50013680B /* SoundManager.swift */,
 			);
 			name = 2.0;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */,
 				A986C14C1961C63F00649A91 /* AddFormTableViewController.swift in Sources */,
 				A99CA9401993DF4B00A388BD /* FirstTutorialViewController.swift in Sources */,
+				A98D95491B8C6CE50013680B /* SoundManager.swift in Sources */,
 				A99CA93D1993D0AB00A388BD /* PageViewController.swift in Sources */,
 				A96DCD67198AA43C00C6472E /* IPSplashViewController.swift in Sources */,
 				A982EFAB1B7678EA008C238E /* PrescriptionList.swift in Sources */,
