@@ -10,7 +10,7 @@ import UIKit
 
 class NPrescriptionTableViewController: UITableViewController
 {
-    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
+    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
     
     var prescriptionDelegate: PrescriptionAddingDelegate? 
 

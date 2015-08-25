@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                             
     var window: UIWindow?
     var soundManager: SoundManager = SoundManager(resource: "chord", ofType: "m4r")
-    var currentController: UIViewController {
+    var currentController: UIViewController
+    {
         get {
             let rootController = UIApplication.sharedApplication().keyWindow?.rootViewController
             if let topController = rootController as? UINavigationController
@@ -37,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             return rootController!
         }
     }
-    lazy var prescriptionsModel: PrescriptionList = PrescriptionList()
+    
+    var prescriptionsModel: PrescriptionList?
     
     //MARK: - Metodi Application Delegate
 
@@ -45,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         requestNotificationPermissionForApplication(application)        
         resetApplicationIconBadge()
+        
+        initDelegate()
 
         return true
     }
@@ -83,12 +87,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
     
+    func initDelegate()
+    {
+        prescriptionsModel = PrescriptionList()
+    }
+    
     func manageNotification(notification: UILocalNotification)
     {
         let id = notification.userInfo!["id"] as! String
         let prescriptionName = notification.userInfo!["prescrizione"] as! String
-        let prescription = prescriptionsModel.getPrescriptionWithName(prescriptionName)
-        let drug = prescriptionsModel.getDrugWithId(id)
+        let prescription = prescriptionsModel!.getPrescriptionWithName(prescriptionName)
+        let drug = prescriptionsModel!.getDrugWithId(id)
         
         let alert = getAlertControllerForDrug(drug, ofPrescription: prescription)
         currentController.presentViewController(alert, animated: true){ alert in

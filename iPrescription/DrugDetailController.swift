@@ -10,7 +10,7 @@ import UIKit
 
 class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextViewDelegate
 {
-    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
+    var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
     
     // TODO: Verificare che questo campo serva solo all'inizializzazione del controller
     //in quanto se modificati i campi del controller tale proprietà è inconsistente.

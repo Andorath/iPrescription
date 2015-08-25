@@ -116,13 +116,13 @@ class PrescriptionEditingPerformer: NSObject, PrescriptionEditingDelegate, UITex
     
     func prescriptionExists(name: String) -> Bool
     {
-        let prescriptionModel = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
+        let prescriptionModel = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
         return prescriptionModel.alreadyExistsPrescription(name)
     }
     
     func editPrescriptionName(newName: String)
     {
-        let prescriptionModel = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
+        let prescriptionModel = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
         prescriptionModel.setNewNameForPrescription(prescription!, withNewName: newName)
     }
     

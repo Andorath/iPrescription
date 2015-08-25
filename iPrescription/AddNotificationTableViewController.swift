@@ -12,7 +12,7 @@ import UIKit
 
 class AddNotificationTableViewController: UITableViewController
 {
-    lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel
+    var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
     
     var currentDrug: Drug?
 
@@ -76,11 +76,11 @@ class AddNotificationTableViewController: UITableViewController
     {
         let notification = getNewLocalNotificationWithSound("Opening.m4r")
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true) {
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+        }
     }
     
     func getNewLocalNotificationWithSound(sound: String) -> UILocalNotification
@@ -176,9 +176,6 @@ class AddNotificationTableViewController: UITableViewController
     
     override func viewWillAppear(animated: Bool)
     {
-        //TODO: controllare se aggiornare queste istruzioni per la versione 2.0.1
-        //let userInfo = ["currentController" : self]
-        //NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
         super.viewWillAppear(animated)
     }
 
