@@ -76,24 +76,6 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     func setUserInterfaceComponents()
     {
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        noteTextView.inputAccessoryView = getDoneToolbar()
-    }
-    
-    func getDoneToolbar() -> UIToolbar
-    {
-        let doneToolbar = UIToolbar()
-        doneToolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della Barbutton Detail"),
-            style: UIBarButtonItemStyle.Done,
-            target: self,
-            action: "dismissKeyboard")
-        
-        doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
-        let arrayItem = [doneButton]
-        doneToolbar.items = arrayItem
-        
-        return doneToolbar
     }
     
     func setCurrentDrug(drug: Drug)
@@ -139,6 +121,24 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         noteTextView.editable = true
         doctorTextField.userInteractionEnabled = true
         doctorTextField.borderStyle = UITextBorderStyle.RoundedRect
+        noteTextView.inputAccessoryView = getDoneToolbar()
+    }
+    
+    func getDoneToolbar() -> UIToolbar
+    {
+        let doneToolbar = UIToolbar()
+        doneToolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Fine", comment: "Done della Barbutton Detail"),
+            style: UIBarButtonItemStyle.Done,
+            target: self,
+            action: "dismissKeyboard")
+        
+        doneButton.tintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
+        let arrayItem = [doneButton]
+        doneToolbar.items = arrayItem
+        
+        return doneToolbar
     }
     
     func disableEditingUI()
@@ -156,6 +156,7 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         noteTextView.editable = false
         doctorTextField.userInteractionEnabled = false
         doctorTextField.borderStyle = UITextBorderStyle.None
+        noteTextView.inputAccessoryView = nil
     }
     
     func showEmptyDrugAlert()
