@@ -49,16 +49,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         resetApplicationIconBadge()
         
         initDelegate()
+        
+        if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
+        {
+            startApplicationFromNotification(notification)
+        }
 
         return true
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
     {
-        if(application.applicationState == UIApplicationState.Active)
+        if application.applicationState == UIApplicationState.Active
         {
-            soundManager.playSound()
             manageNotification(notification)
+        }
+        else
+        {
+            if application.applicationState == UIApplicationState.Inactive
+            {
+                dismissAnyPresentedController()
+            }
+            
+            startApplicationFromNotification(notification)
         }
     }
 
@@ -72,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         self.saveContext()
     }
     
-    //MARK: - Metodi di Gestione
+    //MARK: - Metodi di Inizializzazione e Gestione Notifiche
     
     func requestNotificationPermissionForApplication(application: UIApplication)
     {
@@ -92,14 +105,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         prescriptionsModel = PrescriptionList()
     }
     
-    func manageNotification(notification: UILocalNotification)
+    func startApplicationFromNotification(notification: UILocalNotification)
     {
         let id = notification.userInfo!["id"] as! String
         let prescriptionName = notification.userInfo!["prescrizione"] as! String
         let prescription = prescriptionsModel!.getPrescriptionWithName(prescriptionName)
         let drug = prescriptionsModel!.getDrugWithId(id)
-        
-        let alert = getAlertControllerForDrug(drug, ofPrescription: prescription)
+    
+        pushControllersHierarchyForPrescription(prescription, andDrug: drug)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+    }
+    
+    func manageNotification(notification: UILocalNotification)
+    {
+        let alert = getAlertControllerForNotification(notification)
+        soundManager.playSound()
         currentController.presentViewController(alert, animated: true){ alert in
                                                                         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
                                                                         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
@@ -107,13 +128,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                                                                       }
     }
     
-    func getAlertControllerForDrug(drug: Drug, ofPrescription prescription: Prescription) -> UIAlertController
+    func getAlertControllerForNotification(notification: UILocalNotification) -> UIAlertController
     {
+        let id = notification.userInfo!["id"] as! String
+        let prescriptionName = notification.userInfo!["prescrizione"] as! String
+        let memo = notification.userInfo!["memo"] as! String
+        let prescription = prescriptionsModel!.getPrescriptionWithName(prescriptionName)
+        let drug = prescriptionsModel!.getDrugWithId(id)
+        
         let alert = UIAlertController(title: drug.nome,
                                       message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@",
                                                                                 comment: "Messaggio della notifica"),
                                                                                 prescription.nome,
-                                                                                drug.note),
+                                                                                memo),
                                       preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"),
@@ -123,33 +150,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"),
                                       style: UIAlertActionStyle.Destructive){
                                           alert in
+                                          self.dismissAnyPresentedController()
                                           self.pushControllersHierarchyForPrescription(prescription, andDrug: drug)
                                       })
         
         return alert
     }
     
+    // MARK: - Metodi di Forced Controller
+    
     /// Questa funzione è stata implementata in alternativa al pattern Forced Controller adoperato
-    /// nella precedente versione di iPrescription (1.0.2).
+    /// nella precedente versione di iPrescription (1.0.2).∫
     /// Questo metodo non costituisce un pattern quindi il codice inerente la forzatura dei controller
     /// è limitata esclusivamente a questa classe.
+    /// ---
+    /// - note: E' stato necessario passare una tupla (Drug, Prescription) al Detail Controller in modo
+    ///        da permettere che questi presenti un messaggio di alert per l'assunzione del farmaco.
+    ///        Consultare [DrugDetailViewController](/Users/Marco/Dropbox/Lavoro/iPrescription/iPrescription/DrugDetailController.swift) per notare che:
+    ///
+    ///       override func viewWillAppear(animated: Bool)
+    ///       {
+    ///           super.viewWillAppear(animated)
+    ///           showAssumptionAlertIfPresent()
+    ///           alertInfo = nil
+    ///       }
+    ///
+    /// ---
     /// - parameters:
-    ///     - prescription: la prescrizione a cui bisogna fare riferimento per istanziare il 
+    ///     - prescription: La prescrizione a cui bisogna fare riferimento per istanziare il
     ///                     DrugTableViewController
-    ///     - drug: il medicinale a cui bisogna fare riferimento per istanziare il DrugDetailController
+    ///     - drug: Il medicinale a cui bisogna fare riferimento per istanziare il DrugDetailController
     
     func pushControllersHierarchyForPrescription(prescription: Prescription, andDrug drug: Drug)
     {
         if let rootNavigationController = self.window!.rootViewController as? UINavigationController
         {
-            dismissAnyPresentedController()
-            
-            let prescriptionsController = getPrescriptionsController()
-            let drugsController = getDrugsControllerForPrescription(prescription)
-            let detailController = getDetailControllerForDrug(drug)
-            detailController.alertInfo = (drug, prescription)
-            
-            let viewControllers = [prescriptionsController, drugsController, detailController]
+            let viewControllers = buildControllersHierarchyForPrescription(prescription, andDrug: drug)
             
             rootNavigationController.setViewControllers(viewControllers, animated: true)
         }
@@ -161,6 +197,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         {
             currentController.dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    func buildControllersHierarchyForPrescription(prescription: Prescription, andDrug drug: Drug) -> [UIViewController]
+    {
+        let prescriptionsController = getPrescriptionsController()
+        let drugsController = getDrugsControllerForPrescription(prescription)
+        let detailController = getDetailControllerForDrug(drug)
+        detailController.alertInfo = (drug, prescription)
+        
+        return [prescriptionsController, drugsController, detailController]
     }
     
     func getPrescriptionsController() -> NPrescriptionTableViewController

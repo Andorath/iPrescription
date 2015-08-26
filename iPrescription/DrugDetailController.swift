@@ -47,6 +47,7 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         if let info = alertInfo
         {
             showAssumptionAlertForDrug(info.drug, ofPrescription: info.prescription)
+            alertInfo = nil
         }
     }
     
