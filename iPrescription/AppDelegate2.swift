@@ -120,9 +120,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                                      style: UIAlertActionStyle.Cancel,
                                      handler: nil))
         
-        //TODO: Implementare il Forced Controller Pattern
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"),
+                                      style: UIAlertActionStyle.Destructive){
+                                          alert in
+                                          self.pushControllersHierarchyForPrescription(prescription, andDrug: drug)
+                                      })
         
         return alert
+    }
+    
+    /// Questa funzione è stata implementata in alternativa al pattern Forced Controller adoperato
+    /// nella precedente versione di iPrescription (1.0.2).
+    /// Questo metodo non costituisce un pattern quindi il codice inerente la forzatura dei controller
+    /// è limitata esclusivamente a questa classe.
+    /// - parameters:
+    ///     - prescription: la prescrizione a cui bisogna fare riferimento per istanziare il 
+    ///                     DrugTableViewController
+    ///     - drug: il medicinale a cui bisogna fare riferimento per istanziare il DrugDetailController
+    
+    func pushControllersHierarchyForPrescription(prescription: Prescription, andDrug drug: Drug)
+    {
+        if let rootNavigationController = self.window!.rootViewController as? UINavigationController
+        {
+            dismissAnyPresentedController()
+            
+            let prescriptionsController = getPrescriptionsController()
+            let drugsController = getDrugsControllerForPrescription(prescription)
+            let detailController = getDetailControllerForDrug(drug)
+            detailController.alertInfo = (drug, prescription)
+            
+            let viewControllers = [prescriptionsController, drugsController, detailController]
+            
+            rootNavigationController.setViewControllers(viewControllers, animated: true)
+        }
+    }
+    
+    func dismissAnyPresentedController()
+    {
+        if let _ = currentController.presentingViewController
+        {
+            currentController.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    func getPrescriptionsController() -> NPrescriptionTableViewController
+    {
+        if let rootNavigationController = self.window!.rootViewController as? UINavigationController
+        {
+            if let prescriptionsController = rootNavigationController.viewControllers[0] as? NPrescriptionTableViewController
+            {
+                return prescriptionsController
+            }
+        }
+        
+        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
+        return storyboard.instantiateViewControllerWithIdentifier("prescriptionList") as! NPrescriptionTableViewController
+    }
+    
+    func getDrugsControllerForPrescription(prescription: Prescription) -> DrugTableViewController
+    {
+        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
+        let drugController = storyboard.instantiateViewControllerWithIdentifier("drugList") as! DrugTableViewController
+        drugController.setCurrentPrescription(prescription)
+        
+        return drugController
+    }
+    
+    func getDetailControllerForDrug(drug: Drug) -> DrugDetailController
+    {
+        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
+        let detailController = storyboard.instantiateViewControllerWithIdentifier("detailViewController") as! DrugDetailController
+        detailController.setCurrentDrug(drug)
+        
+        return detailController
     }
 
     // MARK: - Core Data stack

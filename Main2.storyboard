@@ -420,7 +420,7 @@
         <!--Medicine-->
         <scene sceneID="pbi-wV-uD2">
             <objects>
-                <tableViewController storyboardIdentifier="medicineList" id="fD3-u7-849" customClass="DrugTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="drugList" id="fD3-u7-849" customClass="DrugTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="L5M-EE-3JS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1430,7 +1430,7 @@
         <image name="all_notification.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jh3-Hg-EOR"/>
+        <segue reference="05h-NK-AfG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.12549019607843137" green="0.51764705882352946" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
 </document>

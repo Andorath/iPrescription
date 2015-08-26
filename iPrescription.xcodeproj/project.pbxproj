@@ -72,6 +72,7 @@
 		A9EDF9D91B8C753D00AD7408 /* AppDelegate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDF9D81B8C753D00AD7408 /* AppDelegate2.swift */; };
 		A9FDA80619805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
 		A9FDA80719805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
+		A9FEB46A1B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB4691B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionAddingPerfrmer.swift; sourceTree = "<group>"; };
 		A9EDF9D81B8C753D00AD7408 /* AppDelegate2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate2.swift; sourceTree = "<group>"; };
 		A9FDA80519805F79002E0F0D /* chord.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chord.m4r; sourceTree = "<group>"; };
+		A9FEB4691B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewControllerOLD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */,
 				A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */,
 				A974D64E196B18B000E27F1B /* DetailTableViewController.swift */,
+				A9FEB4691B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift */,
 				A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */,
 				A982EFAC1B768064008C238E /* 2.0 */,
 				A982EFA91B7678C9008C238E /* Model */,
@@ -546,6 +549,7 @@
 				A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */,
 				A9BD3C6C1B8C8CAE00653A02 /* InfoViewController.swift in Sources */,
 				A912E60519D1D18C00DE2DB0 /* ChangeDateTableViewController.swift in Sources */,
+				A9FEB46A1B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift in Sources */,
 				A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */,
 				A9BD3C6B1B8C8CAB00653A02 /* InfoPageViewController.swift in Sources */,
 				A98D95491B8C6CE50013680B /* SoundManager.swift in Sources */,

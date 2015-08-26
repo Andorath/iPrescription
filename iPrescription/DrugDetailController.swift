@@ -16,6 +16,8 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     //in quanto se modificati i campi del controller tale proprietà è inconsistente.
     var currentDrug: Drug?
     
+    var alertInfo: (drug: Drug, prescription: Prescription)?
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastAssumptionLabel: UILabel!
     @IBOutlet weak var formTextField: UITextField!
@@ -32,6 +34,20 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         
         updateFieldsFromCurrentDrug()
         setUserInterfaceComponents()
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        showAssumptionAlertIfPresent()
+    }
+    
+    func showAssumptionAlertIfPresent()
+    {
+        if let info = alertInfo
+        {
+            showAssumptionAlertForDrug(info.drug, ofPrescription: info.prescription)
+        }
     }
     
     func updateFieldsFromCurrentDrug()
@@ -167,6 +183,27 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         
         prescriptionsModel.updateDrug(lastDrug)
     }
+    
+    func showAssumptionAlertForDrug(drug: Drug, ofPrescription prescription: Prescription)
+    {
+        let alert = UIAlertController(title: drug.nome,
+                                      message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@\n\nVuoi assumere il farmaco adesso?",
+                                                                                comment: "Messaggio popup notifica assunzione farmaco"),
+                                                                                prescription.nome,
+                                                                                drug.note),
+                                      preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Comando no popup assunzione farmaco"),
+                                      style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Comando si popup assunzione farmaco"),
+                                      style: UIAlertActionStyle.Default){
+                                        alert in
+                                        self.assumiFarmaco(NSDate())
+                                    })
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning()
     {
@@ -174,17 +211,6 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         
     }
 
-    // MARK: - Table view data source
-    
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    {
-        return false
-    }
-    
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
-    {
-        return UITableViewCellEditingStyle.None
-    }
     
     @IBAction func manageDataAction(sender: AnyObject)
     {
@@ -229,6 +255,32 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         prescriptionsModel.setDate(nil, forDrug: currentDrug!)
         lastAssumptionLabel.text = ""
     }
+    
+    func showNotificationEmptyAlert()
+    {
+        let alert = UIAlertController(title: NSLocalizedString("Nessuna Notifica", comment: "Titolo popup No Notification"),
+            message: NSLocalizedString("Non ci sono notifiche per questo farmaco", comment: "Messaggio popup No Notification"),
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok Action no notification"),
+            style: UIAlertActionStyle.Default,
+            handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Table view data source
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return false
+    }
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+    {
+        return UITableViewCellEditingStyle.None
+    }
+    
     // MARK: - Delegato di testo
     
     func textFieldShouldReturn(textField: UITextField) -> Bool
@@ -301,16 +353,4 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         return true
     }
     
-    func showNotificationEmptyAlert()
-    {
-        let alert = UIAlertController(title: NSLocalizedString("Nessuna Notifica", comment: "Titolo popup No Notification"),
-            message: NSLocalizedString("Non ci sono notifiche per questo farmaco", comment: "Messaggio popup No Notification"),
-            preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok Action no notification"),
-            style: UIAlertActionStyle.Default,
-            handler: nil))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
 }
