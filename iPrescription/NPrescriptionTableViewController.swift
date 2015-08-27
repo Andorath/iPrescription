@@ -36,6 +36,22 @@ class NPrescriptionTableViewController: UITableViewController
     {
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
     }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        showInfoAtFirstLaunch()
+    }
+    
+    func showInfoAtFirstLaunch()
+    {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")
+        {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            self.performSegueWithIdentifier("toInfo", sender: self)
+        }
+    }
 
     override func didReceiveMemoryWarning()
     {

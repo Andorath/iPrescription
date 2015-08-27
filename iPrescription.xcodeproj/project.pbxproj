@@ -355,7 +355,6 @@
 			children = (
 				A982EFAA1B7678EA008C238E /* PrescriptionList.swift */,
 				A982EFAF1B76AD87008C238E /* ModelClasses.swift */,
-				A98D95481B8C6CE50013680B /* SoundManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -384,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				A99CA93C1993D0AB00A388BD /* PageViewController.swift */,
+				A98D95481B8C6CE50013680B /* SoundManager.swift */,
 			);
 			name = "Custom Class";
 			sourceTree = "<group>";

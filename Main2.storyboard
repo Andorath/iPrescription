@@ -113,7 +113,7 @@
                         <barButtonItem image="about-50.png" style="plain" id="8Ig-e3-4XD">
                             <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="g2k-Eq-CAO" kind="presentation" id="CsG-5s-OPl"/>
+                                <segue destination="g2k-Eq-CAO" kind="presentation" identifier="toInfo" id="CsG-5s-OPl"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
