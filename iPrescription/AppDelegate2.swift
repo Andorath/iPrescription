@@ -160,7 +160,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     // MARK: - Metodi di Forced Controller
     
     /// Questa funzione è stata implementata in alternativa al pattern Forced Controller adoperato
-    /// nella precedente versione di iPrescription (1.0.2).∫
+    /// nella precedente versione di iPrescription (1.0.2).
     /// Questo metodo non costituisce un pattern quindi il codice inerente la forzatura dei controller
     /// è limitata esclusivamente a questa classe.
     /// ---

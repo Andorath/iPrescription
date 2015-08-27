@@ -12,13 +12,23 @@ class NPrescriptionTableViewController: UITableViewController
 {
     lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
     
-    var prescriptionDelegate: PrescriptionAddingDelegate? 
+    var prescriptionDelegate: PrescriptionAddingDelegate?
+    var rateDelegate = RateReminder.sharedInstance
 
+    /// ---
+    /// - note: Genera un avviso a runtime dovuto a:
+    ///    rateDelegate?.rateMe()
+    /// in quanto si tenta al suo interno di presentare un AlertController mentre questi ancora è "detached"
+    /// dalla gerarchia dei controller. Dovrebbe essere posizionato nel viewDidAppear ma richiede di cambiare 
+    /// l'algoritmo di Rate Reminder.
+    /// ---
+    
     override func viewDidLoad()
     {
         addAllNecessaryObservers()
         setUserInterfaceComponents()
         prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
+        rateDelegate.rateMeWithPresenter(self)
         super.viewDidLoad()
     }
     
