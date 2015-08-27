@@ -53,12 +53,10 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
         switch index {
             
         case 0:
-            print("Ritorna presentation")
             let page = storyboard.instantiateViewControllerWithIdentifier("infoPage") as? PageViewController
             page?.pageIndex = 0
             return page
         case 1:
-            print("Ritorna firstTutorial")
             let page = storyboard.instantiateViewControllerWithIdentifier("tutorialPage") as? PageViewController
             page?.pageIndex = 1
             return page
@@ -87,6 +85,10 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
         let first = self.viewControllerAtIndex(0)!
         let controllers = [first]
         self.setViewControllers(controllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        
+        let pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 0.4)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 0, green: 0.596, blue: 0.753, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {

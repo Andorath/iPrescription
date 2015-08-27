@@ -10,7 +10,6 @@
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Light</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Light</string>
@@ -79,13 +78,6 @@
                                         <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="IzP-Ks-wnI">
-                                        <rect key="frame" x="79" y="30" width="222" height="152"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Gestisci i tuoi farmaci in Prescrizioni. Usa i nomi più consoni per raggrupparli, come ad esempio "Allergia", "Terapia Antibiotica" o "Medicine di Mario".</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jw-Qu-LYM" userLabel="Vertical separetor">
                                         <rect key="frame" x="77" y="43" width="1" height="110"/>
                                         <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,7 +172,6 @@
                         <outlet property="designText" destination="oYV-SS-Tkn" id="i6z-sa-hhn"/>
                         <outlet property="gestisciFarmaci" destination="b3G-wU-crk" id="JJO-CR-xQe"/>
                         <outlet property="gestisciNotifiche" destination="WiP-Ac-PGf" id="kaw-wc-z5I"/>
-                        <outlet property="gestisciPrescrizioni" destination="IzP-Ks-wnI" id="rCj-Lg-q75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKp-xI-TyG" userLabel="First Responder" sceneMemberID="firstResponder"/>

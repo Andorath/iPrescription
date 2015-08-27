@@ -57,8 +57,8 @@
 		A9BD3C691B8C8C8900653A02 /* AppDelegateOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90528C4195ED005004A54C4 /* AppDelegateOLD.swift */; };
 		A9BD3C6A1B8C8CA400653A02 /* PrescriptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978E1B11975C24F000503B5 /* PrescriptionTableViewController.swift */; };
 		A9BD3C6B1B8C8CAB00653A02 /* InfoPageViewControllerOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93A1993CF5700A388BD /* InfoPageViewControllerOLD.swift */; };
-		A9BD3C6C1B8C8CAE00653A02 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DC4291988152B003BC2FD /* InfoViewController.swift */; };
-		A9BD3C6D1B8C8CB100653A02 /* FirstTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93F1993DF4B00A388BD /* FirstTutorialViewController.swift */; };
+		A9BD3C6C1B8C8CAE00653A02 /* InfoViewControllerOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DC4291988152B003BC2FD /* InfoViewControllerOLD.swift */; };
+		A9BD3C6D1B8C8CB100653A02 /* FirstTutorialViewControllerOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99CA93F1993DF4B00A388BD /* FirstTutorialViewControllerOLD.swift */; };
 		A9BD3C6E1B8C8CB300653A02 /* AddFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */; };
 		A9BD3C6F1B8C8CB600653A02 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974D64E196B18B000E27F1B /* DetailTableViewController.swift */; };
 		A9BD3C701B8C8CB900653A02 /* MedicineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */; };
@@ -69,6 +69,8 @@
 		A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA5197D768300B64FDB /* add_notification-3.png */; };
 		A9CF6BAA197D797700B64FDB /* all_notification-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA9197D797700B64FDB /* all_notification-1.png */; };
 		A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BAB197D894900B64FDB /* alarm_set2.png */; };
+		A9DCB0D71B8F5F81004ABCBB /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCB0D61B8F5F81004ABCBB /* InfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A9DCB0D91B8F5FAF004ABCBB /* FirstTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCB0D81B8F5FAF004ABCBB /* FirstTutorialViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9E00CC71977E495007AA5B8 /* Opening.m4r */; };
 		A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */; };
 		A9E27B341B8F10F600F537E6 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E27B331B8F10F600F537E6 /* InfoPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -137,7 +139,7 @@
 		A961CF511987B85900BA2E77 /* 58 Retina Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "58 Retina Settings@2x.png"; sourceTree = "<group>"; };
 		A96314231B8E21A9005BC7A0 /* Launch Screen Prova.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen Prova.storyboard"; sourceTree = "<group>"; };
 		A96DC427198807CC003BC2FD /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
-		A96DC4291988152B003BC2FD /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A96DC4291988152B003BC2FD /* InfoViewControllerOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewControllerOLD.swift; sourceTree = "<group>"; };
 		A96DCD64198A941B00C6472E /* IPSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPSplitViewController.swift; sourceTree = "<group>"; };
 		A96DCD66198AA43C00C6472E /* IPSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPSplashViewController.swift; sourceTree = "<group>"; };
 		A96DCD68198AA61100C6472E /* iconatrasparente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconatrasparente.png; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 		A993B63E1B77B9570017349F /* AddDrugFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDrugFormController.swift; sourceTree = "<group>"; };
 		A99CA93A1993CF5700A388BD /* InfoPageViewControllerOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPageViewControllerOLD.swift; sourceTree = "<group>"; };
 		A99CA93C1993D0AB00A388BD /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		A99CA93F1993DF4B00A388BD /* FirstTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewController.swift; sourceTree = "<group>"; };
+		A99CA93F1993DF4B00A388BD /* FirstTutorialViewControllerOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewControllerOLD.swift; sourceTree = "<group>"; };
 		A99CA9411993FD5A00A388BD /* alarm_trasparente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_trasparente.png; sourceTree = "<group>"; };
 		A99CCBA01B7A952200F446A1 /* DrugTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugTableViewController.swift; sourceTree = "<group>"; };
 		A9B8856419E7E20800DC9804 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = "it.lproj/Aggiungi Notifica2.png"; sourceTree = "<group>"; };
@@ -178,6 +180,8 @@
 		A9CF6BA5197D768300B64FDB /* add_notification-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_notification-3.png"; sourceTree = "<group>"; };
 		A9CF6BA9197D797700B64FDB /* all_notification-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_notification-1.png"; sourceTree = "<group>"; };
 		A9CF6BAB197D894900B64FDB /* alarm_set2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_set2.png; sourceTree = "<group>"; };
+		A9DCB0D61B8F5F81004ABCBB /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A9DCB0D81B8F5FAF004ABCBB /* FirstTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewController.swift; sourceTree = "<group>"; };
 		A9E00CC71977E495007AA5B8 /* Opening.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Opening.m4r; sourceTree = "<group>"; };
 		A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionEditingPerformer.swift; sourceTree = "<group>"; };
 		A9E27B331B8F10F600F537E6 /* InfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
@@ -230,8 +234,8 @@
 				A90528C4195ED005004A54C4 /* AppDelegateOLD.swift */,
 				A978E1B11975C24F000503B5 /* PrescriptionTableViewController.swift */,
 				A99CA93A1993CF5700A388BD /* InfoPageViewControllerOLD.swift */,
-				A96DC4291988152B003BC2FD /* InfoViewController.swift */,
-				A99CA93F1993DF4B00A388BD /* FirstTutorialViewController.swift */,
+				A96DC4291988152B003BC2FD /* InfoViewControllerOLD.swift */,
+				A99CA93F1993DF4B00A388BD /* FirstTutorialViewControllerOLD.swift */,
 				A986C14B1961C63F00649A91 /* AddFormTableViewController.swift */,
 				A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */,
 				A974D64E196B18B000E27F1B /* DetailTableViewController.swift */,
@@ -370,6 +374,8 @@
 				A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */,
 				A9372A941B88D8DF000F696B /* NotifictionsListController.swift */,
 				A9E27B331B8F10F600F537E6 /* InfoPageViewController.swift */,
+				A9DCB0D61B8F5F81004ABCBB /* InfoViewController.swift */,
+				A9DCB0D81B8F5FAF004ABCBB /* FirstTutorialViewController.swift */,
 			);
 			name = 2.0;
 			sourceTree = "<group>";
@@ -571,7 +577,7 @@
 				A96DCD65198A941B00C6472E /* IPSplitViewController.swift in Sources */,
 				A993B63F1B77B9570017349F /* AddDrugFormController.swift in Sources */,
 				A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */,
-				A9BD3C6C1B8C8CAE00653A02 /* InfoViewController.swift in Sources */,
+				A9BD3C6C1B8C8CAE00653A02 /* InfoViewControllerOLD.swift in Sources */,
 				A912E60519D1D18C00DE2DB0 /* ChangeDateTableViewController.swift in Sources */,
 				A9FEB46A1B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift in Sources */,
 				A98FFF661976D54D0059E74A /* AddNotificationTableViewController.swift in Sources */,
@@ -580,14 +586,16 @@
 				A99CA93D1993D0AB00A388BD /* PageViewController.swift in Sources */,
 				A9BD3C6F1B8C8CB600653A02 /* DetailTableViewController.swift in Sources */,
 				A96DCD67198AA43C00C6472E /* IPSplashViewController.swift in Sources */,
+				A9DCB0D71B8F5F81004ABCBB /* InfoViewController.swift in Sources */,
 				A982EFAB1B7678EA008C238E /* PrescriptionList.swift in Sources */,
 				A982EFAE1B7680AE008C238E /* NPrescriptionTableViewController.swift in Sources */,
-				A9BD3C6D1B8C8CB100653A02 /* FirstTutorialViewController.swift in Sources */,
+				A9BD3C6D1B8C8CB100653A02 /* FirstTutorialViewControllerOLD.swift in Sources */,
 				A90528C8195ED005004A54C4 /* iPrescription.xcdatamodeld in Sources */,
 				A9E371831B776C9500A69480 /* PrescriptionAddingPerfrmer.swift in Sources */,
 				A9BD3C6A1B8C8CA400653A02 /* PrescriptionTableViewController.swift in Sources */,
 				A982EFB01B76AD87008C238E /* ModelClasses.swift in Sources */,
 				A905CA3A198BEB210096E519 /* IPDetailTableViewController.swift in Sources */,
+				A9DCB0D91B8F5FAF004ABCBB /* FirstTutorialViewController.swift in Sources */,
 				A961CF4F1987B3A900BA2E77 /* DismissSegue.swift in Sources */,
 				A9372A951B88D8DF000F696B /* NotifictionsListController.swift in Sources */,
 				A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */,

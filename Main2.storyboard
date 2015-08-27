@@ -52,6 +52,16 @@
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-UltraLight</string>
+            <string>HelveticaNeue-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1508,10 +1518,10 @@
             </objects>
             <point key="canvasLocation" x="889" y="1327"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="Gi6-Tp-Ewh">
             <objects>
-                <viewController storyboardIdentifier="infoPage" id="H2E-Qt-exF" customClass="PageViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoPage" id="H2E-Qt-exF" customClass="InfoViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5f0-vE-5Jv"/>
                         <viewControllerLayoutGuide type="bottom" id="z64-mZ-Q3w"/>
@@ -1553,19 +1563,138 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUm-Bt-rfQ">
+                                <rect key="frame" x="140" y="150" width="320" height="442"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-JG-iKf">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Prescription.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z9Q-FJ-iZP">
+                                                <rect key="frame" x="11" y="43" width="55" height="55"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gestisci le tue Prescrizioni" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rg-6t-gtG">
+                                                <rect key="frame" x="77" y="14" width="241" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="5GP-Kd-Eff">
+                                                <rect key="frame" x="79" y="30" width="224" height="152"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Gestisci i tuoi farmaci in Prescrizioni. Usa i nomi più consoni per raggrupparli, come ad esempio ALLERGIA, TERAPIA ANTIBIOTICA o MEDICINE DI MARIO.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-P7-pWN" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="43" width="1" height="110"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Medicine.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-8b-afx">
+                                                <rect key="frame" x="11" y="187" width="55" height="55"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gestisci i tuoi farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8s-J1-XpI">
+                                                <rect key="frame" x="79" y="161" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qfs-xS-Uv9">
+                                                <rect key="frame" x="79" y="177" width="224" height="125"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Aggiungi i tuoi farmaci nell'apposita Prescrizione da te creata. Gestisci tutti i dettagli fondamentali come la posologia o le istruzioni del medico.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rYU-6R-ahx" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="187" width="1" height="125"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crea gli avvisi per i farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="lPQ-3X-Y6A">
+                                                <rect key="frame" x="79" y="320" width="206" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Kar-A9-9iN">
+                                                <rect key="frame" x="79" y="337" width="224" height="173"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Crea e gestisci le notifiche per i tuoi farmaci in pochi passi. Gestisci la tua terapia in modo da rispettare correttamente i tempi di assunzione. Gestire le notifiche, cancellarle o crearne di nuove è davvero un gioco da ragazzi.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwK-3c-fu5" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="346" width="1" height="165"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Design semplice ed intuitivo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-OR-NFI">
+                                                <rect key="frame" x="79" y="522" width="216" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="1rj-pD-HlB">
+                                                <rect key="frame" x="79" y="540" width="222" height="171"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Con un design minimale, pulito e intuitivo, iPrescription semplificherà notevolmente la gestione delle tue terapie. Troverai la sua interfaccia familiare in quanto lo scopo di iPrescription è di porsi come una estensione di iOS </string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYG-HF-XBo" userLabel="Vertical separetor">
+                                                <rect key="frame" x="77" y="547" width="1" height="170"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nau-2p-bR8">
+                                                <rect key="frame" x="121" y="729" width="78" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marco Salafia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF8-LH-QfS">
+                                                <rect key="frame" x="112" y="744" width="96" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add_notification-3.png" translatesAutoresizingMaskIntoConstraints="NO" id="rpJ-A1-XXy">
+                                                <rect key="frame" x="11" y="350" width="55" height="55"/>
+                                                <color key="backgroundColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconatrasparente.png" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-xI-BiA">
+                                                <rect key="frame" x="11" y="543" width="55" height="55"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="800" id="GqP-l7-dV7"/>
+                                            <constraint firstAttribute="width" constant="320" id="h2d-uA-PfD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="wTQ-JG-iKf" firstAttribute="top" secondItem="XUm-Bt-rfQ" secondAttribute="top" id="Kaa-wB-z4J"/>
+                                    <constraint firstItem="wTQ-JG-iKf" firstAttribute="leading" secondItem="XUm-Bt-rfQ" secondAttribute="leading" id="TnK-iE-42t"/>
+                                    <constraint firstItem="wTQ-JG-iKf" firstAttribute="centerX" secondItem="XUm-Bt-rfQ" secondAttribute="centerX" id="dMp-a7-01j"/>
+                                    <constraint firstAttribute="trailing" secondItem="wTQ-JG-iKf" secondAttribute="trailing" id="jqc-6d-sGG"/>
+                                    <constraint firstAttribute="bottom" secondItem="wTQ-JG-iKf" secondAttribute="bottom" id="uc2-iy-TnN"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IDR-Jg-hMT" firstAttribute="top" secondItem="YY1-0z-eV7" secondAttribute="bottom" constant="25" id="C40-qc-iz4"/>
                             <constraint firstItem="IDR-Jg-hMT" firstAttribute="centerX" secondItem="zzr-WT-R7S" secondAttribute="centerX" id="Fzz-bw-X1x"/>
+                            <constraint firstItem="z64-mZ-Q3w" firstAttribute="top" secondItem="XUm-Bt-rfQ" secondAttribute="bottom" constant="72" id="ItV-Gl-yUK"/>
                             <constraint firstItem="YY1-0z-eV7" firstAttribute="top" secondItem="5f0-vE-5Jv" secondAttribute="bottom" constant="8" symbolic="YES" id="SAn-Po-f1G"/>
                             <constraint firstItem="9YW-24-1MY" firstAttribute="centerX" secondItem="YY1-0z-eV7" secondAttribute="centerX" id="UVP-7P-HUE"/>
                             <constraint firstItem="9YW-24-1MY" firstAttribute="top" secondItem="5f0-vE-5Jv" secondAttribute="bottom" constant="39" id="WyP-pQ-nqy"/>
                             <constraint firstItem="IDR-Jg-hMT" firstAttribute="centerX" secondItem="nvl-qa-gQa" secondAttribute="centerX" id="cWC-MZ-7Eg"/>
                             <constraint firstItem="nvl-qa-gQa" firstAttribute="top" secondItem="9YW-24-1MY" secondAttribute="bottom" constant="16" id="cpz-hj-tRK"/>
+                            <constraint firstItem="XUm-Bt-rfQ" firstAttribute="centerX" secondItem="nvl-qa-gQa" secondAttribute="centerX" id="cyn-c2-e6W"/>
                             <constraint firstItem="nvl-qa-gQa" firstAttribute="centerX" secondItem="9YW-24-1MY" secondAttribute="centerX" id="hwf-wr-0Z0"/>
                             <constraint firstItem="9YW-24-1MY" firstAttribute="centerX" secondItem="zzr-WT-R7S" secondAttribute="centerX" id="nAN-cQ-9N3"/>
+                            <constraint firstItem="z64-mZ-Q3w" firstAttribute="top" secondItem="XUm-Bt-rfQ" secondAttribute="bottom" constant="8" id="nKT-FP-c11"/>
                             <constraint firstItem="IDR-Jg-hMT" firstAttribute="bottom" secondItem="nvl-qa-gQa" secondAttribute="bottom" id="nNn-JW-mXW"/>
+                            <constraint firstItem="XUm-Bt-rfQ" firstAttribute="top" secondItem="IDR-Jg-hMT" secondAttribute="bottom" constant="16" id="u2C-Fk-gIi"/>
                             <constraint firstItem="nvl-qa-gQa" firstAttribute="leading" secondItem="zzr-WT-R7S" secondAttribute="leading" constant="185" id="uuy-4t-qfk"/>
                             <constraint firstItem="nvl-qa-gQa" firstAttribute="top" secondItem="5f0-vE-5Jv" secondAttribute="bottom" constant="113" id="ydk-il-1eU"/>
                             <constraint firstItem="nvl-qa-gQa" firstAttribute="centerX" secondItem="zzr-WT-R7S" secondAttribute="centerX" id="zRz-QD-5Vv"/>
@@ -1575,10 +1704,17 @@
                                 <exclude reference="cpz-hj-tRK"/>
                                 <exclude reference="uuy-4t-qfk"/>
                                 <exclude reference="cWC-MZ-7Eg"/>
+                                <exclude reference="ItV-Gl-yUK"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ZY3-63-Hoh"/>
+                    <connections>
+                        <outlet property="designText" destination="1rj-pD-HlB" id="gL9-c6-iSg"/>
+                        <outlet property="gestisciFarmaci" destination="qfs-xS-Uv9" id="ZVr-VD-bfo"/>
+                        <outlet property="gestisciNotifiche" destination="Kar-A9-9iN" id="WKJ-S7-oTa"/>
+                        <outlet property="gestisciPrescrizioni" destination="5GP-Kd-Eff" id="U80-qp-FMk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qto-mq-95R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1587,9 +1723,12 @@
     </scenes>
     <resources>
         <image name="Medicine.png" width="512" height="512"/>
+        <image name="Prescription.png" width="512" height="512"/>
         <image name="about-50.png" width="25" height="25"/>
+        <image name="add_notification-3.png" width="256" height="256"/>
         <image name="add_notification.png" width="256" height="256"/>
         <image name="all_notification.png" width="256" height="256"/>
+        <image name="iconatrasparente.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jh3-Hg-EOR"/>
