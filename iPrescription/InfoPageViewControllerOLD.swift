@@ -10,7 +10,7 @@
 
 import UIKit
 
-class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class InfoPageViewControllerOLD: UIPageViewController, UIPageViewControllerDataSource {
     
     var pageNumber: Int = 2
 
@@ -48,20 +48,16 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
             return nil
         }
         
-        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         switch index {
             
         case 0:
             print("Ritorna presentation")
-            let page = storyboard.instantiateViewControllerWithIdentifier("infoPage") as? PageViewController
-            page?.pageIndex = 0
-            return page
+            return storyboard.instantiateViewControllerWithIdentifier("presentationController") as? PageViewController
         case 1:
             print("Ritorna firstTutorial")
-            let page = storyboard.instantiateViewControllerWithIdentifier("tutorialPage") as? PageViewController
-            page?.pageIndex = 1
-            return page
+            return storyboard.instantiateViewControllerWithIdentifier("firstTutorialController") as? PageViewController
         default:
             return nil
         }
@@ -77,10 +73,10 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
         return 0
     }
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
         self.dataSource = self
         self.view.backgroundColor = UIColor(red: 0.624, green: 0.988, blue: 0.898, alpha: 1)
         
@@ -94,10 +90,15 @@ class InfoPageViewController: UIPageViewController, UIPageViewControllerDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneAction(sender: AnyObject)
-    {
-        self.dismissViewControllerAnimated(true, completion: nil)
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }

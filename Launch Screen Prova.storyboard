@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-UltraLight</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZz-qF-L8X" userLabel="Blur View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hGU-G0-Ucn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPrescription" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                                            <rect key="frame" x="20" y="265" width="560" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="rQO-Ot-J8y"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
+                                            <color key="textColor" red="0.12549020350000001" green="0.5176470876" blue="0.69803923369999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-tK-ngg" userLabel="Vibrancy View">
+                                            <rect key="frame" x="0.0" y="536" width="600" height="64"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XRb-ku-dU0">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2015 Marco Salafia. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                                        <rect key="frame" x="20" y="22" width="560" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                        <color key="textColor" red="0.12549020350000001" green="0.5176470876" blue="0.69803923369999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="obG-Y5-kRd" firstAttribute="centerY" secondItem="XRb-ku-dU0" secondAttribute="centerY" id="7Fu-vb-iG9"/>
+                                                    <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="XRb-ku-dU0" secondAttribute="leading" constant="20" id="LdC-iG-pJM"/>
+                                                    <constraint firstItem="obG-Y5-kRd" firstAttribute="centerX" secondItem="XRb-ku-dU0" secondAttribute="centerX" id="Nlk-Ab-Ftu"/>
+                                                    <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="XRb-ku-dU0" secondAttribute="top" constant="22" id="hIx-QC-Yq8"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="extraLight"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerX" secondItem="hGU-G0-Ucn" secondAttribute="centerX" id="BTD-RE-l2F"/>
+                                        <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="hGU-G0-Ucn" secondAttribute="leading" constant="20" id="Dki-lA-G2X"/>
+                                        <constraint firstAttribute="trailing" secondItem="aHc-tK-ngg" secondAttribute="trailing" id="INI-BI-6OE"/>
+                                        <constraint firstItem="aHc-tK-ngg" firstAttribute="leading" secondItem="hGU-G0-Ucn" secondAttribute="leading" id="SLk-w5-9oh"/>
+                                        <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="hGU-G0-Ucn" secondAttribute="centerY" id="T1J-Yv-a9m"/>
+                                        <constraint firstAttribute="bottom" secondItem="aHc-tK-ngg" secondAttribute="bottom" id="hRm-oJ-khP"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.62165766950000001" green="0.98823529480000005" blue="0.8985953927" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wZz-qF-L8X" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9mp-3z-g6Y"/>
+                            <constraint firstItem="wZz-qF-L8X" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HOm-Wd-2JT"/>
+                            <constraint firstItem="wZz-qF-L8X" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="I4C-km-UVu"/>
+                            <constraint firstAttribute="trailing" secondItem="wZz-qF-L8X" secondAttribute="trailing" id="fOD-HT-tRy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+</document>
