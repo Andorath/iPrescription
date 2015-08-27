@@ -483,6 +483,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="YjM-z5-WWe"/>
                         <barButtonItem image="about-50.png" style="plain" id="cXo-nb-59a">
                             <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="g2k-Eq-CAO" kind="presentation" id="Hrf-JY-zRT"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Medicine" id="wfD-pF-87D">
@@ -1020,6 +1023,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jIx-0V-aGE"/>
                         <barButtonItem image="about-50.png" style="plain" id="N1E-DG-es9">
                             <color key="tintColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="g2k-Eq-CAO" kind="presentation" id="oE3-Ep-Fn6"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Dettaglio" id="IjP-FN-9cZ">
@@ -1463,7 +1469,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIn-qF-3HX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="1327"/>
+            <point key="canvasLocation" x="1678" y="1372"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="QFV-gC-d1K">
@@ -1516,7 +1522,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aql-XV-Vei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="1327"/>
+            <point key="canvasLocation" x="889" y="1372"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="Gi6-Tp-Ewh">
@@ -1731,7 +1737,8 @@
         <image name="iconatrasparente.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jh3-Hg-EOR"/>
+        <segue reference="05h-NK-AfG"/>
+        <segue reference="Hrf-JY-zRT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.12549019607843137" green="0.51764705882352946" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -16,7 +16,7 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     //in quanto se modificati i campi del controller tale proprietà è inconsistente.
     var currentDrug: Drug?
     
-    var alertInfo: (drug: Drug, prescription: Prescription)?
+    var alertInfo: (drug: Drug, prescription: Prescription, memo: String)?
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastAssumptionLabel: UILabel!
@@ -46,7 +46,7 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     {
         if let info = alertInfo
         {
-            showAssumptionAlertForDrug(info.drug, ofPrescription: info.prescription)
+            showAssumptionAlertForInfo(info)
             alertInfo = nil
         }
     }
@@ -186,13 +186,13 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         prescriptionsModel.updateDrug(lastDrug)
     }
     
-    func showAssumptionAlertForDrug(drug: Drug, ofPrescription prescription: Prescription)
+    func showAssumptionAlertForInfo(info: (prescription: Prescription, drug: Drug, memo: String))
     {
-        let alert = UIAlertController(title: drug.nome,
+        let alert = UIAlertController(title: info.drug.nome,
                                       message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@\n\nVuoi assumere il farmaco adesso?",
                                                                                 comment: "Messaggio popup notifica assunzione farmaco"),
-                                                                                prescription.nome,
-                                                                                drug.note),
+                                                                                info.prescription.nome,
+                                                                                info.memo),
                                       preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Comando no popup assunzione farmaco"),

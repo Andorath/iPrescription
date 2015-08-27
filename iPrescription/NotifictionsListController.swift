@@ -12,13 +12,6 @@ class NotificationsListController: UITableViewController
 {
     var notifications: [UILocalNotification]?
     
-    override func viewWillAppear(animated: Bool)
-    {
-        let userInfo = ["currentController" : self]
-        NSNotificationCenter.defaultCenter().postNotificationName("UpdateCurrentControllerNotification", object: nil, userInfo: userInfo)
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -120,8 +113,4 @@ class NotificationsListController: UITableViewController
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        //println(notifications[indexPath.row].fireDate)
-    }
 }

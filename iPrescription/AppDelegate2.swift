@@ -109,10 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         let id = notification.userInfo!["id"] as! String
         let prescriptionName = notification.userInfo!["prescrizione"] as! String
+        let memo = notification.userInfo!["memo"] as! String
         let prescription = prescriptionsModel!.getPrescriptionWithName(prescriptionName)
         let drug = prescriptionsModel!.getDrugWithId(id)
+        let info = (prescription, drug, memo)
     
-        pushControllersHierarchyForPrescription(prescription, andDrug: drug)
+        pushControllersHierarchyFromInfo(info)
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
     }
@@ -135,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         let memo = notification.userInfo!["memo"] as! String
         let prescription = prescriptionsModel!.getPrescriptionWithName(prescriptionName)
         let drug = prescriptionsModel!.getDrugWithId(id)
+        let info = (prescription, drug, memo)
         
         let alert = UIAlertController(title: drug.nome,
                                       message: String(format: NSLocalizedString("Prescrizione: %@\nMemo: %@",
@@ -143,15 +146,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                                                                                 memo),
                                       preferredStyle: UIAlertControllerStyle.Alert)
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"),
-                                     style: UIAlertActionStyle.Cancel,
-                                     handler: nil))
+        //TODO: Tentando di implementare la psticipazione di una notifica.
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Posticipa di 15 minuti", comment: "Bottone posticipa 15 minuti notifica"),
+            style: UIAlertActionStyle.Default){
+                alert in
+                notification.posponeNotification(notification, addingTimeInterval: 900)
+            })
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Posticipa di 30 minuti", comment: "Bottone posticipa 30 minuti notifica"),
+            style: UIAlertActionStyle.Destructive){
+                alert in
+                notification.posponeNotification(notification, addingTimeInterval: 1800)
+            })
+        
+//        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"),
+//                                     style: UIAlertActionStyle.Cancel,
+//                                     handler: nil))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"),
-                                      style: UIAlertActionStyle.Destructive){
+                                      style: UIAlertActionStyle.Cancel){
                                           alert in
                                           self.dismissAnyPresentedController()
-                                          self.pushControllersHierarchyForPrescription(prescription, andDrug: drug)
+                                          self.pushControllersHierarchyFromInfo(info)
                                       })
         
         return alert
@@ -181,11 +197,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     ///                     DrugTableViewController
     ///     - drug: Il medicinale a cui bisogna fare riferimento per istanziare il DrugDetailController
     
-    func pushControllersHierarchyForPrescription(prescription: Prescription, andDrug drug: Drug)
+    func pushControllersHierarchyFromInfo(info: (prescription: Prescription, drug: Drug, memo: String))
     {
         if let rootNavigationController = self.window!.rootViewController as? UINavigationController
         {
-            let viewControllers = buildControllersHierarchyForPrescription(prescription, andDrug: drug)
+            let viewControllers = buildControllersHierarchyFromInfo(info)
             
             rootNavigationController.setViewControllers(viewControllers, animated: true)
         }
@@ -199,12 +215,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         }
     }
     
-    func buildControllersHierarchyForPrescription(prescription: Prescription, andDrug drug: Drug) -> [UIViewController]
+    func buildControllersHierarchyFromInfo(info: (prescription: Prescription, drug: Drug, memo: String)) -> [UIViewController]
     {
         let prescriptionsController = getPrescriptionsController()
-        let drugsController = getDrugsControllerForPrescription(prescription)
-        let detailController = getDetailControllerForDrug(drug)
-        detailController.alertInfo = (drug, prescription)
+        let drugsController = getDrugsControllerForPrescription(info.prescription)
+        let detailController = getDetailControllerForDrug(info.drug)
+        detailController.alertInfo = info
         
         return [prescriptionsController, drugsController, detailController]
     }
