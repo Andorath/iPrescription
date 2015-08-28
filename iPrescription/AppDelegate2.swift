@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         requestNotificationPermissionForApplication(application)        
         resetApplicationIconBadge()
-        
+        registerNotificationActions()
         initDelegate()
         
         if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
@@ -74,6 +74,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             startApplicationFromNotification(notification)
         }
     }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void)
+    {
+        if let id = identifier
+        {
+            switch id
+            {
+                case "assumptionAction":
+                if let drugId = notification.userInfo?["id"] as? String
+                {
+                    if let drug = prescriptionsModel?.getDrugWithId(drugId)
+                    {
+                        prescriptionsModel?.setDate(NSDate(), forDrug: drug)
+                    }
+                }
+                case "postponeBy15":
+                    notification.posponeNotification(notification, addingTimeInterval: 900)
+                case "postponeBy30":
+                    notification.posponeNotification(notification, addingTimeInterval: 1800)
+                default:
+                    print("default")
+            }
+            
+            resetApplicationIconBadge()
+            NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+        }
+        
+        completionHandler()
+    }
 
     func applicationWillEnterForeground(application: UIApplication)
     {
@@ -98,6 +128,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func resetApplicationIconBadge()
     {
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+    }
+    
+    func registerNotificationActions()
+    {
+        let assumptionAction = UIMutableUserNotificationAction()
+        assumptionAction.identifier = "assumptionAction"
+        assumptionAction.title = NSLocalizedString("Assumi Ora", comment: "Action notifica Assumi ora")
+        assumptionAction.activationMode = .Background
+        
+        let postponeByFifteenMinutesAction = UIMutableUserNotificationAction()
+        postponeByFifteenMinutesAction.identifier = "postponeBy15"
+        postponeByFifteenMinutesAction.title = NSLocalizedString("Posticipa di 15 minuti", comment: "Action posticipa notifica 15 minuti")
+        postponeByFifteenMinutesAction.activationMode = .Background
+        
+        let postponeByThirtyMinutesAction = UIMutableUserNotificationAction()
+        postponeByThirtyMinutesAction.identifier = "postponeBy30"
+        postponeByThirtyMinutesAction.title = NSLocalizedString("Posticipa di 30 minuti", comment: "Action posticipa notifica 30 minuti")
+        postponeByFifteenMinutesAction.activationMode = .Background
+        
+        let postponeCategory = UIMutableUserNotificationCategory()
+        postponeCategory.identifier = "postponeCategory"
+        postponeCategory.setActions([assumptionAction, postponeByFifteenMinutesAction],
+                                    forContext: .Minimal)
+        postponeCategory.setActions([assumptionAction, postponeByFifteenMinutesAction, postponeByThirtyMinutesAction],
+            forContext: .Default)
+        
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
+                                                  categories: [postponeCategory])
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     }
     
     func initDelegate()
@@ -158,10 +218,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                 alert in
                 notification.posponeNotification(notification, addingTimeInterval: 1800)
             })
-        
-//        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Bottone ok notifica"),
-//                                     style: UIAlertActionStyle.Cancel,
-//                                     handler: nil))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dettaglio", comment: "Bottone dettaglio notifica"),
                                       style: UIAlertActionStyle.Cancel){

@@ -12,8 +12,6 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
 {
     var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
     
-    // TODO: Verificare che questo campo serva solo all'inizializzazione del controller
-    //in quanto se modificati i campi del controller tale proprietà è inconsistente.
     var currentDrug: Drug?
     
     var alertInfo: (drug: Drug, prescription: Prescription, memo: String)?
@@ -32,6 +30,7 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     {
         super.viewDidLoad()
         
+        addAllNecessaryObservers()
         updateFieldsFromCurrentDrug()
         setUserInterfaceComponents()
     }
@@ -40,6 +39,11 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     {
         super.viewWillAppear(animated)
         showAssumptionAlertIfPresent()
+    }
+    
+    func addAllNecessaryObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateFieldsFromCurrentDrug", name: "MGSUpdateDrugsDetailInterface", object: nil)
     }
     
     func showAssumptionAlertIfPresent()
@@ -53,6 +57,7 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
     
     func updateFieldsFromCurrentDrug()
     {
+        updateCurrentDrugConsistency()
         nameTextField.text = currentDrug?.nome
         
         if let date = currentDrug?.data_ultima_assunzione
@@ -184,6 +189,17 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
                             date_last_assumption: currentDrug!.data_ultima_assunzione)
         
         prescriptionsModel.updateDrug(lastDrug)
+    }
+
+/// - note: Questo metodo è stato necessario in quanto se si modifica la data di assunzione mediante una Action della
+///         notifica la currentDrug rimane con la vecchia data ed è necessario aggiornarla. 
+///         Questo metodo risolve questo leak di inconsistenza dell'attributo currentDrug.
+///         Viene adoperato all'interno del metodo:
+/// - updateFieldsFromCurrentDrug()
+    
+    func updateCurrentDrugConsistency()
+    {
+        currentDrug = prescriptionsModel.getDrugWithId(currentDrug!.id)
     }
     
     func showAssumptionAlertForInfo(info: (prescription: Prescription, drug: Drug, memo: String))

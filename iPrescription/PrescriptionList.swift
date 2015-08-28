@@ -485,6 +485,7 @@ class PrescriptionList
         
         updateDataFromModel()
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsDetailInterface", object: nil)
     }
     
     func getPrescriptionFromDrug(drug: Drug) -> Prescription

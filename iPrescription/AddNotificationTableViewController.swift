@@ -112,6 +112,8 @@ class AddNotificationTableViewController: UITableViewController
         
         notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
         
+        notification.category = "postponeCategory"
+        
         return notification
     }
     
