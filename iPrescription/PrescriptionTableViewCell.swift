@@ -16,7 +16,7 @@ class PrescriptionTableViewCell: UITableViewCell {
     {
         
         super.layoutSubviews()
-        self.imageView?.frame = CGRectMake(5, 5, 50, 50)
+        self.imageView?.frame = CGRectMake(5, 5, 60, 60)
         self.textLabel?.frame = CGRectMake(super.textLabel!.frame.minX - 25, super.textLabel!.frame.minY, super.textLabel!.frame.size.width, super.textLabel!.frame.size.height)
         self.detailTextLabel!.frame = CGRectMake(super.detailTextLabel!.frame.minX - 25, super.detailTextLabel!.frame.minY, super.detailTextLabel!.frame.size.width, super.detailTextLabel!.frame.size.height)
         

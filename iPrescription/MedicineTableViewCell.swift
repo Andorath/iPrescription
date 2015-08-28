@@ -15,10 +15,12 @@ class MedicineTableViewCell: UITableViewCell {
     override func layoutSubviews()
     {
         super.layoutSubviews()
-        self.imageView?.frame = CGRectMake(5, 5, 50, 50)
+        self.imageView?.frame = CGRectMake(5, 5, 60, 60)
         self.textLabel?.frame = CGRectMake(super.textLabel!.frame.minX - 25, super.textLabel!.frame.minY, super.textLabel!.frame.size.width - 10, super.textLabel!.frame.size.height)
-        self.textLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 22)
-        
+        self.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 25)
+        self.textLabel?.textColor = UIColor(red: 35.0/255.0, green: 146.0/255.0, blue: 199.0/255.0, alpha: 1)
+        self.textLabel?.adjustsFontSizeToFitWidth = true
+        self.textLabel?.minimumScaleFactor = 0.6
     }
 
     override func awakeFromNib() {
