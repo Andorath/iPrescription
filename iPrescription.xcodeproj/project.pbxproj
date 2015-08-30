@@ -74,6 +74,8 @@
 		A9E25E7C1B79255800DAF7EF /* PrescriptionEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */; };
 		A9E27B341B8F10F600F537E6 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E27B331B8F10F600F537E6 /* InfoPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9E371831B776C9500A69480 /* PrescriptionAddingPerfrmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */; };
+		A9E59BF51B93673800F24C05 /* drug.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E59BF31B93673800F24C05 /* drug.png */; settings = {ASSET_TAGS = (); }; };
+		A9E59BF61B93673800F24C05 /* prescription.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E59BF41B93673800F24C05 /* prescription.png */; settings = {ASSET_TAGS = (); }; };
 		A9EDF9D91B8C753D00AD7408 /* AppDelegate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDF9D81B8C753D00AD7408 /* AppDelegate2.swift */; };
 		A9FDA80619805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
 		A9FDA80719805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
@@ -184,6 +186,8 @@
 		A9E25E7B1B79255800DAF7EF /* PrescriptionEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionEditingPerformer.swift; sourceTree = "<group>"; };
 		A9E27B331B8F10F600F537E6 /* InfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
 		A9E371821B776C9400A69480 /* PrescriptionAddingPerfrmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionAddingPerfrmer.swift; sourceTree = "<group>"; };
+		A9E59BF31B93673800F24C05 /* drug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drug.png; sourceTree = "<group>"; };
+		A9E59BF41B93673800F24C05 /* prescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prescription.png; sourceTree = "<group>"; };
 		A9EDF9D81B8C753D00AD7408 /* AppDelegate2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate2.swift; sourceTree = "<group>"; };
 		A9FDA80519805F79002E0F0D /* chord.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chord.m4r; sourceTree = "<group>"; };
 		A9FEB4691B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewControllerOLD.swift; sourceTree = "<group>"; };
@@ -398,6 +402,8 @@
 		A9AACFF41965C2F800C61B44 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9E59BF31B93673800F24C05 /* drug.png */,
+				A9E59BF41B93673800F24C05 /* prescription.png */,
 				A9778C1D1B8F1F3600F952E7 /* Screenshot 2.0 */,
 				A96B58D419942D41007A3BBD /* Screenshot */,
 				A99CA9411993FD5A00A388BD /* alarm_trasparente.png */,
@@ -520,11 +526,13 @@
 				A901F0F819E6EE890076F565 /* Localizable.strings in Resources */,
 				A97D81A319CC2EF60010E7A4 /* add_notification.png in Resources */,
 				A9541AC019E7D7DA00978FD6 /* Notifiche.png in Resources */,
+				A9E59BF51B93673800F24C05 /* drug.png in Resources */,
 				A96DCD6D198AAE1C00C6472E /* menu@2x.png in Resources */,
 				A96314241B8E21A9005BC7A0 /* LaunchScreen.storyboard in Resources */,
 				A901F0F319E6EE890076F565 /* InfoPlist.strings in Resources */,
 				A96DCD69198AA61100C6472E /* iconatrasparente.png in Resources */,
 				A96DC428198807CC003BC2FD /* info@2x.png in Resources */,
+				A9E59BF61B93673800F24C05 /* prescription.png in Resources */,
 				A99CA9421993FD5A00A388BD /* alarm_trasparente.png in Resources */,
 				A9AA1A5E19E538C100EE91A1 /* Main.storyboard in Resources */,
 				A961CF521987B85900BA2E77 /* 58 Retina Settings@2x.png in Resources */,
