@@ -64,8 +64,6 @@
 		A9BD3C701B8C8CB900653A02 /* MedicineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */; };
 		A9BD3C711B8C8CBB00653A02 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */; };
 		A9BF51C719CAE82200F62DC0 /* about-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BF51C619CAE82200F62DC0 /* about-50@2x.png */; };
-		A9CC0BAC196C0E6300022596 /* drug.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAA196C0E6300022596 /* drug.png */; };
-		A9CC0BAD196C0E6300022596 /* prescription.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAB196C0E6300022596 /* prescription.png */; };
 		A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA5197D768300B64FDB /* add_notification-3.png */; };
 		A9CF6BAA197D797700B64FDB /* all_notification-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA9197D797700B64FDB /* all_notification-1.png */; };
 		A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BAB197D894900B64FDB /* alarm_set2.png */; };
@@ -176,8 +174,6 @@
 		A9B8856B19E7E21700DC9804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9B8856C19E7E23700DC9804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A9BF51C619CAE82200F62DC0 /* about-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-50@2x.png"; sourceTree = "<group>"; };
-		A9CC0BAA196C0E6300022596 /* drug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drug.png; sourceTree = "<group>"; };
-		A9CC0BAB196C0E6300022596 /* prescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prescription.png; sourceTree = "<group>"; };
 		A9CF6BA5197D768300B64FDB /* add_notification-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_notification-3.png"; sourceTree = "<group>"; };
 		A9CF6BA9197D797700B64FDB /* all_notification-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_notification-1.png"; sourceTree = "<group>"; };
 		A9CF6BAB197D894900B64FDB /* alarm_set2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_set2.png; sourceTree = "<group>"; };
@@ -416,8 +412,6 @@
 				A9CF6BA9197D797700B64FDB /* all_notification-1.png */,
 				A9CF6BA5197D768300B64FDB /* add_notification-3.png */,
 				A9161E94197D6FB100B25FBC /* icona settings-3.png */,
-				A9CC0BAA196C0E6300022596 /* drug.png */,
-				A9CC0BAB196C0E6300022596 /* prescription.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -516,7 +510,6 @@
 				A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */,
 				A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */,
 				A9541AD019E7D7F600978FD6 /* Dettaglio2.png in Resources */,
-				A9CC0BAC196C0E6300022596 /* drug.png in Resources */,
 				A9541AC819E7D7E800978FD6 /* Aggiungi Notifica2.png in Resources */,
 				A9541AD819E7D80400978FD6 /* Terapie.jpg in Resources */,
 				A9161E95197D6FB100B25FBC /* icona settings-3.png in Resources */,
@@ -532,7 +525,6 @@
 				A901F0F319E6EE890076F565 /* InfoPlist.strings in Resources */,
 				A96DCD69198AA61100C6472E /* iconatrasparente.png in Resources */,
 				A96DC428198807CC003BC2FD /* info@2x.png in Resources */,
-				A9CC0BAD196C0E6300022596 /* prescription.png in Resources */,
 				A99CA9421993FD5A00A388BD /* alarm_trasparente.png in Resources */,
 				A9AA1A5E19E538C100EE91A1 /* Main.storyboard in Resources */,
 				A961CF521987B85900BA2E77 /* 58 Retina Settings@2x.png in Resources */,

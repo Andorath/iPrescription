@@ -572,18 +572,6 @@
                                                     <rect key="frame" x="20" y="194" width="560" height="1"/>
                                                     <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErO-8z-Cwk">
-                                                    <rect key="frame" x="20" y="10" width="70" height="70"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ErO-8z-Cwk" secondAttribute="height" multiplier="1:1" id="2Uf-aj-X1a"/>
-                                                        <constraint firstAttribute="width" constant="70" id="a3Q-Ow-CN1"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="2Uf-aj-X1a"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data ultima assunzione:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JT8-KV-yGw">
                                                     <rect key="frame" x="18" y="93" width="174" height="24"/>
                                                     <constraints>
@@ -611,23 +599,36 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKP-5s-ozV">
                                                     <rect key="frame" x="20" y="158" width="560" height="31"/>
-                                                    <color key="backgroundColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.62165766954421997" green="0.98823529481887817" blue="0.89859539270401001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="KXz-fx-uSn"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <state key="normal" title="Gestisci data">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" red="0.12549020349979401" green="0.51764708757400513" blue="0.69803923368453979" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="0.0" green="0.46174868941307068" blue="0.58602946996688843" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="manageDataAction:" destination="Gh7-1F-A7A" eventType="touchUpInside" id="mgf-qZ-1zx"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErO-8z-Cwk">
+                                                    <rect key="frame" x="13" y="5" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ErO-8z-Cwk" secondAttribute="height" multiplier="1:1" id="2Uf-aj-X1a"/>
+                                                        <constraint firstAttribute="width" constant="80" id="a3Q-Ow-CN1"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="2Uf-aj-X1a"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JT8-KV-yGw" firstAttribute="top" secondItem="Hv0-Fx-wiv" secondAttribute="bottom" constant="4" id="0hO-rR-2HT"/>
                                                 <constraint firstItem="JT8-KV-yGw" firstAttribute="top" secondItem="Q2I-E1-616" secondAttribute="bottom" constant="8" symbolic="YES" id="0wG-GM-zze"/>
-                                                <constraint firstItem="Q2I-E1-616" firstAttribute="leading" secondItem="ErO-8z-Cwk" secondAttribute="trailing" constant="10" id="1IG-c3-T72"/>
+                                                <constraint firstItem="Q2I-E1-616" firstAttribute="leading" secondItem="ErO-8z-Cwk" secondAttribute="trailing" constant="7" id="1IG-c3-T72"/>
                                                 <constraint firstItem="u7U-FE-02N" firstAttribute="leading" secondItem="Hv0-Fx-wiv" secondAttribute="leading" id="4Uo-Q3-KmU"/>
                                                 <constraint firstItem="NIq-qT-sgP" firstAttribute="leading" secondItem="JT8-KV-yGw" secondAttribute="leading" id="5fL-yj-vix"/>
                                                 <constraint firstItem="Hv0-Fx-wiv" firstAttribute="centerX" secondItem="icu-il-kHK" secondAttribute="centerX" id="7QL-ZF-a4i"/>
@@ -636,13 +637,13 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="u7U-FE-02N" secondAttribute="bottom" constant="-1" id="Bdv-wE-V7m"/>
                                                 <constraint firstItem="Hv0-Fx-wiv" firstAttribute="leading" secondItem="icu-il-kHK" secondAttribute="leadingMargin" constant="12" id="BoI-Ku-R1c"/>
                                                 <constraint firstItem="ErO-8z-Cwk" firstAttribute="top" secondItem="icu-il-kHK" secondAttribute="topMargin" constant="2" id="FFq-fG-n14"/>
-                                                <constraint firstItem="ErO-8z-Cwk" firstAttribute="top" secondItem="icu-il-kHK" secondAttribute="topMargin" constant="2" id="H3K-Fk-rZ1"/>
+                                                <constraint firstItem="ErO-8z-Cwk" firstAttribute="top" secondItem="icu-il-kHK" secondAttribute="topMargin" constant="-3" id="H3K-Fk-rZ1"/>
                                                 <constraint firstItem="Hv0-Fx-wiv" firstAttribute="top" secondItem="QF2-ez-Yh2" secondAttribute="bottom" constant="21" id="HbK-Lo-hdY"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QF2-ez-Yh2" secondAttribute="trailing" id="IQ5-8l-efL"/>
                                                 <constraint firstItem="zKP-5s-ozV" firstAttribute="leading" secondItem="u7U-FE-02N" secondAttribute="leading" id="OhD-R3-go0"/>
                                                 <constraint firstItem="Hv0-Fx-wiv" firstAttribute="top" secondItem="ErO-8z-Cwk" secondAttribute="bottom" constant="8" id="RY8-S5-jxg"/>
                                                 <constraint firstItem="QF2-ez-Yh2" firstAttribute="leading" secondItem="Q2I-E1-616" secondAttribute="trailing" constant="8" id="RdX-cL-ogf"/>
-                                                <constraint firstItem="ErO-8z-Cwk" firstAttribute="leading" secondItem="Hv0-Fx-wiv" secondAttribute="leading" id="Rec-jw-7ha"/>
+                                                <constraint firstItem="ErO-8z-Cwk" firstAttribute="leading" secondItem="Hv0-Fx-wiv" secondAttribute="leading" constant="-7" id="Rec-jw-7ha"/>
                                                 <constraint firstItem="NIq-qT-sgP" firstAttribute="top" secondItem="JT8-KV-yGw" secondAttribute="bottom" constant="1" id="TMt-Yo-ZM9"/>
                                                 <constraint firstItem="mkN-N7-sBW" firstAttribute="top" secondItem="icu-il-kHK" secondAttribute="topMargin" constant="7" id="UZt-2g-m0J"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Hv0-Fx-wiv" secondAttribute="trailing" constant="12" id="VGG-4g-iJh"/>
@@ -662,7 +663,7 @@
                                                 <constraint firstItem="JT8-KV-yGw" firstAttribute="leading" secondItem="icu-il-kHK" secondAttribute="leadingMargin" constant="10" id="sjT-hg-OA2"/>
                                                 <constraint firstItem="QF2-ez-Yh2" firstAttribute="leading" secondItem="Q2I-E1-616" secondAttribute="trailing" constant="8" symbolic="YES" id="tfl-ox-n8u"/>
                                                 <constraint firstItem="u7U-FE-02N" firstAttribute="trailing" secondItem="Hv0-Fx-wiv" secondAttribute="trailing" id="yHF-j4-4Du"/>
-                                                <constraint firstItem="Hv0-Fx-wiv" firstAttribute="top" secondItem="ErO-8z-Cwk" secondAttribute="bottom" constant="8" symbolic="YES" id="yZg-Tn-8LD"/>
+                                                <constraint firstItem="Hv0-Fx-wiv" firstAttribute="top" secondItem="ErO-8z-Cwk" secondAttribute="bottom" constant="3" id="yZg-Tn-8LD"/>
                                                 <constraint firstItem="zKP-5s-ozV" firstAttribute="top" secondItem="NIq-qT-sgP" secondAttribute="bottom" constant="16" id="ysa-Ji-xb2"/>
                                                 <constraint firstItem="QF2-ez-Yh2" firstAttribute="top" secondItem="icu-il-kHK" secondAttribute="topMargin" constant="29" id="zCc-FV-4nw"/>
                                             </constraints>
@@ -1595,7 +1596,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-JG-iKf">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Prescription.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z9Q-FJ-iZP">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="prescription.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z9Q-FJ-iZP">
                                                 <rect key="frame" x="11" y="43" width="55" height="55"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gestisci le tue Prescrizioni" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rg-6t-gtG">
@@ -1615,7 +1616,7 @@
                                                 <rect key="frame" x="77" y="43" width="1" height="110"/>
                                                 <color key="backgroundColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Medicine.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-8b-afx">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drug.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-8b-afx">
                                                 <rect key="frame" x="11" y="187" width="55" height="55"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gestisci i tuoi farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8s-J1-XpI">
@@ -1748,11 +1749,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Medicine.png" width="512" height="512"/>
-        <image name="Prescription.png" width="512" height="512"/>
         <image name="about-50.png" width="25" height="25"/>
         <image name="add_notification-3.png" width="256" height="256"/>
+        <image name="drug.png" width="512" height="512"/>
         <image name="iconatrasparente.png" width="512" height="512"/>
+        <image name="prescription.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jh3-Hg-EOR"/>
