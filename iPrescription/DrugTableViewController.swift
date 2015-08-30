@@ -70,7 +70,8 @@ class DrugTableViewController: UITableViewController
         let drugList = prescriptionsModel.getDrugsFromPrescription(currentPrescription!)
         let drug = drugList[indexPath.row]
         cell.textLabel?.text = drug.nome
-        cell.imageView?.image = UIImage(named: "Medicine.png")
+        //cell.imageView?.image = UIImage(named: "drug.png")
+        cell.imageView?.image = IPrescriptionStyleKit.imageOfDrugIcon
         
         if prescriptionsModel.thereAreNotificationsForDrug(drug)
         {

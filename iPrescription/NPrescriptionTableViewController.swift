@@ -92,8 +92,8 @@ class NPrescriptionTableViewController: UITableViewController
     {
         let cell: PrescriptionTableViewCell? = tableView.dequeueReusableCellWithIdentifier("my Cell") as? PrescriptionTableViewCell
         let selectedPrescription = prescriptionsModel.getPrescriptionAtIndex(indexPath.row)
-        cell!.textLabel?.text = selectedPrescription.nome        
-        cell!.imageView?.image = UIImage(named: "Prescription.png")
+        cell!.textLabel?.text = selectedPrescription.nome
+        cell!.imageView?.image = IPrescriptionStyleKit.imageOfPrescriptionIcon
         
         // TODO: Fare Refactoring di questa parte in un metodo di forwarding.
         var medString: String

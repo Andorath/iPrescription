@@ -24,6 +24,22 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Light</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
@@ -46,22 +62,6 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -155,6 +155,7 @@
                         <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.12549019607843137" green="0.51764705882352946" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.62165766954421997" green="0.98823529481887817" blue="0.89859539270401001" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="hKx-kV-7o2" kind="relationship" relationship="rootViewController" id="gew-sG-Qao"/>
@@ -571,7 +572,7 @@
                                                     <rect key="frame" x="20" y="194" width="560" height="1"/>
                                                     <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Medicine.png" translatesAutoresizingMaskIntoConstraints="NO" id="ErO-8z-Cwk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErO-8z-Cwk">
                                                     <rect key="frame" x="20" y="10" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ErO-8z-Cwk" secondAttribute="height" multiplier="1:1" id="2Uf-aj-X1a"/>
@@ -922,7 +923,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_notification.png" translatesAutoresizingMaskIntoConstraints="NO" id="vib-9W-TOy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vib-9W-TOy">
                                                     <rect key="frame" x="18" y="7" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="caH-4c-9fS"/>
@@ -975,7 +976,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all_notification.png" translatesAutoresizingMaskIntoConstraints="NO" id="lvY-7e-r3u">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lvY-7e-r3u">
                                                     <rect key="frame" x="18" y="7" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="5fQ-fr-tII"/>
@@ -1053,6 +1054,13 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23Q-Ku-6ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="0Gn-Wn-mN1" customClass="IPrescriptionStyleKit" customModule="iPrescription" customModuleProvider="target">
+                    <connections>
+                        <outletCollection property="drugDetailIconTargets" destination="ErO-8z-Cwk" collectionClass="NSMutableArray" id="kYs-HQ-u5V"/>
+                        <outletCollection property="addNotificationIconTargets" destination="vib-9W-TOy" collectionClass="NSMutableArray" id="9Hh-dd-r7S"/>
+                        <outletCollection property="allNotificationIconTargets" destination="lvY-7e-r3u" collectionClass="NSMutableArray" id="iVu-RO-O5p"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="2534" y="559"/>
         </scene>
@@ -1744,12 +1752,10 @@
         <image name="Prescription.png" width="512" height="512"/>
         <image name="about-50.png" width="25" height="25"/>
         <image name="add_notification-3.png" width="256" height="256"/>
-        <image name="add_notification.png" width="256" height="256"/>
-        <image name="all_notification.png" width="256" height="256"/>
         <image name="iconatrasparente.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="05h-NK-AfG"/>
+        <segue reference="jh3-Hg-EOR"/>
         <segue reference="oE3-Ep-Fn6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.46174869940000002" blue="0.58602949500000001" alpha="1" colorSpace="calibratedRGB"/>

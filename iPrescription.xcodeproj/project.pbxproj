@@ -21,6 +21,7 @@
 		A936DBF01B7A0BE2002C41C6 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */; };
 		A9372A951B88D8DF000F696B /* NotifictionsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9372A941B88D8DF000F696B /* NotifictionsListController.swift */; };
 		A938D48D1B8143E2004DC7B0 /* DrugDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */; };
+		A93F888D1B921D4100A571AF /* IPrescriptionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F888C1B921D4100A571AF /* IPrescriptionStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
 		A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94068DD1981B37900149057 /* NotificationTableViewCell.swift */; };
 		A9541ABC19E7D7CE00978FD6 /* Sveglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541ABE19E7D7CE00978FD6 /* Sveglia.png */; };
 		A9541AC019E7D7DA00978FD6 /* Notifiche.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541AC219E7D7DA00978FD6 /* Notifiche.png */; };
@@ -63,8 +64,8 @@
 		A9BD3C701B8C8CB900653A02 /* MedicineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973706B1964B1A6004085D8 /* MedicineTableViewController.swift */; };
 		A9BD3C711B8C8CBB00653A02 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9161E92197D1D7200B25FBC /* NotificationTableViewController.swift */; };
 		A9BF51C719CAE82200F62DC0 /* about-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BF51C619CAE82200F62DC0 /* about-50@2x.png */; };
-		A9CC0BAC196C0E6300022596 /* Medicine.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAA196C0E6300022596 /* Medicine.png */; };
-		A9CC0BAD196C0E6300022596 /* Prescription.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAB196C0E6300022596 /* Prescription.png */; };
+		A9CC0BAC196C0E6300022596 /* drug.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAA196C0E6300022596 /* drug.png */; };
+		A9CC0BAD196C0E6300022596 /* prescription.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CC0BAB196C0E6300022596 /* prescription.png */; };
 		A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA5197D768300B64FDB /* add_notification-3.png */; };
 		A9CF6BAA197D797700B64FDB /* all_notification-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BA9197D797700B64FDB /* all_notification-1.png */; };
 		A9CF6BAC197D894900B64FDB /* alarm_set2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF6BAB197D894900B64FDB /* alarm_set2.png */; };
@@ -127,6 +128,7 @@
 		A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		A9372A941B88D8DF000F696B /* NotifictionsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifictionsListController.swift; sourceTree = "<group>"; };
 		A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailController.swift; sourceTree = "<group>"; };
+		A93F888C1B921D4100A571AF /* IPrescriptionStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPrescriptionStyleKit.swift; sourceTree = "<group>"; };
 		A94068DD1981B37900149057 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		A9541ABF19E7D7D400978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Sveglia.png; sourceTree = "<group>"; };
 		A9541AC319E7D7DC00978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Notifiche.png; sourceTree = "<group>"; };
@@ -174,8 +176,8 @@
 		A9B8856B19E7E21700DC9804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9B8856C19E7E23700DC9804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A9BF51C619CAE82200F62DC0 /* about-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-50@2x.png"; sourceTree = "<group>"; };
-		A9CC0BAA196C0E6300022596 /* Medicine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Medicine.png; sourceTree = "<group>"; };
-		A9CC0BAB196C0E6300022596 /* Prescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Prescription.png; sourceTree = "<group>"; };
+		A9CC0BAA196C0E6300022596 /* drug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drug.png; sourceTree = "<group>"; };
+		A9CC0BAB196C0E6300022596 /* prescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prescription.png; sourceTree = "<group>"; };
 		A9CF6BA5197D768300B64FDB /* add_notification-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_notification-3.png"; sourceTree = "<group>"; };
 		A9CF6BA9197D797700B64FDB /* all_notification-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_notification-1.png"; sourceTree = "<group>"; };
 		A9CF6BAB197D894900B64FDB /* alarm_set2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_set2.png; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		A90528C1195ED005004A54C4 /* iPrescription */ = {
 			isa = PBXGroup;
 			children = (
+				A93F888B1B921CC100A571AF /* StyleKit */,
 				A90528C4195ED005004A54C4 /* AppDelegateOLD.swift */,
 				A978E1B11975C24F000503B5 /* PrescriptionTableViewController.swift */,
 				A99CA93A1993CF5700A388BD /* InfoPageViewControllerOLD.swift */,
@@ -284,6 +287,14 @@
 				A90528D4195ED005004A54C4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A93F888B1B921CC100A571AF /* StyleKit */ = {
+			isa = PBXGroup;
+			children = (
+				A93F888C1B921D4100A571AF /* IPrescriptionStyleKit.swift */,
+			);
+			name = StyleKit;
 			sourceTree = "<group>";
 		};
 		A959425319896C40005F1A05 /* Storyboards */ = {
@@ -405,8 +416,8 @@
 				A9CF6BA9197D797700B64FDB /* all_notification-1.png */,
 				A9CF6BA5197D768300B64FDB /* add_notification-3.png */,
 				A9161E94197D6FB100B25FBC /* icona settings-3.png */,
-				A9CC0BAA196C0E6300022596 /* Medicine.png */,
-				A9CC0BAB196C0E6300022596 /* Prescription.png */,
+				A9CC0BAA196C0E6300022596 /* drug.png */,
+				A9CC0BAB196C0E6300022596 /* prescription.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -505,7 +516,7 @@
 				A9CF6BA6197D768300B64FDB /* add_notification-3.png in Resources */,
 				A9E00CC81977E495007AA5B8 /* Opening.m4r in Resources */,
 				A9541AD019E7D7F600978FD6 /* Dettaglio2.png in Resources */,
-				A9CC0BAC196C0E6300022596 /* Medicine.png in Resources */,
+				A9CC0BAC196C0E6300022596 /* drug.png in Resources */,
 				A9541AC819E7D7E800978FD6 /* Aggiungi Notifica2.png in Resources */,
 				A9541AD819E7D80400978FD6 /* Terapie.jpg in Resources */,
 				A9161E95197D6FB100B25FBC /* icona settings-3.png in Resources */,
@@ -521,7 +532,7 @@
 				A901F0F319E6EE890076F565 /* InfoPlist.strings in Resources */,
 				A96DCD69198AA61100C6472E /* iconatrasparente.png in Resources */,
 				A96DC428198807CC003BC2FD /* info@2x.png in Resources */,
-				A9CC0BAD196C0E6300022596 /* Prescription.png in Resources */,
+				A9CC0BAD196C0E6300022596 /* prescription.png in Resources */,
 				A99CA9421993FD5A00A388BD /* alarm_trasparente.png in Resources */,
 				A9AA1A5E19E538C100EE91A1 /* Main.storyboard in Resources */,
 				A961CF521987B85900BA2E77 /* 58 Retina Settings@2x.png in Resources */,
@@ -564,6 +575,7 @@
 			files = (
 				A9EDF9D91B8C753D00AD7408 /* AppDelegate2.swift in Sources */,
 				A938D48D1B8143E2004DC7B0 /* DrugDetailController.swift in Sources */,
+				A93F888D1B921D4100A571AF /* IPrescriptionStyleKit.swift in Sources */,
 				A974D64A1966BD4800E27F1B /* PrescriptionTableViewCell.swift in Sources */,
 				A9E27B341B8F10F600F537E6 /* InfoPageViewController.swift in Sources */,
 				A9BD3C701B8C8CB900653A02 /* MedicineTableViewController.swift in Sources */,
