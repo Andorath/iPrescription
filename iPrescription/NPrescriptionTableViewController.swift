@@ -40,6 +40,7 @@ class NPrescriptionTableViewController: UITableViewController
     func setUserInterfaceComponents()
     {
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        setUpGraphicApparence()
     }
     
     func updateInterface()

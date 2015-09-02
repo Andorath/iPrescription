@@ -62,6 +62,7 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-UltraLight</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -454,25 +455,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="my Cell" id="l95-3F-NVU" customClass="MedicineTableViewCell" customModule="iPrescription" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="my Cell" id="l95-3F-NVU" customClass="MedicineTableViewCell" customModule="iPrescription" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l95-3F-NVU" id="2JB-on-q76">
-                                    <rect key="frame" x="0.0" y="0.0" width="553" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqL-jd-0Mp">
-                                            <rect key="frame" x="518" y="12" width="35" height="35"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqL-jd-0Mp">
+                                            <rect key="frame" x="524" y="17" width="35" height="35"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="Qe5-Ws-sBO"/>
+                                                <constraint firstAttribute="height" constant="35" id="hAI-PF-ce0"/>
+                                                <constraint firstAttribute="width" constant="35" id="qKL-30-pnl"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zqL-jd-0Mp" firstAttribute="centerY" secondItem="2JB-on-q76" secondAttribute="centerY" id="NIT-uu-eN3"/>
-                                        <constraint firstAttribute="trailing" secondItem="zqL-jd-0Mp" secondAttribute="trailing" id="jZJ-Yx-iiL"/>
-                                        <constraint firstItem="zqL-jd-0Mp" firstAttribute="top" secondItem="2JB-on-q76" secondAttribute="topMargin" constant="4" id="uVb-uk-Asa"/>
+                                        <constraint firstItem="zqL-jd-0Mp" firstAttribute="centerY" secondItem="2JB-on-q76" secondAttribute="centerY" id="QdJ-sf-Icz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zqL-jd-0Mp" secondAttribute="bottom" constant="14" id="SwF-wf-uoG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zqL-jd-0Mp" secondAttribute="trailing" constant="6" id="drJ-c3-PiQ"/>
+                                        <constraint firstItem="zqL-jd-0Mp" firstAttribute="top" secondItem="2JB-on-q76" secondAttribute="topMargin" constant="4" id="esU-dT-PMc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zqL-jd-0Mp" secondAttribute="trailing" id="rnI-Ba-ib3"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="SwF-wf-uoG"/>
+                                            <exclude reference="drJ-c3-PiQ"/>
+                                            <exclude reference="esU-dT-PMc"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -1503,17 +1514,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tutorialPage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjH-fT-Wm1">
-                                <rect key="frame" x="254" y="289" width="92" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-uh-l5h">
+                                <rect key="frame" x="241" y="59" width="119" height="58"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="CjH-fT-Wm1" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="9q7-nd-A3Y"/>
-                            <constraint firstItem="CjH-fT-Wm1" firstAttribute="centerY" secondItem="t6d-6u-nIW" secondAttribute="centerY" id="yOs-nS-1SC"/>
+                            <constraint firstItem="gjm-uh-l5h" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="Mza-au-QFS"/>
+                            <constraint firstItem="gjm-uh-l5h" firstAttribute="top" secondItem="xNl-dl-hhf" secondAttribute="bottom" constant="39" id="heC-Rw-mjd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1756,8 +1767,8 @@
         <image name="prescription.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CsG-5s-OPl"/>
         <segue reference="jh3-Hg-EOR"/>
-        <segue reference="oE3-Ep-Fn6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.46174869940000002" blue="0.58602949500000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

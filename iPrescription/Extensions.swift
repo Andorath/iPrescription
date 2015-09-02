@@ -20,3 +20,11 @@ extension UILocalNotification
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
     }
 }
+
+extension UITableViewController
+{
+    func setUpGraphicApparence()
+    {
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+}
