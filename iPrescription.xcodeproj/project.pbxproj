@@ -21,7 +21,6 @@
 		A936DBF01B7A0BE2002C41C6 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */; };
 		A9372A951B88D8DF000F696B /* NotifictionsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9372A941B88D8DF000F696B /* NotifictionsListController.swift */; };
 		A938D48D1B8143E2004DC7B0 /* DrugDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */; };
-		A93F888D1B921D4100A571AF /* IPrescriptionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F888C1B921D4100A571AF /* IPrescriptionStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
 		A94068DE1981B37900149057 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94068DD1981B37900149057 /* NotificationTableViewCell.swift */; };
 		A9541ABC19E7D7CE00978FD6 /* Sveglia.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541ABE19E7D7CE00978FD6 /* Sveglia.png */; };
 		A9541AC019E7D7DA00978FD6 /* Notifiche.png in Resources */ = {isa = PBXBuildFile; fileRef = A9541AC219E7D7DA00978FD6 /* Notifiche.png */; };
@@ -77,6 +76,7 @@
 		A9E59BF51B93673800F24C05 /* drug.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E59BF31B93673800F24C05 /* drug.png */; settings = {ASSET_TAGS = (); }; };
 		A9E59BF61B93673800F24C05 /* prescription.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E59BF41B93673800F24C05 /* prescription.png */; settings = {ASSET_TAGS = (); }; };
 		A9EDF9D91B8C753D00AD7408 /* AppDelegate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDF9D81B8C753D00AD7408 /* AppDelegate2.swift */; };
+		A9F2B4841B936F130005A688 /* IPrescriptionStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F2B4831B936F130005A688 /* IPrescriptionStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
 		A9FDA80619805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
 		A9FDA80719805F79002E0F0D /* chord.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A9FDA80519805F79002E0F0D /* chord.m4r */; };
 		A9FEB46A1B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB4691B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift */; };
@@ -128,7 +128,6 @@
 		A936DBEF1B7A0BE2002C41C6 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		A9372A941B88D8DF000F696B /* NotifictionsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifictionsListController.swift; sourceTree = "<group>"; };
 		A938D48C1B8143E2004DC7B0 /* DrugDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailController.swift; sourceTree = "<group>"; };
-		A93F888C1B921D4100A571AF /* IPrescriptionStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPrescriptionStyleKit.swift; sourceTree = "<group>"; };
 		A94068DD1981B37900149057 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		A9541ABF19E7D7D400978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Sveglia.png; sourceTree = "<group>"; };
 		A9541AC319E7D7DC00978FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Notifiche.png; sourceTree = "<group>"; };
@@ -189,6 +188,7 @@
 		A9E59BF31B93673800F24C05 /* drug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drug.png; sourceTree = "<group>"; };
 		A9E59BF41B93673800F24C05 /* prescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prescription.png; sourceTree = "<group>"; };
 		A9EDF9D81B8C753D00AD7408 /* AppDelegate2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate2.swift; sourceTree = "<group>"; };
+		A9F2B4831B936F130005A688 /* IPrescriptionStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPrescriptionStyleKit.swift; sourceTree = "<group>"; };
 		A9FDA80519805F79002E0F0D /* chord.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = chord.m4r; sourceTree = "<group>"; };
 		A9FEB4691B8CEE8F00147808 /* AddNotificationTableViewControllerOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewControllerOLD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,7 +292,7 @@
 		A93F888B1B921CC100A571AF /* StyleKit */ = {
 			isa = PBXGroup;
 			children = (
-				A93F888C1B921D4100A571AF /* IPrescriptionStyleKit.swift */,
+				A9F2B4831B936F130005A688 /* IPrescriptionStyleKit.swift */,
 			);
 			name = StyleKit;
 			sourceTree = "<group>";
@@ -575,7 +575,7 @@
 			files = (
 				A9EDF9D91B8C753D00AD7408 /* AppDelegate2.swift in Sources */,
 				A938D48D1B8143E2004DC7B0 /* DrugDetailController.swift in Sources */,
-				A93F888D1B921D4100A571AF /* IPrescriptionStyleKit.swift in Sources */,
+				A9F2B4841B936F130005A688 /* IPrescriptionStyleKit.swift in Sources */,
 				A974D64A1966BD4800E27F1B /* PrescriptionTableViewCell.swift in Sources */,
 				A9E27B341B8F10F600F537E6 /* InfoPageViewController.swift in Sources */,
 				A9BD3C701B8C8CB900653A02 /* MedicineTableViewController.swift in Sources */,
