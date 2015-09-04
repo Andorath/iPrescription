@@ -102,7 +102,6 @@
 		A982EFAA1B7678EA008C238E /* PrescriptionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionList.swift; sourceTree = "<group>"; };
 		A982EFAD1B7680AE008C238E /* NPrescriptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPrescriptionTableViewController.swift; sourceTree = "<group>"; };
 		A982EFAF1B76AD87008C238E /* ModelClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClasses.swift; sourceTree = "<group>"; };
-		A986C14A1961C02F00649A91 /* iPrescription-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPrescription-Bridging-Header.h"; sourceTree = "<group>"; };
 		A98D27B41B8FC1E000A70E02 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A98D95481B8C6CE50013680B /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A98FFF651976D54D0059E74A /* AddNotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotificationTableViewController.swift; sourceTree = "<group>"; };
@@ -170,14 +169,13 @@
 			isa = PBXGroup;
 			children = (
 				A93F888B1B921CC100A571AF /* StyleKit */,
-				A982EFAC1B768064008C238E /* 2.0 */,
+				A982EFAC1B768064008C238E /* Controllers */,
 				A982EFA91B7678C9008C238E /* Model */,
 				A99CA93E1993D1C200A388BD /* Utility Class */,
 				A974D64B1966C02B00E27F1B /* Custom Cells */,
 				A90528C9195ED005004A54C4 /* Images.xcassets */,
 				A90528C6195ED005004A54C4 /* iPrescription.xcdatamodeld */,
 				A9AACFF41965C2F800C61B44 /* Images */,
-				A986C14A1961C02F00649A91 /* iPrescription-Bridging-Header.h */,
 				A90528C2195ED005004A54C4 /* Supporting Files */,
 			);
 			path = iPrescription;
@@ -260,7 +258,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		A982EFAC1B768064008C238E /* 2.0 */ = {
+		A982EFAC1B768064008C238E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A9EDF9D81B8C753D00AD7408 /* AppDelegate.swift */,
@@ -277,7 +275,7 @@
 				A9DCB0D61B8F5F81004ABCBB /* InfoViewController.swift */,
 				A9DCB0D81B8F5FAF004ABCBB /* FirstTutorialViewController.swift */,
 			);
-			name = 2.0;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		A99CA93E1993D1C200A388BD /* Utility Class */ = {
@@ -354,7 +352,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Marco Salafia";
 				TargetAttributes = {
 					A90528BE195ED005004A54C4 = {
@@ -547,6 +545,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -565,6 +564,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -600,6 +600,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -614,9 +615,10 @@
 				INFOPLIST_FILE = iPrescription/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iPrescription;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "iPrescription/iPrescription-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -632,9 +634,10 @@
 				INFOPLIST_FILE = iPrescription/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iPrescription;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "iPrescription/iPrescription-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -654,6 +657,7 @@
 				INFOPLIST_FILE = iPrescriptionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = iPrescriptionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -670,6 +674,7 @@
 				INFOPLIST_FILE = iPrescriptionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = iPrescriptionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

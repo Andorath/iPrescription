@@ -99,7 +99,7 @@ public class IPrescriptionStyleKit : NSObject {
         let prescription = UIImage(named: "prescription.png")!
 
         //// Rectangle Drawing
-        var rectanglePath = UIBezierPath(roundedRect: CGRectMake(49, 51, 512, 512), byRoundingCorners: [UIRectCorner.TopRight, UIRectCorner.BottomLeft], cornerRadii: CGSizeMake(120, 120))
+        let rectanglePath = UIBezierPath(roundedRect: CGRectMake(49, 51, 512, 512), byRoundingCorners: [UIRectCorner.TopRight, UIRectCorner.BottomLeft], cornerRadii: CGSizeMake(120, 120))
         rectanglePath.closePath()
         CGContextSaveGState(context)
         CGContextSetShadowWithColor(context, shadowIconCell.shadowOffset, shadowIconCell.shadowBlurRadius, (shadowIconCell.shadowColor as! UIColor).CGColor)
