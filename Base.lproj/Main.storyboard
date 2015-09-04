@@ -1221,7 +1221,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LgD-dr-2Ed"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LYt-XH-QnN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-dI-jpy">
@@ -1237,8 +1237,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xam-tb-Ren">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-IN-eQe">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1850"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-IN-eQe">
+                                        <rect key="frame" x="0.0" y="-1463" width="320" height="1850"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attento ai nomi!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-Wa-nQY">
                                                 <rect key="frame" x="14" y="17" width="241" height="22"/>
@@ -1348,12 +1348,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="GJk-IN-eQe" firstAttribute="leading" secondItem="Xam-tb-Ren" secondAttribute="leading" id="CGn-8o-NnT"/>
-                                    <constraint firstAttribute="bottom" secondItem="GJk-IN-eQe" secondAttribute="bottom" id="Kf2-jn-mdN"/>
-                                    <constraint firstItem="GJk-IN-eQe" firstAttribute="top" secondItem="Xam-tb-Ren" secondAttribute="top" id="pbt-vY-8Oe"/>
-                                    <constraint firstAttribute="trailing" secondItem="GJk-IN-eQe" secondAttribute="trailing" id="rJv-kI-J9c"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -1364,6 +1358,8 @@
                             <constraint firstItem="Xam-tb-Ren" firstAttribute="top" secondItem="z9X-Ah-n8q" secondAttribute="bottom" constant="8" id="r3t-qQ-b5T"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="text1" destination="d06-Ob-g6a" id="jjH-i2-jTw"/>
                         <outlet property="text2" destination="xDN-oa-8YA" id="poa-z9-lLc"/>

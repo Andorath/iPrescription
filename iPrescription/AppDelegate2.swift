@@ -108,6 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func applicationWillEnterForeground(application: UIApplication)
     {
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
     }
 
     func applicationWillTerminate(application: UIApplication)

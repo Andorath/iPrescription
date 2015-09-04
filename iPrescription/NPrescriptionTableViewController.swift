@@ -27,7 +27,6 @@ class NPrescriptionTableViewController: UITableViewController
     {
         addAllNecessaryObservers()
         setUserInterfaceComponents()
-        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
         rateDelegate.rateMeWithPresenter(self)
         super.viewDidLoad()
     }
@@ -40,7 +39,6 @@ class NPrescriptionTableViewController: UITableViewController
     func setUserInterfaceComponents()
     {
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        setUpGraphicApparence()
     }
     
     func updateInterface()
@@ -73,6 +71,7 @@ class NPrescriptionTableViewController: UITableViewController
     
     @IBAction func addNewPrescription(sender: AnyObject)
     {
+        prescriptionDelegate = PrescriptionAddingPerformer(delegator: self)
         prescriptionDelegate!.showAlertController()
     }
 

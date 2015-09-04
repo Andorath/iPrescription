@@ -50,6 +50,14 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-Light</string>
@@ -62,7 +70,6 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-UltraLight</string>
             <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-UltraLight</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1434,6 +1441,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="RpI-Zz-8QA">
+                            <rect key="frame" x="0.0" y="156" width="600" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="my cell" id="ymn-RY-NZ0" customClass="NotificationTableViewCell" customModule="iPrescription" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="70"/>
@@ -1469,6 +1481,7 @@
                                         <constraint firstItem="jj5-AD-CcI" firstAttribute="leading" secondItem="8Zi-Ii-lw1" secondAttribute="leadingMargin" constant="7" id="Xxh-LD-jU3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.94932430982589722" green="1" blue="0.96959459781646729" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="detailLabel" destination="jj5-AD-CcI" id="Cji-se-XLO"/>
                                     <outlet property="repeatLabel" destination="xRc-m7-6YD" id="wHE-pA-s5a"/>
@@ -1502,10 +1515,10 @@
             </objects>
             <point key="canvasLocation" x="1678" y="1372"/>
         </scene>
-        <!--Page View Controller-->
+        <!--First Tutorial View Controller-->
         <scene sceneID="QFV-gC-d1K">
             <objects>
-                <viewController storyboardIdentifier="tutorialPage" id="qsp-Ve-UPB" customClass="PageViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tutorialPage" id="qsp-Ve-UPB" customClass="FirstTutorialViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xNl-dl-hhf"/>
                         <viewControllerLayoutGuide type="bottom" id="THm-MM-bzF"/>
@@ -1516,21 +1529,180 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-uh-l5h">
                                 <rect key="frame" x="241" y="59" width="119" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="KiR-0N-2SQ"/>
+                                    <constraint firstAttribute="width" constant="119" id="e0y-yr-K7z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-zS-EHY" userLabel="Horizontal separator">
+                                <rect key="frame" x="185" y="133" width="230" height="1"/>
+                                <color key="backgroundColor" red="0.62165764300000004" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="d8L-Nz-PJM"/>
+                                    <constraint firstAttribute="width" constant="230" id="wVf-Yt-i6F"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkk-on-Dez">
+                                <rect key="frame" x="140" y="150" width="320" height="442"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcr-oT-sBw">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1700"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modifica.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7N-ko-Q7R">
+                                                <rect key="frame" x="14" y="49" width="292" height="101"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="7r4-XE-lTi">
+                                                <rect key="frame" x="16" y="158" width="292" height="229"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Nella Pagina delle prescrizioni premi il pulsante modifica per entrare in Modalità Modifica. In questa modalità è possibile cancellare le prescrizioni con tutti i medicinali contenuti in esse e le eventuali notifiche attive. Usa invece il comando Modifica per cambiare il nome della Prescrizione. Per cancellare un medicinale basta scorrere la riga corrispondente verso sinistra con il dito e selezionare il comando Elimina.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NoV-Nm-pqa" userLabel="Horizontal separator">
+                                                <rect key="frame" x="16" y="410" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dettaglio del farmaco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnI-CM-30n">
+                                                <rect key="frame" x="16" y="389" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dettaglio.png" translatesAutoresizingMaskIntoConstraints="NO" id="43Z-bz-zWr">
+                                                <rect key="frame" x="14" y="424" width="292" height="132"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-de-XOI">
+                                                <rect key="frame" x="14" y="564" width="292" height="191"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Nella pagina Dettaglio è possibile consultare tutte le informazioni inserite precedentemente sul farmaco ed eventualmente modificarle. Per poter cambiare le informazioni bisogna premere il pulsante modifica per entrare nella Modalità Modifica. Inoltre nella pagina Dettaglio è possibile controllare la data dell'ultima assunzione del farmaco!</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLF-Og-N9b" userLabel="Horizontal separator">
+                                                <rect key="frame" x="14" y="779" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifiche" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wp1-OB-xWo">
+                                                <rect key="frame" x="16" y="758" width="241" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aggiungi notifica.png" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-WK-r9c">
+                                                <rect key="frame" x="14" y="788" width="292" height="128"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fqr-n8-sHY">
+                                                <rect key="frame" x="14" y="916" width="292" height="247"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Creare degli avvisi per quando prendere una farmaco è un gioco da ragazzi. Premi Aggiungi Notifica in fondo alla pagina Dettaglio e verrai rimandato a una schermata dove creerai un avviso in pochi secondi. Quando hai finito premi Fine per creare la notifica o Cancella per tornare indietro. Premendo Notifiche Attive invece potrai visualizzare tutte le notifiche attive per quel farmaco.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notifica azioni.png" translatesAutoresizingMaskIntoConstraints="NO" id="mit-3j-yVK">
+                                                <rect key="frame" x="14" y="1171" width="292" height="238"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OOU-sb-H7B">
+                                                <rect key="frame" x="14" y="1417" width="292" height="247"/>
+                                                <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Le notifiche dei tuoi farmaci sono interattive. Scorri la notifica verso sinistra per posticiare la notifica o per assumere il farmaco senza il bisogno di aprire l'applicazione, il tutto alla velocità di un tocco. Oppure se preferisci esaminare i dettagli del farmaco scorri normalmente la notifica verso destra per aprire iPrescription alla pagina del farmaco. Gestire le tue terapie e semplice e veloce in questo modo!</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRQ-7L-AMF" userLabel="Horizontal separator">
+                                                <rect key="frame" x="16" y="40" width="292" height="1"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Modifica le Prescrizioni e i Farmaci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuE-ri-TOh">
+                                                <rect key="frame" x="16" y="19" width="308" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="Eaw-de-Gpw"/>
+                                            <constraint firstAttribute="height" constant="1700" id="Nic-an-jAP"/>
+                                            <constraint firstAttribute="width" constant="320" id="WGH-VY-9xY"/>
+                                            <constraint firstAttribute="height" constant="1700" id="vIR-Id-GiZ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Eaw-de-Gpw"/>
+                                                <exclude reference="Nic-an-jAP"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Rcr-oT-sBw" secondAttribute="trailing" id="5mX-m2-8uM"/>
+                                    <constraint firstItem="Rcr-oT-sBw" firstAttribute="centerX" secondItem="Lkk-on-Dez" secondAttribute="centerX" id="BLH-0z-K3D"/>
+                                    <constraint firstAttribute="height" constant="442" id="GRJ-aW-LGZ"/>
+                                    <constraint firstAttribute="width" constant="320" id="STT-QS-Lw2"/>
+                                    <constraint firstItem="Rcr-oT-sBw" firstAttribute="leading" secondItem="Lkk-on-Dez" secondAttribute="leading" id="Sj7-7R-qCV"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rcr-oT-sBw" secondAttribute="bottom" id="dD6-aS-upl"/>
+                                    <constraint firstAttribute="width" constant="320" id="dat-yc-MXl"/>
+                                    <constraint firstItem="Rcr-oT-sBw" firstAttribute="top" secondItem="Lkk-on-Dez" secondAttribute="top" id="n3f-lI-eZl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rcr-oT-sBw" secondAttribute="bottom" constant="-1258" id="qq6-5W-4BU"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GRJ-aW-LGZ"/>
+                                        <exclude reference="STT-QS-Lw2"/>
+                                        <exclude reference="dat-yc-MXl"/>
+                                        <exclude reference="qq6-5W-4BU"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.94932432430000002" green="1" blue="0.96959459459999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="gjm-uh-l5h" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="Mza-au-QFS"/>
-                            <constraint firstItem="gjm-uh-l5h" firstAttribute="top" secondItem="xNl-dl-hhf" secondAttribute="bottom" constant="39" id="heC-Rw-mjd"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="BZ5-Wg-OuV"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="top" secondItem="3wT-zS-EHY" secondAttribute="bottom" constant="16" id="F71-bU-obe"/>
+                            <constraint firstItem="THm-MM-bzF" firstAttribute="top" secondItem="Lkk-on-Dez" secondAttribute="bottom" constant="8" id="GFl-Hd-XEg"/>
+                            <constraint firstItem="THm-MM-bzF" firstAttribute="top" secondItem="Lkk-on-Dez" secondAttribute="bottom" constant="8" symbolic="YES" id="IXR-Cv-SIF"/>
+                            <constraint firstItem="3wT-zS-EHY" firstAttribute="top" secondItem="xNl-dl-hhf" secondAttribute="bottom" constant="113" id="JI0-09-Wc6"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="top" secondItem="xNl-dl-hhf" secondAttribute="bottom" constant="130" id="LQ8-8o-ktL"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="SGe-n5-z03"/>
+                            <constraint firstItem="gjm-uh-l5h" firstAttribute="top" secondItem="xNl-dl-hhf" secondAttribute="bottom" constant="39" id="eD5-3K-mQ2"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="centerX" secondItem="3wT-zS-EHY" secondAttribute="centerX" id="gbh-o9-o9z"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="top" secondItem="3wT-zS-EHY" secondAttribute="bottom" constant="16" id="jbX-aJ-4RQ"/>
+                            <constraint firstItem="3wT-zS-EHY" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="lYU-Vs-mUL"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="centerX" secondItem="3wT-zS-EHY" secondAttribute="centerX" id="mQ9-tI-OHN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rcr-oT-sBw" secondAttribute="trailing" constant="120" id="pc9-b5-Rrp"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="centerX" secondItem="3wT-zS-EHY" secondAttribute="centerX" id="qTo-eS-r8c"/>
+                            <constraint firstItem="Lkk-on-Dez" firstAttribute="top" secondItem="gjm-uh-l5h" secondAttribute="bottom" constant="33" id="rda-y0-A25"/>
+                            <constraint firstItem="THm-MM-bzF" firstAttribute="top" secondItem="Lkk-on-Dez" secondAttribute="bottom" constant="8" id="wwH-T7-pTa"/>
+                            <constraint firstItem="gjm-uh-l5h" firstAttribute="centerX" secondItem="t6d-6u-nIW" secondAttribute="centerX" id="y7F-uK-PFw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BZ5-Wg-OuV"/>
+                                <exclude reference="F71-bU-obe"/>
+                                <exclude reference="LQ8-8o-ktL"/>
+                                <exclude reference="SGe-n5-z03"/>
+                                <exclude reference="gbh-o9-o9z"/>
+                                <exclude reference="jbX-aJ-4RQ"/>
+                                <exclude reference="qTo-eS-r8c"/>
+                                <exclude reference="pc9-b5-Rrp"/>
+                                <exclude reference="GFl-Hd-XEg"/>
+                                <exclude reference="IXR-Cv-SIF"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="text1" destination="7r4-XE-lTi" id="vxJ-xX-322"/>
+                        <outlet property="text2" destination="WGq-de-XOI" id="4GN-tX-noU"/>
+                        <outlet property="text3" destination="fqr-n8-sHY" id="N3W-co-xAf"/>
+                        <outlet property="text4" destination="OOU-sb-H7B" id="UTY-rC-Nf9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejv-nF-WFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1856" y="2029"/>
+            <point key="canvasLocation" x="1772" y="2029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4hU-cb-NcQ">
@@ -1762,13 +1934,17 @@
     <resources>
         <image name="about-50.png" width="25" height="25"/>
         <image name="add_notification-3.png" width="256" height="256"/>
+        <image name="aggiungi notifica.png" width="391" height="138"/>
+        <image name="dettaglio.png" width="392" height="252"/>
         <image name="drug.png" width="512" height="512"/>
         <image name="iconatrasparente.png" width="512" height="512"/>
+        <image name="modifica.png" width="391" height="225"/>
+        <image name="notifica azioni.png" width="396" height="362"/>
         <image name="prescription.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CsG-5s-OPl"/>
         <segue reference="jh3-Hg-EOR"/>
+        <segue reference="oE3-Ep-Fn6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.46174869940000002" blue="0.58602949500000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
