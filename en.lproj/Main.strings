@@ -1,0 +1,237 @@
+
+/* Class = "IBUILabel"; text = "Guide"; ObjectID = "0ah-dI-jpy"; */
+"0ah-dI-jpy.text" = "Guide";
+
+/* Class = "IBUIButton"; normalTitle = "Manage date"; ObjectID = "0nG-8e-4z3"; */
+"0nG-8e-4z3.normalTitle" = "Manage date";
+
+/* Class = "IBUITextField"; placeholder = "e.g. 2 times per day"; ObjectID = "1o1-ap-I1w"; */
+"1o1-ap-I1w.placeholder" = "e.g. 2 times per day";
+
+/* Class = "IBUINavigationItem"; title = "Notifications"; ObjectID = "2tP-AM-ABu"; */
+"2tP-AM-ABu.title" = "Notifications";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Posology"; ObjectID = "5OR-Uj-HxL"; */
+"5OR-Uj-HxL.headerTitle" = "Posology";
+
+/* Class = "IBUILabel"; text = "Manage your Prescriptions"; ObjectID = "5l1-JA-mz6"; */
+"5l1-JA-mz6.text" = "Manage your Prescriptions";
+
+/* Class = "IBUILabel"; text = "Name:"; ObjectID = "5lm-wN-hMg"; */
+"5lm-wN-hMg.text" = "Name:";
+
+/* Class = "IBUILabel"; text = "Watch out to the names!"; ObjectID = "6N3-Wa-nQY"; */
+"6N3-Wa-nQY.text" = "Watch out to the names!";
+
+/* Class = "IBUINavigationItem"; title = "Prescriptions"; ObjectID = "7tj-a9-2SG"; */
+"7tj-a9-2SG.title" = "Prescriptions";
+
+/* Class = "IBUILabel"; text = "Create alerts for your drugs"; ObjectID = "7vB-r1-bVo"; */
+"7vB-r1-bVo.text" = "Create alerts for your drugs";
+
+/* Class = "IBUITextView"; text = "Create your own Prescription and fill it with your drugs. You can even manage all the essential details like the dosages or specific doc’s instructions."; ObjectID = "9OC-ga-d7n"; */
+"9OC-ga-d7n.text" = "Create your own Prescription and fill it with your drugs. You can even manage all the essential details like the dosages or specific doc’s instructions.";
+
+/* Class = "IBUITextField"; placeholder = "e.g. John Smith"; ObjectID = "9k7-vG-kJd"; */
+"9k7-vG-kJd.placeholder" = "e.g. John Smith";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Info"; ObjectID = "9kV-0w-DHd"; */
+"9kV-0w-DHd.headerTitle" = "Info";
+
+/* Class = "IBUILabel"; text = "Edit the Prescriptions and the Drugs"; ObjectID = "Ahq-fk-lCw"; */
+"Ahq-fk-lCw.text" = "Edit the Prescriptions and the Drugs";
+
+/* Class = "IBUITextView"; text = "Take a look of the Detail screen: here you can have a look of all the informations you have previously inserted and eventually edit them. In order to change the informations, you need to click on the Edit button, which will let you enter in the Edit Mode. On the Detail screen you can even check the last time you have taken the drug!"; ObjectID = "Cur-4I-7xo"; */
+"Cur-4I-7xo.text" = "Take a look of the Detail screen: here you can have a look of all the informations you have previously inserted and eventually edit them. In order to change the informations, you need to click on the Edit button, which will let you enter in the Edit Mode. On the Detail screen you can even check the last time you have taken the drug!";
+
+/* Class = "IBUILabel"; text = "Every month"; ObjectID = "DYB-6b-Pnp"; */
+"DYB-6b-Pnp.text" = "Every month";
+
+/* Class = "IBUITextField"; placeholder = "e.g. 1 Week"; ObjectID = "ERm-fb-PTI"; */
+"ERm-fb-PTI.placeholder" = "e.g. 1 Week";
+
+/* Class = "IBUILabel"; text = "Detail of the drug"; ObjectID = "Hbi-ce-0mn"; */
+"Hbi-ce-0mn.text" = "Detail of the drug";
+
+/* Class = "IBUILabel"; text = "Dosage:"; ObjectID = "Ic8-65-0Za"; */
+"Ic8-65-0Za.text" = "Dosage:";
+
+/* Class = "IBUILabel"; text = "Simple and intuitive design"; ObjectID = "JKL-T7-4c2"; */
+"JKL-T7-4c2.text" = "Simple and intuitive design";
+
+/* Class = "IBUITextField"; placeholder = "e.g. 2 pills per day"; ObjectID = "Jx3-Jg-Ktv"; */
+"Jx3-Jg-Ktv.placeholder" = "e.g. 2 pills per day";
+
+/* Class = "IBUILabel"; text = "iPrescription"; ObjectID = "Kdl-pr-Ds5"; */
+"Kdl-pr-Ds5.text" = "iPrescription";
+
+/* Class = "IBUITextView"; text = "Whether you have set a repetition, it will be shown in red on the right of the time and the date of your drug first ingestion."; ObjectID = "L8A-9V-FnR"; */
+"L8A-9V-FnR.text" = "Whether you have set a repetition, it will be shown in red on the right of the time and the date of your drug first ingestion.";
+
+/* Class = "IBUILabel"; text = "Welcome to"; ObjectID = "N3k-Dw-0eQ"; */
+"N3k-Dw-0eQ.text" = "Welcome to";
+
+/* Class = "IBUILabel"; text = "Medical Instructions:"; ObjectID = "NWT-vM-dCE"; */
+"NWT-vM-dCE.text" = "Medical Instructions:";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "Oe1-mI-qTP"; */
+"Oe1-mI-qTP.text" = "Title";
+
+/* Class = "IBUITextView"; text = "All the drugs, which have at least one active notification, are shown on the right by a red alarm-clock shaped icon."; ObjectID = "QzJ-5A-Tyl"; */
+"QzJ-5A-Tyl.text" = "All the drugs, which have at least one active notification, are shown on the right by a red alarm-clock shaped icon.";
+
+/* Class = "IBUILabel"; text = "Pharmaceutical Form:"; ObjectID = "RXs-Jq-Mwq"; */
+"RXs-Jq-Mwq.text" = "Pharmaceutical Form:";
+
+/* Class = "IBUILabel"; text = "Active Notifications"; ObjectID = "SgO-BX-bRF"; */
+"SgO-BX-bRF.text" = "Active Notifications";
+
+/* Class = "IBUILabel"; text = "Duration:"; ObjectID = "TR4-tD-azE"; */
+"TR4-tD-azE.text" = "Duration:";
+
+/* Class = "IBUITextView"; text = "Manage your drugs by Prescriptions. Group them with the appropriate name like ALLERGIC RHINITIS, JOHN'S DRUGS or ANTIBIOTIC THERAPY."; ObjectID = "Un7-BH-DY9"; */
+"Un7-BH-DY9.text" = "Manage your drugs by Prescriptions. Group them with the appropriate name like ALLERGIC RHINITIS, JOHN'S DRUGS or ANTIBIOTIC THERAPY.";
+
+/* Class = "IBUINavigationItem"; title = "Detail"; ObjectID = "Vj7-YG-qXY"; */
+"Vj7-YG-qXY.title" = "Detail";
+
+/* Class = "IBUILabel"; text = "Notifications"; ObjectID = "W9g-LZ-qZC"; */
+"W9g-LZ-qZC.text" = "Notifications";
+
+/* Class = "IBUINavigationItem"; title = "Add Drug"; ObjectID = "WYQ-YR-Bsj"; */
+"WYQ-YR-Bsj.title" = "Add Drug";
+
+/* Class = "IBUILabel"; text = "None"; ObjectID = "Wew-Ya-OIJ"; */
+"Wew-Ya-OIJ.text" = "None";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "WzA-FK-dQD"; */
+"WzA-FK-dQD.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Every week"; ObjectID = "XyJ-v6-gO8"; */
+"XyJ-v6-gO8.text" = "Every week";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Notifications"; ObjectID = "YHT-OQ-q40"; */
+"YHT-OQ-q40.headerTitle" = "Notifications";
+
+/* Class = "IBUINavigationItem"; title = "Last taken"; ObjectID = "YbU-Qm-gf3"; */
+"YbU-Qm-gf3.title" = "Last taken";
+
+/* Class = "IBUINavigationItem"; title = "Info"; ObjectID = "ZFU-yc-L9v"; */
+"ZFU-yc-L9v.title" = "Info";
+
+/* Class = "IBUILabel"; text = "Manage your drugs"; ObjectID = "ZS9-kT-VOS"; */
+"ZS9-kT-VOS.text" = "Manage your drugs";
+
+/* Class = "IBUITextView"; text = "Thanks to a minimal, plain and intuitive Design, iPrescription will make your therapy management definitely easier. You will feel familiar with the interface, since its purpose is to act as an extension of iOS."; ObjectID = "ZbF-VP-AGY"; */
+"ZbF-VP-AGY.text" = "Thanks to a minimal, plain and intuitive Design, iPrescription will make your therapy management definitely easier. You will feel familiar with the interface, since its purpose is to act as an extension of iOS.";
+
+/* Class = "IBUITableViewSection"; footerTitle = "Memo is a text shown by the notification"; ObjectID = "Zj1-ph-bKy"; */
+"Zj1-ph-bKy.footerTitle" = "Memo is a text shown by the notification";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Memo Notification"; ObjectID = "Zj1-ph-bKy"; */
+"Zj1-ph-bKy.headerTitle" = "Memo Notification";
+
+/* Class = "IBUILabel"; text = "Duration:"; ObjectID = "a4L-XZ-WhT"; */
+"a4L-XZ-WhT.text" = "Duration:";
+
+/* Class = "IBUITextView"; text = "Creating notifications for drug assumption is a no-brainer. Just press on Add Notification on the bottom of the Detail view, and it will take you to a screen where you can quickly create your own notification. When you’re done, just press  Done in order to create the notification or Cancel if you want to reach back the previous screen. By pressing Active Notifications you will be able to see all the active notifications related to that specific drug."; ObjectID = "aYW-4D-Chd"; */
+"aYW-4D-Chd.text" = "Creating notifications for drug assumption is a no-brainer. Just press on Add Notification on the bottom of the Detail view, and it will take you to a screen where you can quickly create your own notification. When you’re done, just press  Done in order to create the notification or Cancel if you want to reach back the previous screen. By pressing Active Notifications you will be able to see all the active notifications related to that specific drug.";
+
+/* Class = "IBUITextView"; text = "You can record an endless number of Prescriptions and Drugs, even though you will not be able to name different prescriptions in the same way. On the other hand, drugs are not affected by the same restriction."; ObjectID = "d06-Ob-g6a"; */
+"d06-Ob-g6a.text" = "You can record an endless number of Prescriptions and Drugs, even though you will not be able to name different prescriptions in the same way. On the other hand, drugs are not affected by the same restriction.";
+
+/* Class = "IBUITableViewSection"; footerTitle = "Insert the date and time at which you will be notified to take the medication ."; ObjectID = "dal-N4-g4t"; */
+"dal-N4-g4t.footerTitle" = "Insert the date and time at which you will be notified to take the medication .";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Notification Date"; ObjectID = "dal-N4-g4t"; */
+"dal-N4-g4t.headerTitle" = "Notification Date";
+
+/* Class = "IBUIBarButtonItem"; title = "Item"; ObjectID = "eNC-Cv-9nQ"; */
+"eNC-Cv-9nQ.title" = "Item";
+
+/* Class = "IBUILabel"; text = "Dosage:"; ObjectID = "fHh-fl-Tis"; */
+"fHh-fl-Tis.text" = "Dosage:";
+
+/* Class = "IBUITextField"; placeholder = "Insert the name of the drug"; ObjectID = "fmX-IK-xpo"; */
+"fmX-IK-xpo.placeholder" = "Insert the name of the drug";
+
+/* Class = "IBUILabel"; text = "Marco Salafia"; ObjectID = "hNt-dd-KxA"; */
+"hNt-dd-KxA.text" = "Marco Salafia";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "hUi-be-ML8"; */
+"hUi-be-ML8.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Every day"; ObjectID = "hu2-7w-xBI"; */
+"hu2-7w-xBI.text" = "Every day";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Posology"; ObjectID = "iFz-6y-DaH"; */
+"iFz-6y-DaH.headerTitle" = "Posology";
+
+/* Class = "IBUITextView"; text = "Create and manage notifications for your drugs through just few steps. Manage your treatment following the taking of the drug. Managing, deleting or creating new notifications is a no-brainer."; ObjectID = "jRA-HP-UQc"; */
+"jRA-HP-UQc.text" = "Create and manage notifications for your drugs through just few steps. Manage your treatment following the taking of the drug. Managing, deleting or creating new notifications is a no-brainer.";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "kR7-zN-D6u"; */
+"kR7-zN-D6u.text" = "Title";
+
+/* Class = "IBUITextField"; placeholder = "e.g. a week"; ObjectID = "kUq-y3-jay"; */
+"kUq-y3-jay.placeholder" = "e.g. a week";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Info"; ObjectID = "l0d-dr-5PL"; */
+"l0d-dr-5PL.headerTitle" = "Info";
+
+/* Class = "IBUILabel"; text = "Created by"; ObjectID = "mXL-7p-aex"; */
+"mXL-7p-aex.text" = "Created by";
+
+/* Class = "IBUINavigationItem"; title = "New Notification"; ObjectID = "pfY-2C-tQn"; */
+"pfY-2C-tQn.title" = "New Notification";
+
+/* Class = "IBUILabel"; text = "Doctor:"; ObjectID = "qYP-ou-mGy"; */
+"qYP-ou-mGy.text" = "Doctor:";
+
+/* Class = "IBUITableViewSection"; footerTitle = "Set the last time you have taken your drug."; ObjectID = "rbU-5F-1Gs"; */
+"rbU-5F-1Gs.footerTitle" = "Set the last time you have taken your drug.";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Last time taken"; ObjectID = "rbU-5F-1Gs"; */
+"rbU-5F-1Gs.headerTitle" = "Last time taken";
+
+/* Class = "IBUILabel"; text = "Medical instructions:"; ObjectID = "tAj-F6-BlB"; */
+"tAj-F6-BlB.text" = "Medical instructions:";
+
+/* Class = "IBUITableViewSection"; footerTitle = "This field is mandatory for the creation of a new drug"; ObjectID = "tbJ-bI-jt4"; */
+"tbJ-bI-jt4.footerTitle" = "This field is mandatory for the creation of a new drug";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Name"; ObjectID = "tbJ-bI-jt4"; */
+"tbJ-bI-jt4.headerTitle" = "Name";
+
+/* Class = "IBUILabel"; text = "Doctor:"; ObjectID = "uHW-Rc-f1Z"; */
+"uHW-Rc-f1Z.text" = "Doctor:";
+
+/* Class = "IBUILabel"; text = "Pharmaceutical form:"; ObjectID = "umd-hd-Tkb"; */
+"umd-hd-Tkb.text" = "Pharmaceutical form:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "vPT-5h-iVP"; */
+"vPT-5h-iVP.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Last time taken:"; ObjectID = "vgf-oo-U86"; */
+"vgf-oo-U86.text" = "Last time taken:";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Repetition"; ObjectID = "vnW-SX-2Po"; */
+"vnW-SX-2Po.headerTitle" = "Repetition";
+
+/* Class = "IBUITextField"; placeholder = "e.g. film-coated tablet"; ObjectID = "x80-1p-z9c"; */
+"x80-1p-z9c.placeholder" = "e.g. film-coated tablet";
+
+/* Class = "IBUITextView"; text = "Just press the Edit button on the Prescription screen to enter in the Edit Mode. This mode let you delete all the prescriptions, and also all the drugs and all the active notifications related to it. By touching the name of the prescription you can just change it with a new one. If you want to delete a specific drug, just touch it and scroll your finger to the left."; ObjectID = "xDN-oa-8YA"; */
+"xDN-oa-8YA.text" = "Just press the Edit button on the Prescription screen to enter in the Edit Mode. This mode let you delete all the prescriptions, and also all the drugs and all the active notifications related to it. By touching the name of the prescription you can just change it with a new one. If you want to delete a specific drug, just touch it and scroll your finger to the left.";
+
+/* Class = "IBUILabel"; text = "Add Notification"; ObjectID = "xQJ-qg-H7C"; */
+"xQJ-qg-H7C.text" = "Add Notification";
+
+/* Class = "IBUITextField"; placeholder = "e.g. Film-coated tablet"; ObjectID = "ytG-QR-bks"; */
+"ytG-QR-bks.placeholder" = "e.g. Film-coated tablet";
+
+/* Class = "IBUILabel"; text = "v 1.0.2"; ObjectID = "zEU-EA-x6w"; */
+"zEU-EA-x6w.text" = "v 1.0.2";
+
+/* Class = "IBUITextField"; placeholder = "Insert the name of your doctor."; ObjectID = "zGr-LH-73i"; */
+"zGr-LH-73i.placeholder" = "Insert the name of your doctor.";
