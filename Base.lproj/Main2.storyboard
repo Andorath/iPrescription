@@ -1528,10 +1528,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-uh-l5h">
-                                <rect key="frame" x="241" y="59" width="119" height="58"/>
+                                <rect key="frame" x="227" y="59" width="146" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="KiR-0N-2SQ"/>
-                                    <constraint firstAttribute="width" constant="119" id="e0y-yr-K7z"/>
+                                    <constraint firstAttribute="width" constant="146" id="e0y-yr-K7z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.59607843140000005" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1865,11 +1865,11 @@
                                                 <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add_notification-3.png" translatesAutoresizingMaskIntoConstraints="NO" id="rpJ-A1-XXy">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add_notification.png" translatesAutoresizingMaskIntoConstraints="NO" id="rpJ-A1-XXy">
                                                 <rect key="frame" x="11" y="350" width="55" height="55"/>
                                                 <color key="backgroundColor" red="0.57767630910000001" green="0.98823529409999999" blue="0.89859541610000004" alpha="1" colorSpace="calibratedRGB"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconatrasparente.png" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-xI-BiA">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icona trasparente.png" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-xI-BiA">
                                                 <rect key="frame" x="11" y="543" width="55" height="55"/>
                                             </imageView>
                                         </subviews>
@@ -1933,12 +1933,12 @@
     </scenes>
     <resources>
         <image name="about-50.png" width="25" height="25"/>
-        <image name="add_notification-3.png" width="256" height="256"/>
+        <image name="add_notification.png" width="256" height="256"/>
         <image name="aggiungi notifica.png" width="391" height="138"/>
-        <image name="dettaglio.png" width="392" height="252"/>
+        <image name="dettaglio.png" width="393" height="253"/>
         <image name="drug.png" width="512" height="512"/>
-        <image name="iconatrasparente.png" width="512" height="512"/>
-        <image name="modifica.png" width="391" height="225"/>
+        <image name="icona trasparente.png" width="512" height="512"/>
+        <image name="modifica.png" width="389" height="224"/>
         <image name="notifica azioni.png" width="396" height="362"/>
         <image name="prescription.png" width="512" height="512"/>
     </resources>

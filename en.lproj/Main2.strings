@@ -1,0 +1,225 @@
+/* Class = "UITextView"; text = "Con un design minimale, pulito e intuitivo, iPrescription semplificherà notevolmente la gestione delle tue terapie. Troverai la sua interfaccia familiare in quanto lo scopo di iPrescription è di porsi come una estensione di iOS "; ObjectID = "1rj-pD-HlB"; */
+"1rj-pD-HlB.text" = "Thanks to a minimal, plain and intuitive Design, iPrescription will make your treatment management definitely easier! You will feel familiar with the interface, since its purpose is to display as an iOS extension.";
+
+/* Class = "UILabel"; text = "Gestisci le tue Prescrizioni"; ObjectID = "4rg-6t-gtG"; */
+"4rg-6t-gtG.text" = "Manage your Prescription";
+
+/* Class = "UILabel"; text = "Medico:"; ObjectID = "6Sl-CH-Oxp"; */
+"6Sl-CH-Oxp.text" = "Doctor:";
+
+/* Class = "UILabel"; text = "Ogni mese"; ObjectID = "6rr-YT-BzQ"; */
+"6rr-YT-BzQ.text" = "Every month";
+
+/* Class = "UITextView"; text = "Nella Pagina delle prescrizioni premi il pulsante modifica per entrare in Modalità Modifica. In questa modalità è possibile cancellare le prescrizioni con tutti i medicinali contenuti in esse e le eventuali notifiche attive. Usa invece il comando Modifica per cambiare il nome della Prescrizione. Per cancellare un medicinale basta scorrere la riga corrispondente verso sinistra con il dito e selezionare il comando Elimina."; ObjectID = "7r4-XE-lTi"; */
+"7r4-XE-lTi.text" = "Just press the Edit button on the Prescription screen to enter in the Edit Mode. This mode let you delete all the prescriptions, and also all the drugs and all the active notifications related to it. By touching the command Edit you can just change the name of the Prescription. If you want to delete a specific drug, just touch it and scroll your finger to the left.";
+
+/* Class = "UITextField"; placeholder = "es: 1 Settimana"; ObjectID = "8sV-Lz-mSZ"; */
+"8sV-Lz-mSZ.placeholder" = "e.g. 1 Week";
+
+/* Class = "UILabel"; text = "iPrescription"; ObjectID = "9YW-24-1MY"; */
+"9YW-24-1MY.text" = "iPrescription";
+
+/* Class = "UILabel"; text = "Durata:"; ObjectID = "9uP-aU-zIR"; */
+"9uP-aU-zIR.text" = "Duration:";
+
+/* Class = "UILabel"; text = "Forma Farmaceutica:"; ObjectID = "Aof-P1-br6"; */
+"Aof-P1-br6.text" = "Dosage Form:";
+
+/* Class = "UITextField"; placeholder = "es: compressa rivestita con film"; ObjectID = "Bqh-4S-kPh"; */
+"Bqh-4S-kPh.placeholder" = "e.g. film-coated tablet";
+
+/* Class = "UITableViewSection"; footerTitle = "Il Memo è un messaggio che verrà visualizzato nella notifica."; ObjectID = "Cly-uK-iJb"; */
+"Cly-uK-iJb.footerTitle" = "Memo is a text shown by the notification";
+
+/* Class = "UITableViewSection"; headerTitle = "Memo Notifica"; ObjectID = "Cly-uK-iJb"; */
+"Cly-uK-iJb.headerTitle" = "Notification Memo";
+
+/* Class = "UILabel"; text = "Forma farmaceutica:"; ObjectID = "D4W-WX-laW"; */
+"D4W-WX-laW.text" = "Dosage Form:";
+
+/* Class = "UILabel"; text = "Ogni giorno"; ObjectID = "DKg-70-Dyj"; */
+"DKg-70-Dyj.text" = "Every day";
+
+/* Class = "UILabel"; text = "Design semplice ed intuitivo"; ObjectID = "F7E-OR-NFI"; */
+"F7E-OR-NFI.text" = "Simple and intuitive design";
+
+/* Class = "UITableViewSection"; headerTitle = "Info"; ObjectID = "Fqj-Hf-jgs"; */
+"Fqj-Hf-jgs.headerTitle" = "Info";
+
+/* Class = "UITableViewSection"; headerTitle = "Ripetizione"; ObjectID = "Gb0-0e-BX7"; */
+"Gb0-0e-BX7.headerTitle" = "Repetition";
+
+/* Class = "UILabel"; text = "v 2.0.1"; ObjectID = "IDR-Jg-hMT"; */
+"IDR-Jg-hMT.text" = "v 2.0.1";
+
+/* Class = "UINavigationItem"; title = "Dettaglio"; ObjectID = "IjP-FN-9cZ"; */
+"IjP-FN-9cZ.title" = "Detail";
+
+/* Class = "UILabel"; text = "Data ultima assunzione:"; ObjectID = "JT8-KV-yGw"; */
+"JT8-KV-yGw.text" = "Last time taken:";
+
+/* Class = "UILabel"; text = "Dosaggio:"; ObjectID = "KWc-4z-3Re"; */
+"KWc-4z-3Re.text" = "Dosage:";
+
+/* Class = "UITextView"; text = "Crea e gestisci le notifiche per i tuoi farmaci in pochi passi. Gestisci la tua terapia in modo da rispettare correttamente i tempi di assunzione. Gestire le notifiche, cancellarle o crearne di nuove è davvero un gioco da ragazzi."; ObjectID = "Kar-A9-9iN"; */
+"Kar-A9-9iN.text" = "Create and manage notifications for your drugs through just few steps. Manage your treatment following the taking of the drug. Managing, deleting or creating new notifications is a no-brainer.";
+
+/* Class = "UINavigationItem"; title = "Info"; ObjectID = "MKI-1W-jcR"; */
+"MKI-1W-jcR.title" = "Info";
+
+/* Class = "UILabel"; text = "Istruzioni mediche:"; ObjectID = "NJi-0b-iZA"; */
+"NJi-0b-iZA.text" = "Medical Instructions:";
+
+/* Class = "UILabel"; text = "Created by"; ObjectID = "Nau-2p-bR8"; */
+"Nau-2p-bR8.text" = "Created by";
+
+/* Class = "UITextView"; text = "Le notifiche dei tuoi farmaci sono interattive. Scorri la notifica verso sinistra per posticiare la notifica o per assumere il farmaco senza il bisogno di aprire l'applicazione, il tutto alla velocità di un tocco. Oppure se preferisci esaminare i dettagli del farmaco scorri normalmente la notifica verso destra per aprire iPrescription alla pagina del farmaco. Gestire le tue terapie e semplice e veloce in questo modo!"; ObjectID = "OOU-sb-H7B"; */
+"OOU-sb-H7B.text" = "The notification of your drugs are interactive. Swipe the notification to the left to postpone it or to take the drug without starting the application, everything is fast as a blink. Otherwise if you prefer to examine the drug's detail you may swipe the notification to the right to start iPrescription from the page of that drug. Managing your therapies in this way is simpler and easier!";
+
+/* Class = "UITextField"; placeholder = "es: Mario Rossi"; ObjectID = "Q9N-Fu-0qy"; */
+"Q9N-Fu-0qy.placeholder" = "e.g. John Smith";
+
+/* Class = "UITableViewSection"; footerTitle = "Questo campo è obbligatorio per la creazione di una nuova medicina"; ObjectID = "QGV-sp-gQB"; */
+"QGV-sp-gQB.footerTitle" = "This field is mandatory for the creation of a new drug";
+
+/* Class = "UITableViewSection"; headerTitle = "Nome"; ObjectID = "QGV-sp-gQB"; */
+"QGV-sp-gQB.headerTitle" = "Name";
+
+/* Class = "UINavigationItem"; title = "Nuova Notifica"; ObjectID = "SjK-Nl-NSj"; */
+"SjK-Nl-NSj.title" = "New Notification";
+
+/* Class = "UITextField"; placeholder = "Inserisci il nome del farmaco"; ObjectID = "T6G-Mh-6qj"; */
+"T6G-Mh-6qj.placeholder" = "Insert the name of the drug";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Utz-1i-TTI"; */
+"Utz-1i-TTI.text" = "Title";
+
+/* Class = "UILabel"; text = "Aggiungi Notifica"; ObjectID = "WF9-3U-JRQ"; */
+"WF9-3U-JRQ.text" = "Add Notification";
+
+/* Class = "UITextView"; text = "Nella pagina Dettaglio è possibile consultare tutte le informazioni inserite precedentemente sul farmaco ed eventualmente modificarle. Per poter cambiare le informazioni bisogna premere il pulsante modifica per entrare nella Modalità Modifica. Inoltre nella pagina Dettaglio è possibile controllare la data dell'ultima assunzione del farmaco!"; ObjectID = "WGq-de-XOI"; */
+"WGq-de-XOI.text" = "Take a look of the Detail screen: here you can have a look of all the informations you have previously inserted and eventually edit them. In order to change the informations, you need to click on the Edit button, which will let you enter in the Edit Mode.";
+
+/* Class = "UITableViewSection"; footerTitle = "Inserisci la data e l'ora in cui ti verrà notificato di prendere il farmaco."; ObjectID = "WUY-LX-UaC"; */
+"WUY-LX-UaC.footerTitle" = "Insert the date and time at which you will be notified to take the medication .";
+
+/* Class = "UITableViewSection"; headerTitle = "Data Notifica"; ObjectID = "WUY-LX-UaC"; */
+"WUY-LX-UaC.headerTitle" = "Notification Date";
+
+/* Class = "UINavigationItem"; title = "Notifiche"; ObjectID = "Wh5-Ml-pt3"; */
+"Wh5-Ml-pt3.title" = "Notifications";
+
+/* Class = "UILabel"; text = "Notifiche Attive"; ObjectID = "Xp4-DO-KvJ"; */
+"Xp4-DO-KvJ.text" = "Active Notifications";
+
+/* Class = "UILabel"; text = "Medico:"; ObjectID = "Y2y-dA-L8M"; */
+"Y2y-dA-L8M.text" = "Doctor:";
+
+/* Class = "UILabel"; text = "Dosaggio:"; ObjectID = "Y54-aO-Fvk"; */
+"Y54-aO-Fvk.text" = "Dosage:";
+
+/* Class = "UILabel"; text = "Marco Salafia"; ObjectID = "YF8-LH-QfS"; */
+"YF8-LH-QfS.text" = "Marco Salafia";
+
+/* Class = "UILabel"; text = "Benvenuto su"; ObjectID = "YY1-0z-eV7"; */
+"YY1-0z-eV7.text" = "Welcome to";
+
+/* Class = "UITableViewSection"; headerTitle = "Posologia"; ObjectID = "acT-Jm-Lah"; */
+"acT-Jm-Lah.headerTitle" = "Posology";
+
+/* Class = "UITextField"; placeholder = "es: una settimana"; ObjectID = "atQ-XY-NTs"; */
+"atQ-XY-NTs.placeholder" = "e.g. a week";
+
+/* Class = "UITextField"; placeholder = "Inserire il nome del medico curante"; ObjectID = "dTm-nK-uLn"; */
+"dTm-nK-uLn.placeholder" = "Insert the name of your doctor.";
+
+/* Class = "UILabel"; text = "Durata:"; ObjectID = "ewM-l4-g2u"; */
+"ewM-l4-g2u.text" = "Duration:";
+
+/* Class = "UILabel"; text = "Ogni settimana"; ObjectID = "fBw-kk-vJz"; */
+"fBw-kk-vJz.text" = "Every week";
+
+/* Class = "UILabel"; text = "Nessuna"; ObjectID = "fIA-rh-PVG"; */
+"fIA-rh-PVG.text" = "None";
+
+/* Class = "UITextView"; text = "Creare degli avvisi per quando prendere una farmaco è un gioco da ragazzi. Premi Aggiungi Notifica in fondo alla pagina Dettaglio e verrai rimandato a una schermata dove creerai un avviso in pochi secondi. Quando hai finito premi Fine per creare la notifica o Cancella per tornare indietro. Premendo Notifiche Attive invece potrai visualizzare tutte le notifiche attive per quel farmaco."; ObjectID = "fqr-n8-sHY"; */
+"fqr-n8-sHY.text" = "Creating notifications for drug assumption is a no-brainer. Just press on Add Notification on the bottom of the Detail view, and it will take you to a screen where you can quickly create your own notification. When you’re done, just press  Done in order to create the notification or Cancel if you want to reach back the previous screen. By pressing Active Notifications you will be able to see all the active notifications related to that specific drug.";
+
+/* Class = "UILabel"; text = "Guida"; ObjectID = "gjm-uh-l5h"; */
+"gjm-uh-l5h.text" = "Guide";
+
+/* Class = "UILabel"; text = "Dettaglio del farmaco"; ObjectID = "gnI-CM-30n"; */
+"gnI-CM-30n.text" = "Detail of the drug";
+
+/* Class = "UILabel"; text = "Istruzioni mediche:"; ObjectID = "i4m-Tf-M24"; */
+"i4m-Tf-M24.text" = "Medical Instructions:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jj5-AD-CcI"; */
+"jj5-AD-CcI.text" = "Label";
+
+/* Class = "UITableViewSection"; footerTitle = "Imposta manualmente la data in cui hai assunto l'ultima volta il farmaco."; ObjectID = "kG7-bF-0nu"; */
+"kG7-bF-0nu.footerTitle" = "Set the last time you have taken your drug.";
+
+/* Class = "UITableViewSection"; headerTitle = "Data dell'ultima assunzione"; ObjectID = "kG7-bF-0nu"; */
+"kG7-bF-0nu.headerTitle" = "Last time taken";
+
+/* Class = "UINavigationItem"; title = "Prescrizioni"; ObjectID = "lIG-Al-Nyg"; */
+"lIG-Al-Nyg.title" = "Prescriptions";
+
+/* Class = "UILabel"; text = "Crea gli avvisi per i farmaci"; ObjectID = "lPQ-3X-Y6A"; */
+"lPQ-3X-Y6A.text" = "Create alerts for your drugs";
+
+/* Class = "UILabel"; text = "Nome:"; ObjectID = "mkN-N7-sBW"; */
+"mkN-N7-sBW.text" = "Name:";
+
+/* Class = "UITextField"; placeholder = "es: 2 compresse al dì"; ObjectID = "mzA-yU-GFa"; */
+"mzA-yU-GFa.placeholder" = "e.g. 2 pills per day";
+
+/* Class = "UITableViewSection"; headerTitle = "Info"; ObjectID = "nKN-tu-9c5"; */
+"nKN-tu-9c5.headerTitle" = "Info";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "nu6-Jp-gsJ"; */
+"nu6-Jp-gsJ.text" = "Title";
+
+/* Class = "UITableViewSection"; headerTitle = "Notifiche"; ObjectID = "o3I-tP-T5I"; */
+"o3I-tP-T5I.headerTitle" = "Notification";
+
+/* Class = "UITextField"; placeholder = "es: 2 volte al dì"; ObjectID = "p2y-9Y-EgQ"; */
+"p2y-9Y-EgQ.placeholder" = "e.g. 2 times per day";
+
+/* Class = "UITableViewSection"; headerTitle = "Posologia"; ObjectID = "p8l-bw-jF0"; */
+"p8l-bw-jF0.headerTitle" = "Posology";
+
+/* Class = "UITextField"; placeholder = "es: Compressa rivestita con film"; ObjectID = "pqt-gk-fOA"; */
+"pqt-gk-fOA.placeholder" = "e.g. film-coated tablet";
+
+/* Class = "UILabel"; text = "Gestisci i tuoi farmaci"; ObjectID = "q8s-J1-XpI"; */
+"q8s-J1-XpI.text" = "Manage your drugs";
+
+/* Class = "UITextView"; text = "Aggiungi i tuoi farmaci nell'apposita Prescrizione da te creata. Gestisci tutti i dettagli fondamentali come la posologia o le istruzioni del medico."; ObjectID = "qfs-xS-Uv9"; */
+"qfs-xS-Uv9.text" = "Create your own Prescription and fill it with your drugs. You can even manage all the essential details like the dosages or specific doc’s instructions.";
+
+/* Class = "UINavigationItem"; title = "Aggiungi Medicina"; ObjectID = "tTc-tF-nQu"; */
+"tTc-tF-nQu.title" = "Add Drug";
+
+/* Class = "UILabel"; text = "Modifica le Prescrizioni e i Farmaci"; ObjectID = "tuE-ri-TOh"; */
+"tuE-ri-TOh.text" = "Edit the Prescriptions and the Drugs";
+
+/* Class = "UINavigationItem"; title = "Ultima assunzione"; ObjectID = "uBT-hp-81q"; */
+"uBT-hp-81q.title" = "Last taken";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "v6H-Ij-n39"; */
+"v6H-Ij-n39.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Medicine"; ObjectID = "wfD-pF-87D"; */
+"wfD-pF-87D.title" = "Drugs";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "wk0-H2-Vus"; */
+"wk0-H2-Vus.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Notifiche"; ObjectID = "wp1-OB-xWo"; */
+"wp1-OB-xWo.text" = "Notifications";
+
+/* Class = "UIButton"; normalTitle = "Gestisci data"; ObjectID = "zKP-5s-ozV"; */
+"zKP-5s-ozV.normalTitle" = "Manage date";
+
