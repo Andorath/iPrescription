@@ -13,7 +13,7 @@ extension UILocalNotification
 {
     func posponeNotification(notification: UILocalNotification, addingTimeInterval ti: NSTimeInterval)
     {
-        notification.fireDate = notification.fireDate?.dateByAddingTimeInterval(ti)
+        notification.fireDate = NSDate().dateByAddingTimeInterval(ti)
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)

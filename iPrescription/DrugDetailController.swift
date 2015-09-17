@@ -117,15 +117,20 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         
         nameTextField.userInteractionEnabled = true
         nameTextField.borderStyle = UITextBorderStyle.RoundedRect
+        nameTextField.backgroundColor = IPrescriptionStyleKit.tutorialColor
         formTextField.userInteractionEnabled = true
         formTextField.borderStyle = UITextBorderStyle.RoundedRect
+        formTextField.backgroundColor = IPrescriptionStyleKit.tutorialColor
         dosageTextField.userInteractionEnabled = true
         dosageTextField.borderStyle = UITextBorderStyle.RoundedRect
+        dosageTextField.backgroundColor = IPrescriptionStyleKit.tutorialColor
         periodTextField.userInteractionEnabled = true
         periodTextField.borderStyle = UITextBorderStyle.RoundedRect
-        noteTextView.editable = true
+        periodTextField.backgroundColor = IPrescriptionStyleKit.tutorialColor
         doctorTextField.userInteractionEnabled = true
         doctorTextField.borderStyle = UITextBorderStyle.RoundedRect
+        doctorTextField.backgroundColor = IPrescriptionStyleKit.tutorialColor
+        noteTextView.editable = true
         noteTextView.inputAccessoryView = getDoneToolbar()
     }
     
@@ -152,15 +157,20 @@ class DrugDetailController: UITableViewController, UITextFieldDelegate, UITextVi
         
         nameTextField.userInteractionEnabled = false
         nameTextField.borderStyle = UITextBorderStyle.None
+        nameTextField.backgroundColor = UIColor.whiteColor()
         formTextField.userInteractionEnabled = false
         formTextField.borderStyle = UITextBorderStyle.None
+        formTextField.backgroundColor = UIColor.whiteColor()
         dosageTextField.userInteractionEnabled = false
         dosageTextField.borderStyle = UITextBorderStyle.None
+        dosageTextField.backgroundColor = UIColor.whiteColor()
         periodTextField.userInteractionEnabled = false
         periodTextField.borderStyle = UITextBorderStyle.None
-        noteTextView.editable = false
+        periodTextField.backgroundColor = UIColor.whiteColor()
         doctorTextField.userInteractionEnabled = false
         doctorTextField.borderStyle = UITextBorderStyle.None
+        doctorTextField.backgroundColor = UIColor.whiteColor()
+        noteTextView.editable = false
         noteTextView.inputAccessoryView = nil
     }
     

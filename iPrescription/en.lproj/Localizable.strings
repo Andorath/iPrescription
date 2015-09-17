@@ -1,8 +1,8 @@
 /* sottotitolo prescrizione per le notifiche al singolare */
-" - %d Notifica" = "- %d Notification";
+" - %d Notifica" = " - %d Notification";
 
 /* sottotitolo prescrizione per le notifiche al plurale */
-" - %d Notifiche" = "- %d Notifications";
+" - %d Notifiche" = " - %d Notifications";
 
 /* Testo della text view 2 Info */
 "Aggiungi i tuoi farmaci nell'apposita Prescrizione da te creata. Gestisci tutti i dettagli fondamentali come la posologia o le istruzioni del medico." = "Create your own Prescription and fill it with your drugs. You can even manage all the essential details like the dosages or specific doc’s instructions.";
@@ -167,7 +167,7 @@ Vuoi assumere il farmaco adesso?" = "Prescription: %1$@\nMemo: %2$@\n\nDo you wa
 "Recensisci iPrescription" = "Rate iPrescription";
 
 /* Try Later Action */
-"Ricordamelo più tardi" = "remind me later
+"Ricordamelo più tardi" = "Remind me later
 remind me later
 ";
 
