@@ -7,8 +7,6 @@
 //  Copyright (c) 2014 Marco Salafia. All rights reserved.
 //
 
-//LOCALIZZATA
-
 import UIKit
 import CoreData
 import AVFoundation
@@ -208,7 +206,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                                                                                 memo),
                                       preferredStyle: UIAlertControllerStyle.Alert)
         
-        //TODO: Tentando di implementare la psticipazione di una notifica.
         alert.addAction(UIAlertAction(title: NSLocalizedString("Posticipa di 15 minuti", comment: "Bottone posticipa 15 minuti notifica"),
             style: UIAlertActionStyle.Default){
                 alert in

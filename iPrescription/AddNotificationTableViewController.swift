@@ -76,12 +76,12 @@ class AddNotificationTableViewController: UITableViewController
     {
         let notification = getNewLocalNotificationWithSound("Opening.m4r")
         
-        //TODO: Le seguenti istruzioni erano inserite come Closure
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true)
+        {
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdatePrescriptionInterface", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateDrugsInterface", object: nil)
+        }
     }
     
     func getNewLocalNotificationWithSound(sound: String) -> UILocalNotification

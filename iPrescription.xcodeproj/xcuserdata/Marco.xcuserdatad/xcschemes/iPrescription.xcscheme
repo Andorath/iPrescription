@@ -39,16 +39,6 @@
                ReferencedContainer = "container:iPrescription.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9901FB01BAB2EFC00052098"
-               BuildableName = "iPrescriptionUITests.xctest"
-               BlueprintName = "iPrescriptionUITests"
-               ReferencedContainer = "container:iPrescription.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
