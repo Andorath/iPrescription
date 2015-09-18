@@ -283,18 +283,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         return [prescriptionsController, drugsController, detailController]
     }
     
-    func getPrescriptionsController() -> NPrescriptionTableViewController
+    func getPrescriptionsController() -> PrescriptionTableViewController
     {
         if let rootNavigationController = self.window!.rootViewController as? UINavigationController
         {
-            if let prescriptionsController = rootNavigationController.viewControllers[0] as? NPrescriptionTableViewController
+            if let prescriptionsController = rootNavigationController.viewControllers[0] as? PrescriptionTableViewController
             {
                 return prescriptionsController
             }
         }
         
         let storyboard = UIStoryboard(name: "Main2", bundle: nil)
-        return storyboard.instantiateViewControllerWithIdentifier("prescriptionList") as! NPrescriptionTableViewController
+        return storyboard.instantiateViewControllerWithIdentifier("prescriptionList") as! PrescriptionTableViewController
     }
     
     func getDrugsControllerForPrescription(prescription: Prescription) -> DrugTableViewController

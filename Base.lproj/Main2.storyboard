@@ -76,7 +76,7 @@
         <!--Prescrizioni-->
         <scene sceneID="dni-bX-HKp">
             <objects>
-                <tableViewController storyboardIdentifier="prescriptionList" id="hKx-kV-7o2" customClass="NPrescriptionTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="prescriptionList" id="hKx-kV-7o2" customClass="PrescriptionTableViewController" customModule="iPrescription" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="PNj-gB-XKd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1943,8 +1943,8 @@
         <image name="prescription.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="05h-NK-AfG"/>
-        <segue reference="Hrf-JY-zRT"/>
+        <segue reference="CsG-5s-OPl"/>
+        <segue reference="jh3-Hg-EOR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.46174869940000002" blue="0.58602949500000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

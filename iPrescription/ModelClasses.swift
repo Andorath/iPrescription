@@ -73,4 +73,9 @@ class Drug
         self.init(name: name, dosage: dosage, doc: doc, period: period, form: form, note: note, id: id, date_last_assumption: nil)
     }
     
+    convenience init(name: String)
+    {
+        self.init(name: name, dosage: "", doc: "", period: "", form: "", note: "")
+    }
+    
 }

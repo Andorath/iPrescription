@@ -191,7 +191,7 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
     {
         if let pvc = self.presentingViewController as? UINavigationController
         {
-            if let prescriptionVC = pvc.topViewController as? NPrescriptionTableViewController
+            if let prescriptionVC = pvc.topViewController as? PrescriptionTableViewController
             {
                 dismissViewControllerAnimated(true){
                     prescriptionVC.performSegueWithIdentifier("toDrugs", sender: self)

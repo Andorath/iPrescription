@@ -24,6 +24,13 @@ class PrescriptionList
         updateDataFromModel()
     }
     
+    init(context: NSManagedObjectContext)
+    {
+        del = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.context = context
+        updateDataFromModel()
+    }
+    
     func updateDataFromModel()
     {
         let request = NSFetchRequest(entityName: "Terapia")
@@ -496,28 +503,26 @@ class PrescriptionList
         return ownerPrescription
     }
     
-    //MARK: - Funzioni di diagnostica e debugging
-    //TODO: Eliminare tutte le funzioni di diagnostica
+    //MARK: - Funzioni di diagnostica per Test
     
-    func countPrescriptions()
+    func countPrescriptions() -> Int
     {
         let request = NSFetchRequest(entityName: "Terapia")
         request.returnsObjectsAsFaults = false
-        //let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
-        //request.sortDescriptors = [sortDescriptor]
         
         let allPrescriptions = try! context.executeFetchRequest(request) as? [NSManagedObject]
         print("Numero di Prescrizioni: \(allPrescriptions!.count)")
+        return allPrescriptions!.count
     }
     
-    func countDrugs()
+    func countDrugs() -> Int
     {
         let request = NSFetchRequest(entityName: "Medicina")
         request.returnsObjectsAsFaults = false
-        //let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
-        //request.sortDescriptors = [sortDescriptor]
         
         let allDrugs = try! context.executeFetchRequest(request) as? [NSManagedObject]
         print("Numero di medicine: \(allDrugs!.count)")
+        
+        return allDrugs!.count
     }
 }

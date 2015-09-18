@@ -1,5 +1,5 @@
 //
-//  NPrescriptionTableViewController.swift
+//  PrescriptionTableViewController.swift
 //  iPrescription
 //
 //  Created by Marco Salafia on 08/08/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NPrescriptionTableViewController: UITableViewController
+class PrescriptionTableViewController: UITableViewController
 {
     lazy var prescriptionsModel: PrescriptionList = (UIApplication.sharedApplication().delegate as! AppDelegate).prescriptionsModel!
     
@@ -44,6 +44,11 @@ class NPrescriptionTableViewController: UITableViewController
     func updateInterface()
     {
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool)

@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,6 +36,16 @@
                BlueprintIdentifier = "A90528CE195ED005004A54C4"
                BuildableName = "iPrescriptionTests.xctest"
                BlueprintName = "iPrescriptionTests"
+               ReferencedContainer = "container:iPrescription.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9901FB01BAB2EFC00052098"
+               BuildableName = "iPrescriptionUITests.xctest"
+               BlueprintName = "iPrescriptionUITests"
                ReferencedContainer = "container:iPrescription.xcodeproj">
             </BuildableReference>
          </TestableReference>
