@@ -212,44 +212,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Posologia" id="p8l-bw-jF0">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="VxO-y4-xnz">
-                                        <rect key="frame" x="0.0" y="225" width="600" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VxO-y4-xnz" id="giQ-5n-zEm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dosaggio:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWc-4z-3Re">
-                                                    <rect key="frame" x="20" y="4" width="120" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="kLI-K7-W2B"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: 2 compresse al dì" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzA-yU-GFa">
-                                                    <rect key="frame" x="20" y="22" width="561" height="29"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="oyp-gC-26m" id="EcR-pz-7v7"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="KWc-4z-3Re" secondAttribute="bottom" constant="26" id="2la-NH-DXS"/>
-                                                <constraint firstItem="KWc-4z-3Re" firstAttribute="leading" secondItem="giQ-5n-zEm" secondAttribute="leadingMargin" constant="12" id="324-Q0-wFg"/>
-                                                <constraint firstItem="mzA-yU-GFa" firstAttribute="bottom" secondItem="giQ-5n-zEm" secondAttribute="bottomMargin" id="Scg-YG-Iup"/>
-                                                <constraint firstItem="KWc-4z-3Re" firstAttribute="top" secondItem="giQ-5n-zEm" secondAttribute="topMargin" constant="-4" id="WKc-Ba-sdx"/>
-                                                <constraint firstItem="mzA-yU-GFa" firstAttribute="top" secondItem="giQ-5n-zEm" secondAttribute="topMargin" constant="14" id="lfC-TI-an0"/>
-                                                <constraint firstItem="mzA-yU-GFa" firstAttribute="centerX" secondItem="giQ-5n-zEm" secondAttribute="centerX" id="mb9-E4-Aoy"/>
-                                                <constraint firstItem="KWc-4z-3Re" firstAttribute="leading" secondItem="mzA-yU-GFa" secondAttribute="leading" id="vj8-cD-qxX"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="qU4-tu-4iZ">
-                                        <rect key="frame" x="0.0" y="285" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="225" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qU4-tu-4iZ" id="AiI-aU-KbZ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -281,6 +245,42 @@
                                                 <constraint firstItem="Bqh-4S-kPh" firstAttribute="bottom" secondItem="AiI-aU-KbZ" secondAttribute="bottomMargin" id="Z4s-X8-kKd"/>
                                                 <constraint firstItem="D4W-WX-laW" firstAttribute="top" secondItem="AiI-aU-KbZ" secondAttribute="topMargin" constant="-3" id="t4j-kY-Vyv"/>
                                                 <constraint firstItem="D4W-WX-laW" firstAttribute="leading" secondItem="AiI-aU-KbZ" secondAttribute="leadingMargin" constant="12" id="t8t-lh-p75"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="VxO-y4-xnz">
+                                        <rect key="frame" x="0.0" y="285" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VxO-y4-xnz" id="giQ-5n-zEm">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dosaggio:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWc-4z-3Re">
+                                                    <rect key="frame" x="20" y="4" width="120" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="kLI-K7-W2B"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.59471364299999996" blue="0.75269616169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="es: 2 compresse al dì" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzA-yU-GFa">
+                                                    <rect key="frame" x="20" y="22" width="561" height="29"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="oyp-gC-26m" id="EcR-pz-7v7"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="KWc-4z-3Re" secondAttribute="bottom" constant="26" id="2la-NH-DXS"/>
+                                                <constraint firstItem="KWc-4z-3Re" firstAttribute="leading" secondItem="giQ-5n-zEm" secondAttribute="leadingMargin" constant="12" id="324-Q0-wFg"/>
+                                                <constraint firstItem="mzA-yU-GFa" firstAttribute="bottom" secondItem="giQ-5n-zEm" secondAttribute="bottomMargin" id="Scg-YG-Iup"/>
+                                                <constraint firstItem="KWc-4z-3Re" firstAttribute="top" secondItem="giQ-5n-zEm" secondAttribute="topMargin" constant="-4" id="WKc-Ba-sdx"/>
+                                                <constraint firstItem="mzA-yU-GFa" firstAttribute="top" secondItem="giQ-5n-zEm" secondAttribute="topMargin" constant="14" id="lfC-TI-an0"/>
+                                                <constraint firstItem="mzA-yU-GFa" firstAttribute="centerX" secondItem="giQ-5n-zEm" secondAttribute="centerX" id="mb9-E4-Aoy"/>
+                                                <constraint firstItem="KWc-4z-3Re" firstAttribute="leading" secondItem="mzA-yU-GFa" secondAttribute="leading" id="vj8-cD-qxX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

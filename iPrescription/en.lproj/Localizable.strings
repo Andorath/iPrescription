@@ -147,11 +147,11 @@ Memo: %@" = "Notification for %1$@ of the prescription %2$@\nMemo: %3$@";
 
 /* Action posticipa notifica 15 minuti
    Bottone posticipa 15 minuti notifica */
-"Posticipa di 15 minuti" = "Remember in 15 minutes";
+"Posticipa di 15 minuti" = "Remind in 15 minutes";
 
 /* Action posticipa notifica 30 minuti
    Bottone posticipa 30 minuti notifica */
-"Posticipa di 30 minuti" = "Remember in 30 minutes";
+"Posticipa di 30 minuti" = "Remind in 30 minutes";
 
 /* Messaggio della notifica */
 "Prescrizione: %@

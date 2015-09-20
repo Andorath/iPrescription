@@ -224,11 +224,11 @@ class AddDrugFormController: UITableViewController, UITextFieldDelegate, UITextV
         {
             textField.resignFirstResponder()
         }
-        else if textField == dosageTextField
-        {
-            dosageFormTextField.becomeFirstResponder()
-        }
         else if textField == dosageFormTextField
+        {
+            dosageTextField.becomeFirstResponder()
+        }
+        else if textField == dosageTextField
         {
             periodTextField.becomeFirstResponder()
         }
